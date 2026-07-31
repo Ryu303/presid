@@ -101,7 +101,7 @@ export default function PresidentDetailClient() {
                 </h2>
                 <div className="space-y-16">
                   {policiesByCategory[cat].map(policy => (
-                    <PolicyCard key={policy.id} policy={policy} />
+                    <PolicyCard key={policy.id} policy={policy} presidentCoreDNA={president.coreDNA} />
                   ))}
                 </div>
               </div>
