@@ -83,9 +83,9 @@ export const rohTaeWoo: President = {
         lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
         frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
         mediaSnapshot: {
-                    date: "YYYY.MM.DD",
-                    conservative: { headline: "관련 보도 데이터 수집 중...", source: "보수 매체" },
-                    progressive: { headline: "관련 보도 데이터 수집 중...", source: "진보 매체" }
+                    date: "1990.09.30",
+                    conservative: { headline: "한소 수교 전격 타결, 너무 막대한 경제 협력 차관 부담", source: "조선일보" },
+                    progressive: { headline: "북방 외교의 쾌거! 냉전 벽 허물고 모스크바와 손잡아", source: "경향신문" }
                   }
     },
     {
@@ -125,9 +125,9 @@ export const rohTaeWoo: President = {
         lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
         frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
         mediaSnapshot: {
-                    date: "YYYY.MM.DD",
-                    conservative: { headline: "관련 보도 데이터 수집 중...", source: "보수 매체" },
-                    progressive: { headline: "관련 보도 데이터 수집 중...", source: "진보 매체" }
+                    date: "1989.04.28",
+                    conservative: { headline: "분당·일산 신도시 건설, 강남 집값 잡기엔 역부족", source: "조선일보" },
+                    progressive: { headline: "주택 200만호 건설 본격화, 서민 내 집 마련 꿈 앞당긴다", source: "한국일보" }
                   }
     }
   ],

@@ -79,9 +79,9 @@ export const rohMooHyun: President = {
         lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
         frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
         mediaSnapshot: {
-                    date: "YYYY.MM.DD",
-                    conservative: { headline: "관련 보도 데이터 수집 중...", source: "보수 매체" },
-                    progressive: { headline: "관련 보도 데이터 수집 중...", source: "진보 매체" }
+                    date: "2004.10.22",
+                    conservative: { headline: "헌재, 신행정수도 위헌 결정… 국가 백년대계 혼란 자초", source: "조선일보" },
+                    progressive: { headline: "관습헌법이 국토 균형 발전 막았다… 충청권 강력 반발", source: "오마이뉴스" }
                   }
     },
     {
@@ -124,9 +124,9 @@ export const rohMooHyun: President = {
         lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
         frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
         mediaSnapshot: {
-                    date: "YYYY.MM.DD",
-                    conservative: { headline: "관련 보도 데이터 수집 중...", source: "보수 매체" },
-                    progressive: { headline: "관련 보도 데이터 수집 중...", source: "진보 매체" }
+                    date: "2007.04.03",
+                    conservative: { headline: "한미 FTA 체결, 농업 희생양 삼은 굴욕적 졸속 협상", source: "경향신문" },
+                    progressive: { headline: "세계 최대 시장 뚫었다! 한미 FTA 14개월 줄다리기 끝 타결", source: "중앙일보" }
                   }
     }
   ],

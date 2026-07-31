@@ -55,9 +55,9 @@ export const leeJaeMyung: President = {
         lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
         frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
         mediaSnapshot: {
-                    date: "YYYY.MM.DD",
-                    conservative: { headline: "관련 보도 데이터 수집 중...", source: "보수 매체" },
-                    progressive: { headline: "관련 보도 데이터 수집 중...", source: "진보 매체" }
+                    date: "2022.03.05",
+                    conservative: { headline: "기본소득 등 천문학적 포퓰리즘, 국가 재정 파탄 불 보듯", source: "조선일보" },
+                    progressive: { headline: "기본사회로 패러다임 대전환, 소외 없는 경제적 기본권 보장", source: "경향신문" }
                   }
     },
     {
@@ -95,9 +95,9 @@ export const leeJaeMyung: President = {
         lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
         frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
         mediaSnapshot: {
-                    date: "YYYY.MM.DD",
-                    conservative: { headline: "관련 보도 데이터 수집 중...", source: "보수 매체" },
-                    progressive: { headline: "관련 보도 데이터 수집 중...", source: "진보 매체" }
+                    date: "2022.02.25",
+                    conservative: { headline: "국익보다 안보 우선, 한미 동맹 흔드는 줄타기 외교 우려", source: "동아일보" },
+                    progressive: { headline: "국익 중심 실용 외교 천명, 맹목적 진영 논리 벗어나야", source: "한겨레" }
                   }
     }
   ],

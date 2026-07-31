@@ -78,9 +78,9 @@ export const leeMyungBak: President = {
         lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
         frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
         mediaSnapshot: {
-                    date: "YYYY.MM.DD",
-                    conservative: { headline: "관련 보도 데이터 수집 중...", source: "보수 매체" },
-                    progressive: { headline: "관련 보도 데이터 수집 중...", source: "진보 매체" }
+                    date: "2008.10.19",
+                    conservative: { headline: "고환율 정책이 부메랑으로… 금융위기 선제 대응 실패", source: "한겨레" },
+                    progressive: { headline: "신속한 유동성 공급과 통화스와프로 금융위기 조기 진화", source: "매일경제" }
                   }
     },
     {
@@ -97,10 +97,10 @@ export const leeMyungBak: President = {
       lineage: { next: "창조경제 (박근혜 정부)" },
       frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 14 },
       mediaSnapshot: {
-        date: "2009.06.09",
-        conservative: { headline: "4대강, 생명 살리고 지역경제 깨운다", source: "조선일보" },
-        progressive: { headline: "환경 대재앙 부를 4대강 삽질... 혈세 22조 증발 위기", source: "한겨레" }
-      },
+                  date: "2009.06.08",
+                  conservative: { headline: "대운하 꼼수 4대강 사업 강행, 심각한 환경 파괴 불 보듯", source: "경향신문" },
+                  progressive: { headline: "4대강 살리기 마스터플랜 확정, 물 부족 해결과 녹색 성장 시동", source: "조선일보" }
+                },
       context: {
         content: "만성적인 홍수/가뭄 피해 예방 및 글로벌 금융위기 속 내수 경기 진작과 일자리 창출(한국형 뉴딜) 목적",
         source: "국토해양부 4대강 마스터플랜"

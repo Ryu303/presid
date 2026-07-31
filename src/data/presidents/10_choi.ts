@@ -72,9 +72,9 @@ export const choi: President = {
         lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
         frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
         mediaSnapshot: {
-                    date: "YYYY.MM.DD",
-                    conservative: { headline: "관련 보도 데이터 수집 중...", source: "보수 매체" },
-                    progressive: { headline: "관련 보도 데이터 수집 중...", source: "진보 매체" }
+                    date: "1979.11.11",
+                    conservative: { headline: "최규하 권한대행 체제, 과도정부 정국 수습 안간힘", source: "조선일보" },
+                    progressive: { headline: "유신 체제 종식과 민주화 이행 향한 국민적 열망 고조", source: "동아일보" }
                   }
     }
   ],

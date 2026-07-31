@@ -76,9 +76,9 @@ export const rhee: President = {
         lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
         frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
         mediaSnapshot: {
-                    date: "YYYY.MM.DD",
-                    conservative: { headline: "관련 보도 데이터 수집 중...", source: "보수 매체" },
-                    progressive: { headline: "관련 보도 데이터 수집 중...", source: "진보 매체" }
+                    date: "1949.06.22",
+                    conservative: { headline: "농지개혁안 통과, 지주층 막대한 타격 불가피", source: "동아일보" },
+                    progressive: { headline: "소작농 눈물 닦아줄 농지개혁, 농민 해방의 첫걸음", source: "경향신문" }
                   }
     },
     {
@@ -115,9 +115,9 @@ export const rhee: President = {
         lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
         frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
         mediaSnapshot: {
-                    date: "YYYY.MM.DD",
-                    conservative: { headline: "관련 보도 데이터 수집 중...", source: "보수 매체" },
-                    progressive: { headline: "관련 보도 데이터 수집 중...", source: "진보 매체" }
+                    date: "1953.10.02",
+                    conservative: { headline: "한미상호방위조약 조인, 북진통일 단념 아쉬워", source: "조선일보" },
+                    progressive: { headline: "한미 동맹으로 국가 안보 초석 마련, 평화 재건 박차", source: "동아일보" }
                   }
     }
   ],

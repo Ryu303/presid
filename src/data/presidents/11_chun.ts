@@ -81,9 +81,9 @@ export const chun: President = {
         lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
         frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
         mediaSnapshot: {
-                    date: "YYYY.MM.DD",
-                    conservative: { headline: "관련 보도 데이터 수집 중...", source: "보수 매체" },
-                    progressive: { headline: "관련 보도 데이터 수집 중...", source: "진보 매체" }
+                    date: "1981.01.05",
+                    conservative: { headline: "강력한 물가 억제책, 서민 경제 압박과 기업 위축 우려", source: "동아일보" },
+                    progressive: { headline: "물가 잡고 안정 성장으로, 제5공화국 경제 청사진", source: "매일경제" }
                   }
     },
     {
@@ -122,9 +122,9 @@ export const chun: President = {
         lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
         frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
         mediaSnapshot: {
-                    date: "YYYY.MM.DD",
-                    conservative: { headline: "관련 보도 데이터 수집 중...", source: "보수 매체" },
-                    progressive: { headline: "관련 보도 데이터 수집 중...", source: "진보 매체" }
+                    date: "1981.10.01",
+                    conservative: { headline: "88 올림픽 유치 성공, 막대한 재정 부담 어찌할 텐가", source: "동아일보" },
+                    progressive: { headline: "바덴바덴의 기적! 88 서울 올림픽 유치, 국운 융성의 계기", source: "조선일보" }
                   }
     },
     {
@@ -162,9 +162,9 @@ export const chun: President = {
         lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
         frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
         mediaSnapshot: {
-                    date: "YYYY.MM.DD",
-                    conservative: { headline: "관련 보도 데이터 수집 중...", source: "보수 매체" },
-                    progressive: { headline: "관련 보도 데이터 수집 중...", source: "진보 매체" }
+                    date: "1986.12.31",
+                    conservative: { headline: "최저임금법 제정, 중소기업 도산 사태 촉발 우려", source: "한국경제" },
+                    progressive: { headline: "노동자 생존권 보장, 뒤늦은 최저임금제 도입", source: "한겨레" }
                   }
     }
   ],

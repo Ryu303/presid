@@ -145,7 +145,7 @@ function TimelineContent() {
                     <>
                       <div className="space-y-12">
                         {filteredPolicies.map(policy => (
-                          <PolicyCard key={policy.id} policy={policy} />
+                          <PolicyCard key={policy.id} policy={policy} presidentCoreDNA={selectedPresident.coreDNA} />
                         ))}
                       </div>
                       {/* Micro-facts accordion for the president (only shown if viewing all categories or matches) */}

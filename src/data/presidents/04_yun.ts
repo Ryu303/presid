@@ -74,9 +74,9 @@ export const yun: President = {
         lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
         frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
         mediaSnapshot: {
-                    date: "YYYY.MM.DD",
-                    conservative: { headline: "관련 보도 데이터 수집 중...", source: "보수 매체" },
-                    progressive: { headline: "관련 보도 데이터 수집 중...", source: "진보 매체" }
+                    date: "1960.10.15",
+                    conservative: { headline: "야심찬 경제계획, 재원 마련 대책은 모호", source: "조선일보" },
+                    progressive: { headline: "경제제일주의 선언, 4.19 이후 첫 장기 도약 청사진", source: "경향신문" }
                   }
     }
   ],

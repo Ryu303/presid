@@ -78,9 +78,9 @@ export const parkChungHee: President = {
         lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
         frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
         mediaSnapshot: {
-                    date: "YYYY.MM.DD",
-                    conservative: { headline: "관련 보도 데이터 수집 중...", source: "보수 매체" },
-                    progressive: { headline: "관련 보도 데이터 수집 중...", source: "진보 매체" }
+                    date: "1962.01.14",
+                    conservative: { headline: "제1차 경제개발 5개년 계획 발표, 외자 의존도 너무 높아", source: "동아일보" },
+                    progressive: { headline: "자립경제 향한 5개년 계획 시동, 조국 근대화의 신호탄", source: "서울신문" }
                   }
     },
     {
@@ -118,9 +118,9 @@ export const parkChungHee: President = {
         lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
         frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
         mediaSnapshot: {
-                    date: "YYYY.MM.DD",
-                    conservative: { headline: "관련 보도 데이터 수집 중...", source: "보수 매체" },
-                    progressive: { headline: "관련 보도 데이터 수집 중...", source: "진보 매체" }
+                    date: "1970.04.23",
+                    conservative: { headline: "관 주도 새마을운동, 농민 자율성 훼손 우려", source: "동아일보" },
+                    progressive: { headline: "우리도 한번 잘살아보세! 농촌 근대화의 횃불 점화", source: "조선일보" }
                   }
     },
     {
@@ -162,9 +162,9 @@ export const parkChungHee: President = {
         lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
         frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
         mediaSnapshot: {
-                    date: "YYYY.MM.DD",
-                    conservative: { headline: "관련 보도 데이터 수집 중...", source: "보수 매체" },
-                    progressive: { headline: "관련 보도 데이터 수집 중...", source: "진보 매체" }
+                    date: "1977.07.01",
+                    conservative: { headline: "의료보험 첫 실시, 500인 이상 사업장만 혜택 형평성 논란", source: "동아일보" },
+                    progressive: { headline: "전 국민 의료 혜택 시대의 서막, 복지국가로의 큰 걸음", source: "경향신문" }
                   }
     }
   ],

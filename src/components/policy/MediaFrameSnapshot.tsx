@@ -13,6 +13,7 @@ interface MediaFrameSnapshotProps {
 
 export default function MediaFrameSnapshot({ snapshot }: MediaFrameSnapshotProps) {
   if (!snapshot) return null;
+  if (snapshot.date === "YYYY.MM.DD" || snapshot.conservative.headline.includes("수집 중")) return null;
 
   return (
     <div className="mt-6 mb-4 p-4 border border-slate-300 dark:border-slate-700 bg-[#FDFCF8] dark:bg-[#1C1C1C] font-sans relative">

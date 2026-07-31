@@ -25,10 +25,10 @@ export const parkGeunHye: President = {
       lineage: { prev: "녹색성장 (이명박 정부)", next: "한국형 뉴딜 (문재인 정부)" },
       frictionIndex: { veto: 2, filibusterHours: 192, strikeDays: 45 },
       mediaSnapshot: {
-        date: "2013.06.05",
-        conservative: { headline: "창조경제 청사진 확정, 제2의 한강의 기적 이끈다", source: "동아일보" },
-        progressive: { headline: "실체 없는 창조경제... 포장만 바꾼 재벌 특혜 우려", source: "경향신문" }
-      },
+                  date: "2013.06.05",
+                  conservative: { headline: "실체 없는 창조경제, 재벌 퍼주기와 관치 금융으로 변질", source: "한겨레" },
+                  progressive: { headline: "창조경제타운 출범, 아이디어가 돈이 되는 벤처 생태계 조성", source: "한국경제" }
+                },
       context: {
         content: "저성장 기조 고착화 및 추격형 경제 모델의 한계 직면, 새로운 성장 동력 발굴 필요성",
         source: "미래창조과학부 백서"
@@ -124,9 +124,9 @@ export const parkGeunHye: President = {
         lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
         frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
         mediaSnapshot: {
-                    date: "YYYY.MM.DD",
-                    conservative: { headline: "관련 보도 데이터 수집 중...", source: "보수 매체" },
-                    progressive: { headline: "관련 보도 데이터 수집 중...", source: "진보 매체" }
+                    date: "2016.02.10",
+                    conservative: { headline: "개성공단 전면 중단, 남북 관계 최후의 보루마저 붕괴", source: "경향신문" },
+                    progressive: { headline: "개성공단 자금 핵개발 전용 차단! 단호한 원칙적 대북 압박", source: "조선일보" }
                   }
     }
   ],

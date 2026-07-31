@@ -26,10 +26,10 @@ export const moonJaeIn: President = {
       lineage: { prev: "창조경제 (박근혜 정부)", next: "신성장 4.0 (윤석열 정부)" },
       frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 28 },
       mediaSnapshot: {
-        date: "2017.07.16",
-        conservative: { headline: "최저임금 16.4% 파격 인상, 영세 소상공인 '쇼크'", source: "한국경제" },
-        progressive: { headline: "시급 7530원 시대... 소득주도성장 엔진 본격 가동", source: "한겨레" }
-      },
+                  date: "2017.07.16",
+                  conservative: { headline: "최저임금 16.4% 파격 인상, 영세 자영업자 벼랑 끝으로", source: "한국경제" },
+                  progressive: { headline: "소득주도성장 본궤도, 최저임금 대폭 인상으로 서민 지갑 연다", source: "한겨레" }
+                },
       context: {
         content: "낙수효과 소멸 및 가계부채 심화 속에서 내수 활성화와 분배 개선을 통한 새로운 성장 모델 요구",
         source: "기획재정부 경제정책방향"
@@ -127,9 +127,9 @@ export const moonJaeIn: President = {
         lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
         frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
         mediaSnapshot: {
-                    date: "YYYY.MM.DD",
-                    conservative: { headline: "관련 보도 데이터 수집 중...", source: "보수 매체" },
-                    progressive: { headline: "관련 보도 데이터 수집 중...", source: "진보 매체" }
+                    date: "2020.07.31",
+                    conservative: { headline: "임대차 3법 강행 처리, 전세 씨 마르고 시장 대혼란 초래", source: "조선일보" },
+                    progressive: { headline: "세입자 주거 안정을 위한 임대차 3법 드디어 국회 통과", source: "경향신문" }
                   }
     }
   ],

@@ -70,9 +70,9 @@ export const kimYoungSam: President = {
         lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
         frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
         mediaSnapshot: {
-                    date: "YYYY.MM.DD",
-                    conservative: { headline: "관련 보도 데이터 수집 중...", source: "보수 매체" },
-                    progressive: { headline: "관련 보도 데이터 수집 중...", source: "진보 매체" }
+                    date: "1993.08.13",
+                    conservative: { headline: "금융실명제 전격 실시, 중소기업 자금줄 막혀 줄도산 우려", source: "한국경제" },
+                    progressive: { headline: "검은돈 차단 금융실명제 전격 실시, 경제 정의 실현의 신호탄", source: "한겨레" }
                   }
     },
     {
@@ -124,9 +124,9 @@ export const kimYoungSam: President = {
         lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
         frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
         mediaSnapshot: {
-                    date: "YYYY.MM.DD",
-                    conservative: { headline: "관련 보도 데이터 수집 중...", source: "보수 매체" },
-                    progressive: { headline: "관련 보도 데이터 수집 중...", source: "진보 매체" }
+                    date: "1994.11.18",
+                    conservative: { headline: "구호만 요란한 '세계화', 국내 산업 보호 대책은 전무", source: "동아일보" },
+                    progressive: { headline: "시드니 선언! 21세기 향한 국가 생존 전략 '세계화' 천명", source: "조선일보" }
                   }
     }
   ],

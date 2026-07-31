@@ -76,9 +76,9 @@ export const kimDaeJung: President = {
         lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
         frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
         mediaSnapshot: {
-                    date: "YYYY.MM.DD",
-                    conservative: { headline: "관련 보도 데이터 수집 중...", source: "보수 매체" },
-                    progressive: { headline: "관련 보도 데이터 수집 중...", source: "진보 매체" }
+                    date: "1998.02.15",
+                    conservative: { headline: "살인적 고금리와 대량 해고, 뼈를 깎는 IMF 구조조정", source: "조선일보" },
+                    progressive: { headline: "노사정 대타협 성사, 고통 분담으로 국난 극복의 돌파구 마련", source: "한겨레" }
                   }
     },
     {
@@ -133,9 +133,9 @@ export const kimDaeJung: President = {
         lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
         frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
         mediaSnapshot: {
-                    date: "YYYY.MM.DD",
-                    conservative: { headline: "관련 보도 데이터 수집 중...", source: "보수 매체" },
-                    progressive: { headline: "관련 보도 데이터 수집 중...", source: "진보 매체" }
+                    date: "2000.06.15",
+                    conservative: { headline: "남북정상회담 개최, 대북 퍼주기 식 햇볕정책 논란", source: "조선일보" },
+                    progressive: { headline: "분단 55년 만의 뜨거운 포옹, 한반도 평화 시대 열리다", source: "한겨레" }
                   }
     }
   ],
