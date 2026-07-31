@@ -1,81 +1,61 @@
-export type PT_CORE_DNA = string;
+import { dnaDictionary, DnaLetter } from '@/data/dnaDictionary';
 
-export const DNA_AXIS_MAP = {
-  axis1: {
-    M: { letter: "M", name: "Market", description: "시장 자율" },
-    G: { letter: "G", name: "Guardian", description: "국가 개입" },
-  },
-  axis2: {
-    A: { letter: "A", name: "Accelerator", description: "성장/효율" },
-    B: { letter: "B", name: "Balancer", description: "분배/안전망" },
-  },
-  axis3: {
-    W: { letter: "W", name: "Wave", description: "혁신/개혁" },
-    R: { letter: "R", name: "Root", description: "질서/전통" },
-  },
-  axis4: {
-    O: { letter: "O", name: "Outward", description: "개방/동맹" },
-    D: { letter: "D", name: "Defender", description: "자주/실리" },
-  }
-};
+export type PT_CORE_DNA = string;
 
 export const getPersonaDetails = (dna: PT_CORE_DNA) => {
   if (dna.length !== 4) return undefined;
   
-  const [a1, a2, a3, a4] = dna.toUpperCase().split('');
+  const [a1, a2, a3, a4] = dna.toUpperCase().split('') as DnaLetter[];
   
-  const m1 = DNA_AXIS_MAP.axis1[a1 as keyof typeof DNA_AXIS_MAP.axis1];
-  const m2 = DNA_AXIS_MAP.axis2[a2 as keyof typeof DNA_AXIS_MAP.axis2];
-  const m3 = DNA_AXIS_MAP.axis3[a3 as keyof typeof DNA_AXIS_MAP.axis3];
-  const m4 = DNA_AXIS_MAP.axis4[a4 as keyof typeof DNA_AXIS_MAP.axis4];
+  const m1 = dnaDictionary[a1];
+  const m2 = dnaDictionary[a2];
+  const m3 = dnaDictionary[a3];
+  const m4 = dnaDictionary[a4];
   
   if (!m1 || !m2 || !m3 || !m4) return undefined;
 
-  // Combination mapping
+  // 정치적 뉘앙스를 덜어낸 MBTI식 16가지 성향 타이틀
   const personas: Record<string, { title: string, subtitle: string }> = {
-    "MAWO": { title: "글로벌 시장개척자", subtitle: "자율경제와 글로벌 확장을 중시하는 혁신형 성장가" },
-    "MAWD": { title: "자주적 시장개혁가", subtitle: "자율경제를 추구하되 국익과 실리를 최우선하는 개혁가" },
-    "MARO": { title: "안정적 자유무역가", subtitle: "시장의 효율성을 바탕으로 질서 있는 개방을 추진하는 보수형 성장가" },
-    "MARD": { title: "실리적 보수주의자", subtitle: "시장 자율과 전통적 가치를 수호하며 실용 외교를 지향하는 전략가" },
+    "MAWO": { title: "행동파 프론티어", subtitle: "뛰어난 성과를 바탕으로 새로운 영역을 거침없이 개척하는 리더" },
+    "MAWD": { title: "자립형 혁신가", subtitle: "효율을 극대화하면서도 나만의 확실한 길을 개척하는 마이웨이 리더" },
+    "MARO": { title: "엘리트 사령관", subtitle: "철저한 규율과 성과를 바탕으로 강력한 팀워크를 이끄는 전략가" },
+    "MARD": { title: "완벽주의 실속파", subtitle: "안정된 룰 안에서 최고의 성과를 내며 실리를 놓치지 않는 현실주의자" },
     
-    "MBWO": { title: "포용적 글로벌 혁신가", subtitle: "시장 원리를 존중하되 복지와 개방을 통한 사회 개혁을 지향하는 리더" },
-    "MBWD": { title: "실용적 복지개혁가", subtitle: "분배를 고려한 시장주의를 바탕으로 자주적 사회 개혁을 추진하는 실용가" },
-    "MBRO": { title: "안정적 포용국가론자", subtitle: "전통적 가치 위에서 시장의 부를 안정적으로 분배하고 동맹을 중시하는 리더" },
-    "MBRD": { title: "실리적 온건보수", subtitle: "시장의 힘으로 복지를 뒷받침하며 실용 외교와 전통을 지키는 현실주의자" },
+    "MBWO": { title: "열정적 분위기 메이커", subtitle: "팀원 모두를 이끌고 자유롭고 파격적인 아이디어로 뭉치는 리더" },
+    "MBWD": { title: "독립적 아이디어 뱅크", subtitle: "남들의 시선에 얽매이지 않고 자유롭게 상생을 도모하는 유연한 마인드" },
+    "MBRO": { title: "따뜻한 피스메이커", subtitle: "안정적인 시스템 속에서 모두의 의견을 듣고 팀워크를 다지는 조율자" },
+    "MBRD": { title: "신중한 수호자", subtitle: "정해진 규칙 안에서 무리하지 않고 구성원을 보호하며 실속을 차리는 든든한 방패" },
     
-    "GAWO": { title: "국가주도 글로벌 선도자", subtitle: "강력한 국가 개입으로 고속 성장을 이끌며 글로벌 확장을 추진하는 리더" },
-    "GAWD": { title: "국가주도 자주성장론자", subtitle: "국가의 힘으로 혁신적 성장을 주도하며 자주의 원칙을 견지하는 지도자" },
-    "GARO": { title: "권위주의 발전국가 모델", subtitle: "전통과 질서를 중시하며 국가 주도로 강력한 경제 성장을 추진하는 동맹파" },
-    "GARD": { title: "보수적 발전국가 모델", subtitle: "국가 개입과 고속 성장을 추구하며 자주 국방과 질서를 우선하는 실리파" },
+    "GAWO": { title: "불도저 행동대장", subtitle: "모두를 위한 목표를 향해 규칙을 깨고 끈끈한 의리로 돌격하는 리더" },
+    "GAWD": { title: "실용적 개혁가", subtitle: "공동의 이익을 위해 낡은 틀을 깨고 철저하게 실리를 추구하는 승부사" },
+    "GARO": { title: "카리스마 리더", subtitle: "정해진 원칙과 강한 소속감으로 공동체의 폭발적 성장을 이끄는 리더" },
+    "GARD": { title: "원칙주의 마스터", subtitle: "공동체를 위해 원칙을 지키면서도 냉철하게 상황을 판단하는 실무자" },
     
-    "GBWO": { title: "진보적 복지개혁가", subtitle: "국가 개입을 통한 적극적 분배와 사회 혁신, 연대 외교를 지향하는 개혁가" },
-    "GBWD": { title: "자주적 평등주의자", subtitle: "강력한 국가 주도로 분배를 실현하고 자주적이고 혁신적인 사회를 꿈꾸는 리더" },
-    "GBRO": { title: "온건한 사민주의자", subtitle: "전통적 가치를 존중하며 국가 개입에 의한 복지와 연대 외교를 추구하는 중도파" },
-    "GBRD": { title: "전통적 복지국가론자", subtitle: "국가 주도의 분배와 질서를 중시하며 자국 우선주의 실용 외교를 펼치는 리더" },
+    "GBWO": { title: "자유로운 낭만파", subtitle: "격식 없이 사람들을 모아 모두가 평등하고 행복한 세상을 꿈꾸는 리더" },
+    "GBWD": { title: "마이웨이 힐러", subtitle: "소외되는 사람 없이 다 함께 잘 살되, 눈치 보지 않고 내 길을 가는 자유 영혼" },
+    "GBRO": { title: "정석적인 등대지기", subtitle: "전통과 예의를 중시하며 공동체의 평화와 끈끈함을 지키는 어른스러운 리더" },
+    "GBRD": { title: "철벽의 밸런서", subtitle: "모두를 아우르면서도 룰을 준수하고, 상황에 맞게 융통성을 발휘하는 방어수" },
   };
 
   const persona = personas[dna.toUpperCase()];
   if (!persona) return undefined;
 
-  // 세부 성향 분석 (첨예화된 지표)
+  // 세부 성향 분석 (dnaDictionary에서 불러옴)
   const breakdown = {
-    axis1: a1 === 'M' 
-      ? "시장 자율을 중시하며, 부동산 규제 완화와 대기업 중심의 경제 성장에 긍정적인 성향을 보입니다." 
-      : "국가 개입을 중시하며, 부동산 투기 억제(주거권 보장)와 골목상권 및 소시민 보호에 강력한 의지를 가집니다.",
-    axis2: a2 === 'A'
-      ? "복지보다는 경제 성장과 파이 키우기를 우선하며, 철저한 능력주의와 성과에 따른 확실한 보상을 지향합니다."
-      : "무한 경쟁보다는 사회적 불평등 해소와 소외계층을 위한 촘촘한 복지 안전망 구축을 중요시합니다.",
-    axis3: a3 === 'W'
-      ? "기존의 기득권과 낡은 관행을 타파하는 파격적인 개혁과, 현장 중심의 풀뿌리 민주주의에 깊이 공감합니다."
-      : "사회의 안정과 전통적 규범을 존중하며, 검증된 엘리트 전문가와 체계적인 관료 시스템을 신뢰합니다.",
-    axis4: a4 === 'O'
-      ? "우방국(한미일)과의 확실한 가치 동맹을 중시하며, 대북/대외 문제에서 확고한 원칙과 강경한 태도를 선호합니다."
-      : "특정 진영에 얽매이지 않는 실용적 균형 외교를 지향하며, 남북 공조 등 민족적 자주성과 유연함을 가집니다."
+    axis1: m1.description,
+    axis2: m2.description,
+    axis3: m3.description,
+    axis4: m4.description
   };
 
   return {
     dna: dna.toUpperCase(),
-    letters: [m1, m2, m3, m4],
+    letters: [
+      { letter: m1.letter, name: m1.subtitle, description: m1.title }, // ex) M, Market, 성과주의 마인드
+      { letter: m2.letter, name: m2.subtitle, description: m2.title },
+      { letter: m3.letter, name: m3.subtitle, description: m3.title },
+      { letter: m4.letter, name: m4.subtitle, description: m4.title }
+    ],
     title: persona.title,
     subtitle: persona.subtitle,
     breakdown
