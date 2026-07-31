@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import { presidentsData } from '@/data/presidents';
-import { ChevronDown, Beaker, CheckCircle } from 'lucide-react';
+import { ChevronDown, Beaker, CheckCircle, Sun, Moon } from 'lucide-react';
 
 export default function Header() {
   const { theme, setTheme } = useTheme();
@@ -24,7 +24,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-slate-300 dark:border-slate-700 bg-[#FDFCF8]/90 dark:bg-[#121212]/90 backdrop-blur-md font-sans">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between gap-4 md:gap-6">
         <Link href="/" className="flex items-center gap-2 shrink-0">
-          <img src="/ppti_logo.png" alt="PPTI Logo" className="w-8 h-8 rounded-sm object-cover" />
+          <img src="/ppti_logo_v2.png" alt="PPTI Logo" className="w-8 h-8 rounded-sm object-cover" />
           <span className="text-xl font-extrabold tracking-tight">PPTI</span>
         </Link>
 
@@ -114,9 +114,19 @@ export default function Header() {
           {mounted && (
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="px-3 py-1.5 border border-slate-300 dark:border-slate-700 rounded-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-xs font-bold shrink-0"
+              className="flex items-center gap-1.5 px-3 py-1.5 border border-slate-300 dark:border-slate-700 rounded-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-xs font-bold shrink-0 text-slate-700 dark:text-slate-300"
             >
-              {theme === "dark" ? "☀️ 라이트" : "🌙 다크"}
+              {theme === "dark" ? (
+                <>
+                  <Sun className="w-3.5 h-3.5" />
+                  라이트
+                </>
+              ) : (
+                <>
+                  <Moon className="w-3.5 h-3.5" />
+                  다크
+                </>
+              )}
             </button>
           )}
         </div>
