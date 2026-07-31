@@ -67,10 +67,29 @@ export const choi: President = {
         {
           term: "과도정부",
           description: "정치적 격변이나 정권 교체기에 정식 정부가 수립되기 전까지 임시로 국정을 담당하는 정부입니다."
+        },
+        {
+          term: "10.26 사태",
+          description: "1979년 10월 26일, 박정희 대통령이 중앙정보부장 김재규에 의해 피살되어 18년간의 유신 체제가 막을 내린 사건입니다."
+        },
+        {
+          term: "긴급조치 9호",
+          description: "유신헌법 철폐를 주장하는 일체의 행위를 금지하고 영장 없이 체포할 수 있도록 한 박정희 정권의 가장 강력한 탄압 조치로, 최규하 권한대행에 의해 해제되었습니다."
+        },
+        {
+          term: "신군부",
+          description: "전두환, 노태우 등 하나회 출신 장교들이 주도한 새로운 군부 세력으로, 12.12 군사반란을 통해 실권을 장악했습니다."
+        },
+        {
+          term: "12.12 군사반란",
+          description: "1979년 12월 12일, 전두환 등 신군부 세력이 최규하 대통령의 정식 재가 없이 정승화 계엄사령관을 강제 연행하고 군 주도권을 장악한 쿠데타입니다."
+        },
+        {
+          term: "5.18 민주화운동",
+          description: "1980년 5월 18일, 광주 시민들이 신군부의 쿠데타와 비상계엄 전국 확대에 맞서 민주주의를 요구하며 항거한 역사적 사건입니다."
         }
       ],
-        lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
-        frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
+      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
         mediaSnapshot: {
                     date: "1979.11.11",
                     conservative: { headline: "최규하 권한대행 체제, 과도정부 정국 수습 안간힘", source: "조선일보" },
@@ -109,5 +128,5 @@ export const choi: President = {
       source: "한국현대사연구원"
     }
   ],
-    cabinetRisk: { avgTenureMonths: 15, initialDropoutRate: 20 }
+  cabinetRisk: { avgTenureMonths: 6, initialDropoutRate: 0 }
 };

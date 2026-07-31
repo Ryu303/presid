@@ -71,10 +71,17 @@ export const kimDaeJung: President = {
         {
           term: "노사정위원회",
           description: "노동자, 사용자(기업), 정부가 모여 노동 정책과 경제 위기 극복 방안을 협의하는 사회적 대화 기구입니다."
+        },
+        {
+          term: "정리해고제",
+          description: "기업이 경영상의 긴박한 필요가 있을 때 근로자를 해고할 수 있도록 한 제도로, 외환위기 극복 과정에서 노동 시장의 유연성을 높이기 위해 전면 도입되었습니다."
+        },
+        {
+          term: "파견근로제",
+          description: "근로자 파견 업체가 고용한 근로자를 다른 기업에 파견하여 일하게 하는 제도로, 기업의 인건비 부담을 줄였으나 비정규직 양산의 원인이 되었습니다."
         }
       ],
-        lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
-        frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
+      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
         mediaSnapshot: {
                     date: "1998.02.15",
                     conservative: { headline: "살인적 고금리와 대량 해고, 뼈를 깎는 IMF 구조조정", source: "조선일보" },
@@ -130,8 +137,21 @@ export const kimDaeJung: President = {
           viewpoint2: "실업 대란을 막기 위한 고육지책으로 IT 벤처에 자금을 무분별하게 쏟아부어 '묻지마 벤처 거품'과 부작용을 유발했다는 해석."
         }
       },
-        lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
-        frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
+      glossary: [
+        {
+          term: "햇볕정책",
+          description: "이솝 우화에서 따온 말로, 무력이나 강압 대신 교류와 경제 지원 등 따뜻한 포용을 통해 북한의 개방과 변화를 유도하려는 대북 정책입니다."
+        },
+        {
+          term: "6.15 남북 공동선언",
+          description: "2000년 평양에서 열린 남북정상회담에서 김대중 대통령과 김정일 국방위원장이 발표한 합의문으로, 통일 문제의 자주적 해결과 교류 협력 활성화를 명시했습니다."
+        },
+        {
+          term: "대북송금 사건",
+          description: "남북정상회담 성사와 경협 사업권을 얻기 위해 현대그룹이 국가정보원을 통해 북한에 4억 5천만 달러를 불법 송금한 사건입니다."
+        }
+      ],
+      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
         mediaSnapshot: {
                     date: "2000.06.15",
                     conservative: { headline: "남북정상회담 개최, 대북 퍼주기 식 햇볕정책 논란", source: "조선일보" },
@@ -204,5 +224,5 @@ export const kimDaeJung: President = {
       source: "통일부 / 개성공단지원재단"
     }
   ],
-    cabinetRisk: { avgTenureMonths: 15, initialDropoutRate: 20 }
+  cabinetRisk: { avgTenureMonths: 11, initialDropoutRate: 0 }
 };

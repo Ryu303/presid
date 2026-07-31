@@ -65,10 +65,17 @@ export const kimYoungSam: President = {
         {
           term: "금융실명제",
           description: "가명이나 차명에 의한 금융 거래를 금지하고, 본인의 실명으로만 금융 거래를 하도록 의무화한 제도입니다."
+        },
+        {
+          term: "지하경제",
+          description: "세무서 등 국가 기관에 신고되지 않아 세금이 부과되지 않는 불법적이거나 음성적인 경제 활동을 의미합니다."
+        },
+        {
+          term: "긴급재정경제명령",
+          description: "국가적 위기 상황이나 중대한 재정·경제상의 위기를 극복하기 위해 대통령이 국회의 집회를 기다릴 여유가 없을 때 발동하는 법률적 효력을 가진 명령입니다."
         }
       ],
-        lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
-        frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
+      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
         mediaSnapshot: {
                     date: "1993.08.13",
                     conservative: { headline: "금융실명제 전격 실시, 중소기업 자금줄 막혀 줄도산 우려", source: "한국경제" },
@@ -121,8 +128,21 @@ export const kimYoungSam: President = {
           viewpoint2: "무리한 세계화 추진과 성급한 금융 시장 개방이 단기 외채 급증을 낳아 재앙적인 외환위기와 대량 실업을 자초했다는 관점."
         }
       },
-        lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
-        frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
+      glossary: [
+        {
+          term: "역사 바로 세우기",
+          description: "문민정부 출범 이후 옛 조선총독부 건물 철거, 전두환·노태우 전 대통령 구속 등 군사독재와 일제강점기의 잔재를 청산하고자 한 일련의 정책입니다."
+        },
+        {
+          term: "하나회",
+          description: "전두환, 노태우 등 육군사관학교 11기 출신들이 중심이 되어 결성한 군대 내 불법 사조직으로, 김영삼 대통령 취임 직후 전격 해체되었습니다."
+        },
+        {
+          term: "IMF 외환위기",
+          description: "1997년 외환보유고가 바닥나 국가 부도 위기에 처하자, 국제통화기금(IMF)에 긴급 구제금융을 요청하고 가혹한 경제 구조조정을 겪은 사건입니다."
+        }
+      ],
+      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (김대중 정부 금모으기 운동)" },
         mediaSnapshot: {
                     date: "1994.11.18",
                     conservative: { headline: "구호만 요란한 '세계화', 국내 산업 보호 대책은 전무", source: "동아일보" },
@@ -164,7 +184,7 @@ export const kimYoungSam: President = {
     },
     {
       promise: "IMF 위기 예방 및 경제 충격 최소화",
-      result: "1997년 12월 IMF 신청. 환율 폭등과 대규모 부도 발생으로 경제 대충격. 1차적 방어 실패",
+      result: "1997년 12월 IMF 신청. 환율 급등과 대규모 부도 발생으로 경제 대충격. 1차적 방어 실패",
       status: "failed",
       source: "한국은행 / KDI"
     }
@@ -189,5 +209,5 @@ export const kimYoungSam: President = {
       source: "과거사진상규명위원회 / 한국현대사연구원"
     }
   ],
-    cabinetRisk: { avgTenureMonths: 15, initialDropoutRate: 20 }
+  cabinetRisk: { avgTenureMonths: 10, initialDropoutRate: 0 }
 };

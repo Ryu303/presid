@@ -31,10 +31,10 @@ export const dnaDictionary: Record<DnaLetter, DnaTrait> = {
   // 축 2: 목표 달성과 팀워크 (A vs B)
   A: {
     letter: 'A',
-    title: '하드캐리 가속형',
+    title: '성과 집중 가속형',
     subtitle: 'Accelerator',
-    description: '"될 놈을 밀어주자!" 목표 달성을 위해 가장 뛰어난 사람(에이스)에게 자원을 몰아주어, 전체의 효율을 극대화하고 파이를 키우는 것을 선호합니다.',
-    keywords: ['효율 극대화', '선택과 집중', '엘리트주의', '파이 키우기'],
+    description: '"선택과 집중으로 파이를 키우자!" 목표 달성을 위해 가능성이 높은 핵심 역량에 자원을 집중하여, 전체의 효율을 극대화하고 성장을 이끄는 것을 선호합니다.',
+    keywords: ['효율 극대화', '선택과 집중', '성과 중심', '파이 키우기'],
     color: '#F59E0B', // Amber
   },
   B: {
@@ -67,10 +67,10 @@ export const dnaDictionary: Record<DnaLetter, DnaTrait> = {
   // 축 4: 갈등 해결과 인간관계 (O vs D)
   O: {
     letter: 'O',
-    title: '뜨거운 의리파',
+    title: '소속감과 원칙 중시형',
     subtitle: 'Outward',
-    description: '"내 사람은 내가 챙긴다!" 강력하고 든든한 내 편을 만드는 것을 중요하게 생각합니다. 한 번 믿으면 끝까지 의리를 지키며 원칙대로 행동합니다.',
-    keywords: ['끈끈한 의리', '강한 소속감', '원칙주의', '든든한 인맥'],
+    description: '"원칙과 신의를 지킨다!" 강한 소속감과 신뢰를 바탕으로 협력하는 것을 중요하게 생각합니다. 한 번 맺은 관계는 끝까지 책임지며 원칙대로 행동합니다.',
+    keywords: ['상호 신뢰', '강한 소속감', '원칙주의', '협력적 연대'],
     color: '#EF4444', // Red
   },
   D: {

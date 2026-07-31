@@ -8,9 +8,9 @@ import { GlossaryText } from '../ui/GlossaryText';
 export default function LegislationTimeline({ facts, glossary }: { facts: PolicyFact[], glossary?: GlossaryTerm[] }) {
   return (
     <section>
-      <div className="flex items-center gap-3 mb-6 pb-2 border-b border-slate-300 dark:border-slate-700">
-        <BookOpen className="w-6 h-6 text-slate-800 dark:text-slate-300" />
-        <h4 className="text-2xl font-serif font-bold text-slate-900 dark:text-slate-200">법안 & 제도 팩트 궤적</h4>
+      <div className="flex items-center gap-3 mb-6 px-5 py-3.5 bg-slate-900 dark:bg-slate-100 rounded-sm shadow-md">
+        <BookOpen className="w-6 h-6 text-white dark:text-slate-900" />
+        <h4 className="text-xl font-serif font-bold text-white dark:text-slate-900 tracking-wide">법안 & 제도 팩트 궤적</h4>
       </div>
       <div className="space-y-4">
         {facts.map((fact, idx) => (

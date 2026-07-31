@@ -24,8 +24,7 @@ export default function Timeline({ selectedId, onSelect }: { selectedId: string,
       {/* Mobile view: Horizontal scroll without grouping */}
       <div 
         ref={scrollRef}
-        className="md:hidden flex overflow-x-auto gap-3 pb-2 scrollbar-hide snap-x"
-        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        className="md:hidden flex overflow-x-auto gap-3 pb-3 snap-x"
       >
         {presidentsData.map((president) => (
           <button
@@ -72,9 +71,6 @@ export default function Timeline({ selectedId, onSelect }: { selectedId: string,
                         : "bg-transparent border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-slate-400 dark:hover:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-900"
                     )}
                   >
-                    {selectedId === president.id && (
-                      <div className="absolute left-0 top-0 w-1.5 h-full bg-slate-900 dark:bg-slate-300 rounded-none"></div>
-                    )}
                     <div className="flex justify-between items-center">
                       <div>
                         <div className="font-serif font-bold text-base mb-1 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">

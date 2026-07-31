@@ -50,7 +50,16 @@ export default function PresidentDetailClient() {
 
   const categories = Object.keys(policiesByCategory);
   categories.forEach(cat => {
-    tocItems.push({ id: `section-${cat}`, label: `${cat} 정책` });
+    const subItems = policiesByCategory[cat].map(policy => ({
+      id: `policy-${policy.id}`,
+      label: policy.title,
+    }));
+    
+    tocItems.push({ 
+      id: `section-${cat}`, 
+      label: `${cat} 정책`,
+      subItems: subItems.length > 0 ? subItems : undefined 
+    });
   });
 
   if (president.additionalFacts && president.additionalFacts.length > 0) {
@@ -95,13 +104,38 @@ export default function PresidentDetailClient() {
             </div>
 
             {categories.map((cat) => (
-              <div key={cat} id={`section-${cat}`} className="scroll-mt-32 flex flex-col gap-12">
-                <h2 className="text-3xl font-serif font-bold border-b-2 border-slate-900 dark:border-white pb-4 inline-block w-fit">
-                  {cat} 정책
-                </h2>
+              <div key={cat} id={`section-${cat}`} className="scroll-mt-32 flex flex-col gap-10">
+                <div>
+                  <h2 className="text-3xl font-serif font-bold border-b-2 border-slate-900 dark:border-white pb-4 inline-block w-fit mb-6">
+                    {cat} 정책
+                  </h2>
+                  
+                  {/* 미니 바로가기 쪽지 (Mini Shortcut Note) */}
+                  {policiesByCategory[cat].length > 1 && (
+                    <div className="p-4 bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-sm mb-4">
+                      <div className="text-xs font-bold text-slate-500 dark:text-slate-400 mb-3 uppercase tracking-widest">
+                        해당 분야 정책 바로가기
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {policiesByCategory[cat].map(policy => (
+                          <a 
+                            key={`shortcut-${policy.id}`}
+                            href={`#policy-${policy.id}`}
+                            className="inline-flex px-3 py-1.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-sm text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:border-indigo-300 dark:hover:border-indigo-700 transition-colors shadow-sm"
+                          >
+                            {policy.title}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+
                 <div className="space-y-16">
                   {policiesByCategory[cat].map(policy => (
-                    <PolicyCard key={policy.id} policy={policy} presidentCoreDNA={president.coreDNA} />
+                    <div key={policy.id} id={`policy-${policy.id}`} className="scroll-mt-32">
+                      <PolicyCard policy={policy} presidentCoreDNA={president.coreDNA} />
+                    </div>
                   ))}
                 </div>
               </div>

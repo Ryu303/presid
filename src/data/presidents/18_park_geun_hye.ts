@@ -10,7 +10,7 @@ export const parkGeunHye: President = {
     { country: "일본", leader: "아베 신조 (2차)", term: "2012-2020" },
     { country: "북한", leader: "김정은", term: "2011-현재" }
   ],
-  cabinetRisk: { avgTenureMonths: 14.5, initialDropoutRate: 35 },
+  cabinetRisk: { avgTenureMonths: 14, initialDropoutRate: 0 },
   policies: [
     {
       id: "pgh-creative-economy",
@@ -23,7 +23,6 @@ export const parkGeunHye: President = {
       ],
       
       lineage: { prev: "녹색성장 (이명박 정부)", next: "한국형 뉴딜 (문재인 정부)" },
-      frictionIndex: { veto: 2, filibusterHours: 192, strikeDays: 45 },
       mediaSnapshot: {
                   date: "2013.06.05",
                   conservative: { headline: "실체 없는 창조경제, 재벌 퍼주기와 관치 금융으로 변질", source: "한겨레" },
@@ -85,6 +84,14 @@ export const parkGeunHye: President = {
         {
           term: "창조경제",
           description: "기존의 산업에 정보통신기술(ICT)과 과학기술을 접목하여 새로운 부가가치와 일자리를 창출하겠다는 경제 패러다임입니다."
+        },
+        {
+          term: "크라우드 펀딩",
+          description: "자금이 필요한 벤처기업이나 스타트업이 온라인 플랫폼을 통해 불특정 다수의 대중(Crowd)으로부터 자금을 모으는 방식입니다."
+        },
+        {
+          term: "국정농단 사태",
+          description: "대통령의 비선 실세였던 최순실이 국가 국정에 광범위하게 개입하고 사익을 취한 사건으로, 헌정 사상 최초의 대통령 파면을 초래했습니다."
         }
       ]
     },
@@ -121,8 +128,21 @@ export const parkGeunHye: President = {
           { name: "UN 대북 제재 결의", value: "강력한 제재안(2270호 등) 통과", source: "UN Security Council", reportName: "Resolutions on North Korea" }
         ]
       },
-        lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
-        frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
+      glossary: [
+        {
+          term: "한반도 신뢰프로세스",
+          description: "튼튼한 안보를 바탕으로 남북 간에 신뢰를 점진적으로 쌓아가며 한반도의 평화와 통일 기반을 구축하겠다는 박근혜 정부의 대북 정책입니다."
+        },
+        {
+          term: "드레스덴 선언",
+          description: "2014년 독일 드레스덴에서 발표된 구상으로, 남북 주민의 인도적 문제 해결, 남북 공동 번영을 위한 민생 인프라 구축, 동질성 회복을 제안했습니다."
+        },
+        {
+          term: "사드(THAAD)",
+          description: "고고도 미사일 방어 체계로, 북한의 미사일 위협에 대응하기 위해 한국 배치가 결정되었으나 중국의 강력한 경제 보복(한한령)을 낳았습니다."
+        }
+      ],
+      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
         mediaSnapshot: {
                     date: "2016.02.10",
                     conservative: { headline: "개성공단 전면 중단, 남북 관계 최후의 보루마저 붕괴", source: "경향신문" },

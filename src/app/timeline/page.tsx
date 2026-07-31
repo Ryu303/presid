@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Timeline from "@/components/timeline/Timeline";
 import PolicyCard from "@/components/policy/PolicyCard";
 import MicroFactsAccordion from "@/components/policy/MicroFactsAccordion";
@@ -8,12 +7,13 @@ import PresidentAnalysisBoard from "@/components/president/PresidentAnalysisBoar
 import GlobalCounterparts from "@/components/president/GlobalCounterparts";
 import CabinetSurvival from "@/components/president/CabinetSurvival";
 import { presidentsData } from "@/data/presidents";
-import { Search, ArrowLeft } from "lucide-react";
+import { Search, ArrowLeft, ChevronRight, ChevronLeft, Menu, ArrowUp, GripHorizontal } from "lucide-react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
-import { useEffect, Suspense } from "react";
+import { useEffect, Suspense, useState, useRef } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { cn } from "@/lib/utils";
 
 const CATEGORIES = ["전체", "경제/산업", "부동산/주거", "복지/노동", "외교/안보", "사회/문화", "정치/행정"];
 
@@ -27,6 +27,41 @@ function TimelineContent() {
   const [selectedPresidentId, setSelectedPresidentId] = useState(initialPresidentId);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("전체");
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isMiniMenuExpanded, setIsMiniMenuExpanded] = useState(false);
+  
+  // Dragging state for mini menu
+  const [menuTop, setMenuTop] = useState<number | null>(null);
+  const isDragging = useRef(false);
+  const startY = useRef(0);
+  const startTop = useRef(0);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    isDragging.current = true;
+    startY.current = e.clientY;
+    if (menuTop === null && menuRef.current) {
+      startTop.current = menuRef.current.getBoundingClientRect().top;
+    } else {
+      startTop.current = menuTop || 0;
+    }
+    e.currentTarget.setPointerCapture(e.pointerId);
+    e.preventDefault();
+  };
+
+  const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!isDragging.current) return;
+    const deltaY = e.clientY - startY.current;
+    let newTop = startTop.current + deltaY;
+    if (newTop < 80) newTop = 80;
+    if (newTop > window.innerHeight - 150) newTop = window.innerHeight - 150;
+    setMenuTop(newTop);
+  };
+
+  const handlePointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
+    isDragging.current = false;
+    e.currentTarget.releasePointerCapture(e.pointerId);
+  };
   
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -58,13 +93,159 @@ function TimelineContent() {
     return matchesCategory && matchesSearch;
   }) || [];
 
+  const miniMenuCategories = filteredPolicies.reduce((acc, policy) => {
+    if (!acc[policy.category]) acc[policy.category] = [];
+    acc[policy.category].push(policy);
+    return acc;
+  }, {} as Record<string, typeof filteredPolicies>);
+
   return (
-    <main className="flex flex-col md:flex-row h-[calc(100vh-65px)] bg-transparent text-slate-900 dark:text-slate-200 overflow-hidden font-sans transition-colors duration-300">
-      <aside className="w-full md:w-64 shrink-0 h-48 md:h-auto overflow-y-auto z-10 border-b md:border-r border-slate-300 dark:border-slate-700 bg-[#FDFCF8] dark:bg-[#121212]">
-        <Timeline selectedId={selectedPresidentId} onSelect={handleSelectPresident} />
+    <div className="flex flex-col md:flex-row min-h-screen bg-transparent text-slate-900 dark:text-slate-200 font-sans transition-colors duration-300">
+      
+      {/* Right Wall Floating Mini Menu */}
+      {filteredPolicies.length > 0 && (
+        <div 
+          ref={menuRef}
+          className={cn(
+            "flex flex-col fixed right-1 md:right-3 z-50 bg-white/90 dark:bg-[#1C1C1C]/90 backdrop-blur-xl border border-slate-200 dark:border-slate-800 rounded-md shadow-lg transition-[width,padding] duration-300 overflow-x-hidden",
+            isMiniMenuExpanded ? "w-48 md:w-56 p-2 md:p-3" : "w-10 md:w-12 p-1.5 md:p-2",
+            menuTop === null ? "top-1/4 md:top-32" : ""
+          )} 
+          style={{ 
+            maxHeight: 'max(60vh, calc(100vh - 200px))',
+            top: menuTop !== null ? `${menuTop}px` : undefined 
+          }}
+        >
+          
+          {/* Header & Drag Handle */}
+          <div className={cn(
+            "flex flex-col border-b border-slate-200 dark:border-slate-800 pb-1.5 mb-1.5 sticky top-0 bg-white/90 dark:bg-[#1C1C1C]/90 backdrop-blur-xl z-10"
+          )}>
+            {/* Drag Grip */}
+            <div 
+              className="w-full flex items-center justify-center cursor-grab active:cursor-grabbing text-slate-300 dark:text-slate-600 hover:text-slate-500 transition-colors py-1 mb-1"
+              onPointerDown={handlePointerDown}
+              onPointerMove={handlePointerMove}
+              onPointerUp={handlePointerUp}
+              onPointerCancel={handlePointerUp}
+              title="드래그해서 위아래로 이동"
+            >
+              <GripHorizontal className="w-5 h-5" />
+            </div>
+
+            <div className={cn(
+              "flex",
+              isMiniMenuExpanded ? "flex-row items-center justify-between" : "flex-col items-center gap-2"
+            )}>
+              {isMiniMenuExpanded && (
+                <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-tighter">탐색기</h4>
+              )}
+              
+              <div className={cn("flex gap-1", isMiniMenuExpanded ? "flex-row" : "flex-col")}>
+                <button 
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  className="p-1 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-sm text-slate-600 dark:text-slate-300 transition-colors flex items-center justify-center"
+                  title="맨 위로"
+                >
+                  <ArrowUp className="w-3 h-3" />
+                </button>
+                <button 
+                  onClick={() => setIsMiniMenuExpanded(!isMiniMenuExpanded)}
+                  className="p-1 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-sm text-slate-600 dark:text-slate-300 transition-colors flex items-center justify-center"
+                  title={isMiniMenuExpanded ? "접기" : "펼치기"}
+                >
+                  {isMiniMenuExpanded ? <ChevronRight className="w-3 h-3" /> : <ChevronLeft className="w-3 h-3" />}
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Content */}
+          <div className="flex flex-col gap-2 mt-0.5 overflow-y-auto overflow-x-hidden pb-2">
+            {Object.keys(miniMenuCategories).map((cat) => (
+              <div key={`mini-${cat}`} className={cn("flex flex-col", isMiniMenuExpanded ? "" : "items-center")}>
+                {isMiniMenuExpanded ? (
+                  <div className="text-[10px] md:text-[11px] font-bold text-slate-900 dark:text-slate-100 mb-1 truncate">{cat}</div>
+                ) : (
+                  <div className="text-[9px] font-black text-slate-400 dark:text-slate-500 mb-1" title={cat}>{cat.charAt(0)}</div>
+                )}
+                
+                <ul className={cn(
+                  "flex flex-col gap-1 w-full",
+                  isMiniMenuExpanded ? "border-l border-slate-200 dark:border-slate-700 ml-1 pl-2" : "items-center"
+                )}>
+                  {miniMenuCategories[cat].map((policy, idx) => (
+                    <li key={`mini-policy-${policy.id}`} className={cn("w-full", isMiniMenuExpanded ? "" : "flex justify-center")}>
+                      <button
+                        onClick={() => {
+                          const el = document.getElementById(`policy-${policy.id}`);
+                          if (el) {
+                            const y = el.getBoundingClientRect().top + window.scrollY - 100;
+                            window.scrollTo({ top: y, behavior: 'smooth' });
+                          }
+                        }}
+                        className={cn(
+                          "transition-colors leading-tight text-left block",
+                          isMiniMenuExpanded 
+                            ? "text-[9px] md:text-[10px] text-slate-500 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400 line-clamp-2 w-full"
+                            : "w-5 h-5 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-[8px] font-bold text-slate-500 hover:bg-indigo-100 hover:text-indigo-600 dark:hover:bg-indigo-900 dark:hover:text-indigo-300 shrink-0"
+                        )}
+                        title={policy.title}
+                      >
+                        {isMiniMenuExpanded ? policy.title : (idx + 1)}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <aside 
+        className={cn(
+          "shrink-0 z-10 border-b md:border-r border-slate-300 dark:border-slate-700 bg-[#FDFCF8] dark:bg-[#121212] md:sticky md:top-[64px] transition-all duration-300 ease-in-out relative",
+          isSidebarOpen ? "w-full md:w-64 md:h-[calc(100vh-64px)]" : "w-full md:w-12 md:h-[calc(100vh-64px)]"
+        )}
+      >
+        {/* 모바일 타임라인 (항상 보임) */}
+        <div className="md:hidden">
+          <Timeline selectedId={selectedPresidentId} onSelect={handleSelectPresident} />
+        </div>
+        
+        {/* 데스크톱 타임라인 (접기/펴기) */}
+        <div className="hidden md:block w-full h-full relative">
+          <div className={cn(
+            "h-full", 
+            isSidebarOpen 
+              ? "overflow-y-auto" 
+              : "overflow-hidden"
+          )}>
+            {isSidebarOpen ? (
+              <div className="w-64">
+                <Timeline selectedId={selectedPresidentId} onSelect={handleSelectPresident} />
+              </div>
+            ) : (
+              <div className="flex flex-col items-center py-6 h-full">
+                <span className="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] [writing-mode:vertical-lr] text-center h-full max-h-48 mt-4">
+                  Timeline
+                </span>
+              </div>
+            )}
+          </div>
+          
+          <button 
+            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+            className="absolute top-6 -right-3.5 w-7 h-7 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-full flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 z-50 shadow-sm transition-transform cursor-pointer"
+            title={isSidebarOpen ? "타임라인 접기" : "타임라인 펼치기"}
+          >
+            <ChevronRight className={cn("w-4 h-4 text-slate-600 dark:text-slate-400 transition-transform duration-300", isSidebarOpen ? "rotate-180" : "")} />
+          </button>
+        </div>
       </aside>
       
-      <section className="flex-1 overflow-y-auto px-4 md:px-12 pb-12 relative bg-transparent">
+      <section className="flex-1 px-4 md:px-12 pb-12 relative bg-transparent overflow-x-hidden min-w-0">
         <header className="pt-8 md:pt-12 pb-6 mb-8 flex flex-col xl:flex-row xl:items-end justify-between gap-6 border-b border-slate-300 dark:border-slate-700">
           <div>
             <Link href="/" className="inline-flex items-center gap-2 text-slate-800 dark:text-slate-300 font-medium mb-4 hover:underline">
@@ -95,18 +276,25 @@ function TimelineContent() {
           <div className="max-w-6xl mx-auto pb-20">
             <Tabs defaultValue="전체" value={selectedCategory} onValueChange={setSelectedCategory} className="w-full">
               {/* Control Bar: Filters & Search */}
-              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-10 bg-[#FDFCF8]/95 dark:bg-[#121212]/95 px-4 py-2 border border-slate-300 dark:border-slate-700 shadow-sm sticky top-0 z-40 backdrop-blur-xl">
+              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-10 bg-[#FDFCF8]/95 dark:bg-[#121212]/95 px-4 md:px-12 py-3 border-y lg:border-x border-slate-300 dark:border-slate-700 shadow-sm sticky top-[64px] z-40 backdrop-blur-xl -mx-4 md:-mx-12">
                 {/* Category Filters using TabsList */}
-                <TabsList className="bg-transparent border-none rounded-none p-0 h-auto gap-6 justify-start overflow-x-auto w-full lg:w-auto scrollbar-hide [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                <TabsList 
+                  className="bg-transparent border-none rounded-none p-0 h-auto gap-6 justify-start overflow-x-auto flex flex-1 min-w-0 max-w-full flex-nowrap pb-2 pt-1"
+                  style={{ maskImage: 'linear-gradient(to right, transparent, black 16px, black calc(100% - 16px), transparent)', WebkitMaskImage: 'linear-gradient(to right, transparent, black 16px, black calc(100% - 16px), transparent)' }}
+                >
+                  <div className="w-4 shrink-0" /> {/* Spacer to absorb left mask fade */}
+                  
                   {CATEGORIES.map(cat => (
                     <TabsTrigger
                       key={cat}
                       value={cat}
-                      className="rounded-none border-b-2 border-transparent data-[state=active]:border-slate-900 dark:data-[state=active]:border-slate-200 data-[state=active]:font-black data-[state=active]:text-slate-900 dark:data-[state=active]:text-white text-slate-400 dark:text-slate-500 font-medium px-1 py-2 data-[state=active]:shadow-none data-[state=active]:bg-transparent transition-all"
+                      className="rounded-none border-b-2 border-transparent data-[state=active]:border-slate-900 dark:data-[state=active]:border-slate-200 data-[state=active]:font-black data-[state=active]:text-slate-900 dark:data-[state=active]:text-white text-slate-400 dark:text-slate-500 font-medium px-1 py-2 data-[state=active]:shadow-none data-[state=active]:bg-transparent transition-all shrink-0"
                     >
                       {cat}
                     </TabsTrigger>
                   ))}
+                  
+                  <div className="w-4 shrink-0" /> {/* Spacer to absorb right mask fade */}
                 </TabsList>
                 
                 {/* Search Bar */}
@@ -174,7 +362,7 @@ function TimelineContent() {
           </div>
         )}
       </section>
-    </main>
+    </div>
   );
 }
 

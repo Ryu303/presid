@@ -50,10 +50,10 @@ export const leeJaeMyung: President = {
       },
       glossary: [
         { term: "비상계엄", description: "2024년 12월 선포되었으나 국회 요구로 즉각 해제된 사건으로, 정국 혼란과 조기 대선의 직접적 원인이 됨." },
-        { term: "조기 대선", description: "헌법재판소의 탄핵 인용 결정(2025년 4월)으로 인해 정해진 임기 만료 전 실시된 제21대 대통령 선거." }
+        { term: "조기 대선", description: "헌법재판소의 탄핵 인용 결정(2025년 4월)으로 인해 정해진 임기 만료 전 실시된 제21대 대통령 선거." },
+        { term: "기본소득", description: "재산, 노동의 유무와 상관없이 모든 국민에게 조건 없이 정기적으로 일정한 금액을 현금으로 지급하는 정책입니다." }
       ],
-        lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
-        frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
+      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
         mediaSnapshot: {
                     date: "2022.03.05",
                     conservative: { headline: "기본소득 등 천문학적 포퓰리즘, 국가 재정 파탄 불 보듯", source: "조선일보" },
@@ -92,8 +92,21 @@ export const leeJaeMyung: President = {
           { name: "미국 및 서방국가 신뢰지수", value: "동맹국 정책 변화에 대한 모니터링 강화", source: "CSIS", reportName: "아시아 정책 동향" }
         ]
       },
-        lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
-        frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
+      glossary: [
+        {
+          term: "실용외교",
+          description: "특정 이념이나 진영 논리에 얽매이지 않고 국가의 경제적, 안보적 이익(국익)을 최우선으로 하여 유연하게 대처하는 외교 노선입니다."
+        },
+        {
+          term: "코리아 디스카운트",
+          description: "남북 분단이라는 지정학적 리스크나 불투명한 기업 지배 구조 등으로 인해 한국의 주가가 실제 가치보다 낮게 평가되는 현상입니다."
+        },
+        {
+          term: "디커플링",
+          description: "미국이 중국과의 경제적 상호 의존 관계를 끊고 첨단 기술 및 공급망에서 중국을 배제하려는 탈동조화 전략을 뜻합니다."
+        }
+      ],
+      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
         mediaSnapshot: {
                     date: "2022.02.25",
                     conservative: { headline: "국익보다 안보 우선, 한미 동맹 흔드는 줄타기 외교 우려", source: "동아일보" },
@@ -136,5 +149,5 @@ export const leeJaeMyung: President = {
       source: '대통령실 / 기본사회위원회'
     }
   ],
-    cabinetRisk: { avgTenureMonths: 15, initialDropoutRate: 20 }
+  cabinetRisk: { avgTenureMonths: 15, initialDropoutRate: 0 }
 };

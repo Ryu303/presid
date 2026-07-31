@@ -10,7 +10,7 @@ export const leeMyungBak: President = {
     { country: "일본", leader: "아소 다로 / 하토야마 유키오 / 노다 요시히코", term: "2008-2012" },
     { country: "북한", leader: "김정일 / 김정은", term: "1994-2011 / 2011-현재" }
   ],
-  cabinetRisk: { avgTenureMonths: 18.2, initialDropoutRate: 20 },
+  cabinetRisk: { avgTenureMonths: 15, initialDropoutRate: 0 },
   policies: [
     {
       id: "lmb-global-crisis",
@@ -32,7 +32,7 @@ export const leeMyungBak: President = {
         { content: "G20 정상회의를 성공적으로 개최하여 글로벌 경제 질서 재편 과정에서 룰 메이커(Rule Maker)로 도약", source: "국립외교원" }
       ],
       cons: [
-        { content: "위기 극복 과정에서 고환율 정책(MB 물가)을 고수하여 서민 물가 폭등과 실질 소득 감소를 초래함", source: "한국경제학회보" },
+        { content: "위기 극복 과정에서 고환율 정책(MB 물가)을 고수하여 서민 물가 급등과 실질 소득 감소를 초래함", source: "한국경제학회보" },
         { content: "대기업 중심의 낙수효과(비즈니스 프렌들리)에 의존하여 중소기업과의 격차 및 소득 양극화가 오히려 심화됨", source: "KCI 등재 경제사 논문" },
         { content: "미국산 쇠고기 수입 재개 과정에서 국민적 소통 부재로 대규모 촛불집회를 자초하여 국정 동력을 조기에 상실함", source: "한국사회학회" }
       ],
@@ -73,10 +73,17 @@ export const leeMyungBak: President = {
         {
           term: "낙수효과",
           description: "대기업과 고소득층의 소득과 부가 먼저 늘어나면, 그에 따른 투자와 소비 증가를 통해 자연스럽게 중소기업과 저소득층에게도 혜택이 돌아간다는 경제 이론입니다."
+        },
+        {
+          term: "비즈니스 프렌들리",
+          description: "친기업적인 환경 조성을 의미하며, 기업의 규제를 완화하고 투자를 촉진하여 경제 성장을 이끌겠다는 이명박 정부의 핵심 경제 기조입니다."
+        },
+        {
+          term: "통화스위프",
+          description: "외환위기 등 비상시에 상대국 통화를 빌려 쓸 수 있도록 맺는 국가 간 계약으로, 외환 시장의 불안을 잠재우는 강력한 안전판 역할을 합니다."
         }
       ],
-        lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
-        frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
+      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
         mediaSnapshot: {
                     date: "2008.10.19",
                     conservative: { headline: "고환율 정책이 부메랑으로… 금융위기 선제 대응 실패", source: "한겨레" },
@@ -94,8 +101,17 @@ export const leeMyungBak: President = {
         { name: "심명필", role: "4대강 살리기 추진본부장" }
       ],
       
-      lineage: { next: "창조경제 (박근혜 정부)" },
-      frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 14 },
+      glossary: [
+        {
+          term: "4대강 살리기 사업",
+          description: "한강, 낙동강, 금강, 영산강 등 4대강의 수질 개선과 수자원 확보를 목표로 대규모 보를 건설하고 하천 바닥을 준설한 토목 사업입니다."
+        },
+        {
+          term: "한국형 뉴딜",
+          description: "미국의 뉴딜 정책을 본따 대규모 인프라 투자(4대강 사업 등)를 통해 일자리를 창출하고 내수 경제를 진작하려던 정부의 부양책입니다."
+        }
+      ],
+      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
       mediaSnapshot: {
                   date: "2009.06.08",
                   conservative: { headline: "대운하 꼼수 4대강 사업 강행, 심각한 환경 파괴 불 보듯", source: "경향신문" },

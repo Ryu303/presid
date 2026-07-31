@@ -11,24 +11,24 @@ export default function GlobalMetricComparison({ domestic, global }: { domestic:
 
   return (
     <section>
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-2 border-b border-slate-300 dark:border-slate-700">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 px-5 py-3.5 bg-slate-900 dark:bg-slate-100 rounded-sm shadow-md">
         <div className="flex items-center gap-3">
-          <TrendingUp className="w-6 h-6 text-slate-800 dark:text-slate-300" />
-          <h4 className="text-2xl font-serif font-bold text-slate-900 dark:text-slate-200">교차 검증 지표</h4>
+          <TrendingUp className="w-6 h-6 text-white dark:text-slate-900" />
+          <h4 className="text-xl font-serif font-bold text-white dark:text-slate-900 tracking-wide">교차 검증 지표</h4>
         </div>
         
         {/* Tabs */}
-        <div className="flex bg-[#FDFCF8] dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-none p-1 shrink-0 w-fit">
+        <div className="flex bg-slate-800 dark:bg-slate-200 rounded-sm p-1 shrink-0 w-fit">
           <button 
             onClick={() => setActiveTab('global')}
-            className={`flex items-center gap-2 px-3 py-1.5 text-sm font-medium rounded-none transition-all ${activeTab === 'global' ? 'bg-slate-800 dark:bg-slate-200 text-white dark:text-slate-900' : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-300'}`}
+            className={`flex items-center gap-2 px-3 py-1.5 text-sm font-bold rounded-sm transition-all ${activeTab === 'global' ? 'bg-white text-slate-900 dark:bg-slate-900 dark:text-white shadow-sm' : 'text-slate-300 hover:text-white dark:text-slate-600 dark:hover:text-slate-900'}`}
           >
             <Globe2 className="w-4 h-4" />
             국제기구
           </button>
           <button 
             onClick={() => setActiveTab('domestic')}
-            className={`flex items-center gap-2 px-3 py-1.5 text-sm font-medium rounded-none transition-all ${activeTab === 'domestic' ? 'bg-slate-800 dark:bg-slate-200 text-white dark:text-slate-900' : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-300'}`}
+            className={`flex items-center gap-2 px-3 py-1.5 text-sm font-bold rounded-sm transition-all ${activeTab === 'domestic' ? 'bg-white text-slate-900 dark:bg-slate-900 dark:text-white shadow-sm' : 'text-slate-300 hover:text-white dark:text-slate-600 dark:hover:text-slate-900'}`}
           >
             <Building2 className="w-4 h-4" />
             국내통계

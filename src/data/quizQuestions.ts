@@ -32,7 +32,7 @@ export const quizQuestions: QuizQuestion[] = [
   },
   {
     id: "q1_5", axis: "axis1",
-    question: "친구들과 여행 가서 밥값을 낼 때, 다 같이 똑같이 돈을 내고 똑같이 먹기보다 '돈을 더 많이 낸 사람(물주)'이 메뉴 결정권을 강력하게 가지는 게 당연하다.",
+    question: "모임에서 비용을 지출할 때, 모두가 동일하게 부담하고 권리를 나누기보다 비용을 더 많이 부담한 사람의 의견이 더 큰 비중으로 반영되는 것이 합리적이다.",
     leanYes: "M", leanNo: "G" // M(Ownership/Capital) vs G(Equality/Public)
   },
   {
@@ -54,7 +54,7 @@ export const quizQuestions: QuizQuestion[] = [
   },
   {
     id: "q2_3", axis: "axis2",
-    question: "무인도에 조난당했을 때, 사냥을 전혀 못하는 사람에게도 똑같이 식량을 분배하기보다 가장 사냥을 잘하고 튼튼한 사람에게 식량을 몰아줘서 우리 모두의 생존 확률 자체를 높여야 한다.",
+    question: "한정된 회사 예산으로 프로젝트를 진행할 때, 모든 팀에 예산을 똑같이 나누기보다 가장 성과를 낼 확률이 높은 핵심 부서에 예산을 집중 투자해 전체 회사의 이익을 극대화해야 한다.",
     leanYes: "A", leanNo: "B"
   },
   {
@@ -96,7 +96,7 @@ export const quizQuestions: QuizQuestion[] = [
   },
   {
     id: "q3_5", axis: "axis3",
-    question: "몸이 아파서 병원에 갔을 때, 의사가 불친절하더라도 엘리트 코스를 밟은 대학병원 교수님의 처방이라면 무조건 신뢰하며 군말 없이 따르는 편이다.",
+    question: "조직에서 업무 방식을 결정할 때, 절차가 다소 딱딱하더라도 오랜 기간 검증된 사내 매뉴얼과 전문가의 지침을 우선적으로 따르는 것이 안전하고 효율적이다.",
     leanYes: "R", leanNo: "W"
   },
   {
@@ -108,7 +108,7 @@ export const quizQuestions: QuizQuestion[] = [
   // 축 4: O(Outward) vs D(Defender) - 외교/안보, 동맹타겟/자주
   {
     id: "q4_1", axis: "axis4",
-    question: "직장에서 엄청나게 힘센 상사가 나를 억울하게 괴롭힐 때, 나 스스로 실력과 증거를 갈고닦아 정면승부하기보다 나를 지켜줄 수 있는 '더 높은 직급의 사람(강력한 외부 인맥)'을 끌어들여 맞선다.",
+    question: "직장에서 부당한 대우를 받을 때, 스스로의 힘으로 정면돌파하기보다 나의 입장을 대변해 줄 수 있는 외부의 강력한 조력자를 적극적으로 활용하는 편이 낫다.",
     leanYes: "O", leanNo: "D"
   },
   {
@@ -128,12 +128,139 @@ export const quizQuestions: QuizQuestion[] = [
   },
   {
     id: "q4_5", axis: "axis4",
-    question: "나와 가장 친한 단짝 친구가 다른 반 친구와 싸웠을 때, 양쪽 말을 다 들어보고 공정하고 실용적으로 중재하기보다 일단 무조건 내 단짝 친구 편을 들어 확실하게 의리를 지켜야 한다.",
+    question: "협력사와의 분쟁이 발생했을 때, 객관적인 잘잘못을 따지기에 앞서 오랫동안 신뢰를 쌓아온 우리 측 파트너를 먼저 보호하고 지지하는 것이 당연하다.",
     leanYes: "O", leanNo: "D" // O (Alliance priority), D (Balancing/Pragmatic)
   },
   {
     id: "q4_6", axis: "axis4",
-    question: "회사 내 두 거대 파벌 사이에서, 나와 가치관이 맞는 한쪽에 확실히 줄을 서서 끈끈하게 의리를 지키기보다, 어느 쪽과도 엮이지 않고 상황에 따라 내게 이득이 되는 실리만 쏙쏙 챙기는 것이 현명하다.",
+    question: "상충하는 두 조직 사이에서 한쪽을 선택해 소속감을 다지기보다는, 특정 세력에 얽매이지 않고 사안별로 철저하게 실용적인 이익을 추구하는 것이 현명하다.",
+    leanYes: "D", leanNo: "O"
+  },
+  // Axis 1 추가 문항 (경제/산업)
+  {
+    id: "q1_7", axis: "axis1",
+    question: "세입자 보호를 위해 정부가 임대료 인상률을 강제로 제한하는 것은 부작용이 있더라도 꼭 필요한 조치다.",
+    leanYes: "G", leanNo: "M"
+  },
+  {
+    id: "q1_8", axis: "axis1",
+    question: "적자 구조의 공기업이라도 국민 필수 서비스라면 요금을 올려서 수익을 내기보다 국가가 세금으로 적자를 메워야 한다.",
+    leanYes: "G", leanNo: "M"
+  },
+  {
+    id: "q1_9", axis: "axis1",
+    question: "대형 마트가 주말에 의무적으로 문을 닫게 하는 것은 소비자 불편을 초래하므로 폐지해야 한다.",
+    leanYes: "M", leanNo: "G"
+  },
+  {
+    id: "q1_10", axis: "axis1",
+    question: "환경 보호를 위해 기업에게 막대한 탄소세를 부과하면 경제 성장이 둔화되더라도 감수해야 한다.",
+    leanYes: "G", leanNo: "M"
+  },
+  {
+    id: "q1_11", axis: "axis1",
+    question: "다주택자에게 무거운 세금을 매기는 것은 자본주의의 기본 원칙을 훼손하는 지나친 처사다.",
+    leanYes: "M", leanNo: "G"
+  },
+  {
+    id: "q1_12", axis: "axis1",
+    question: "최저임금은 경제 상황과 무관하게 근로자의 최소한의 인간다운 삶을 위해 지속적으로 인상되어야 한다.",
+    leanYes: "G", leanNo: "M"
+  },
+  
+  // Axis 2 추가 문항 (성장/분배, 복지/노동)
+  {
+    id: "q2_7", axis: "axis2",
+    question: "국가 R&D 예산을 배분할 때, 성공 가능성이 낮은 다양한 기초과학 분야에 고루 나누기보다 당장 돈이 되는 핵심 기술에 몰아주어야 한다.",
+    leanYes: "A", leanNo: "B"
+  },
+  {
+    id: "q2_8", axis: "axis2",
+    question: "기업이 위기에 처해 구조조정이 불가피할 때, 효율성을 위해 해고를 유연하게 허용해야 한다.",
+    leanYes: "A", leanNo: "B"
+  },
+  {
+    id: "q2_9", axis: "axis2",
+    question: "복지 예산을 늘리는 것보다 그 돈으로 인프라나 산업에 투자하여 국가 전체의 파이를 키우는 것이 우선이다.",
+    leanYes: "A", leanNo: "B"
+  },
+  {
+    id: "q2_10", axis: "axis2",
+    question: "비정규직의 정규직화는 기업의 인건비 부담을 늘려 결국 국가 경쟁력을 떨어뜨릴 것이다.",
+    leanYes: "A", leanNo: "B"
+  },
+  {
+    id: "q2_11", axis: "axis2",
+    question: "부의 재분배보다는 성장을 통한 '낙수효과'를 기대하는 것이 더 현실적인 경제 정책이다.",
+    leanYes: "A", leanNo: "B"
+  },
+  {
+    id: "q2_12", axis: "axis2",
+    question: "경제가 조금 덜 성장하더라도 빈부격차가 줄어들고 사회 안전망이 튼튼해지는 것이 더 중요하다.",
+    leanYes: "B", leanNo: "A"
+  },
+
+  // Axis 3 추가 문항 (사회/문화, 규범/혁신)
+  {
+    id: "q3_7", axis: "axis3",
+    question: "사형제도는 범죄 억제와 사회 정의 실현을 위해 반드시 유지되거나 강력하게 집행되어야 한다.",
+    leanYes: "R", leanNo: "W"
+  },
+  {
+    id: "q3_8", axis: "axis3",
+    question: "동성혼 합법화나 포괄적 차별금지법 제정은 사회의 전통적 가치를 훼손하므로 반대한다.",
+    leanYes: "R", leanNo: "W"
+  },
+  {
+    id: "q3_9", axis: "axis3",
+    question: "학생의 인권만큼이나 교권과 학교의 엄격한 규율이 바로 서야 올바른 교육 현장이 유지된다.",
+    leanYes: "R", leanNo: "W"
+  },
+  {
+    id: "q3_10", axis: "axis3",
+    question: "대마초 합법화나 안락사 허용 등 개인의 신체적 자유와 결정권은 국가가 개입하지 말고 최대한 존중받아야 한다.",
+    leanYes: "W", leanNo: "R"
+  },
+  {
+    id: "q3_11", axis: "axis3",
+    question: "과거의 낡은 헌법이나 제도는 현재 시대에 맞지 않다면 절차가 복잡하더라도 과감하게 뜯어고쳐야 한다.",
+    leanYes: "W", leanNo: "R"
+  },
+  {
+    id: "q3_12", axis: "axis3",
+    question: "범죄자의 인권보다 강력한 처벌과 격리를 통한 시민의 안전 확보가 절대적으로 우선되어야 한다.",
+    leanYes: "R", leanNo: "W"
+  },
+
+  // Axis 4 추가 문항 (외교/안보, 동맹/자주)
+  {
+    id: "q4_7", axis: "axis4",
+    question: "미국 등 가치를 공유하는 전통적 동맹국과의 관계를 강화하는 것이 중국/러시아와의 실리적 외교보다 더 중요하다.",
+    leanYes: "O", leanNo: "D"
+  },
+  {
+    id: "q4_8", axis: "axis4",
+    question: "적대국(예: 북한)에 대해서는 무조건적인 대화와 타협보다는 제재와 압박을 통해 굴복시키는 원칙적인 접근이 필요하다.",
+    leanYes: "O", leanNo: "D"
+  },
+  {
+    id: "q4_9", axis: "axis4",
+    question: "국제 사회에서 강대국들의 눈치를 보기보다는 대한민국의 독자적인 목소리를 내고 자주국방을 실현해야 한다.",
+    leanYes: "D", leanNo: "O"
+  },
+  {
+    id: "q4_10", axis: "axis4",
+    question: "주변 강대국들의 갈등 속에서 우리는 한쪽에 치우치지 않는 철저한 '균형 외교'를 유지해야 살아남을 수 있다.",
+    leanYes: "D", leanNo: "O"
+  },
+  {
+    id: "q4_11", axis: "axis4",
+    question: "우방국이 방위비 대폭 인상 등 부당한 요구를 해오더라도, 동맹의 굳건함을 위해 어느 정도는 수용하는 것이 장기적으로 이득이다.",
+    leanYes: "O", leanNo: "D"
+  },
+  {
+    id: "q4_12", axis: "axis4",
+    question: "역사적 과거사 문제(일본 등)가 아직 완전히 해결되지 않았더라도, 현재의 경제적/안보적 실익을 위해 과감하게 협력해야 한다.",
     leanYes: "D", leanNo: "O"
   }
 ];

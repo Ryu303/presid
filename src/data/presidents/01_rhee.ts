@@ -70,11 +70,30 @@ export const rhee: President = {
       glossary: [
         {
           term: "농지개혁",
-          description: "지주가 소유한 토지를 국가가 유상 매수하여 소작농에게 유상 분배한 정책으로, 지주제를 해체하고 자영농을 육성했습니다."
+          description: "지주가 소유한 토지를 국가가 매수하여 소작농에게 분배한 정책으로, 지주제를 해체하고 자영농을 육성했습니다."
+        },
+        {
+          term: "유상매수",
+          description: "국가가 지주로부터 토지를 강제로 빼앗는 무상몰수가 아닌, 지가증권을 발급하여 정당한 대가를 지불하고 토지를 사들인 방식입니다."
+        },
+        {
+          term: "유상분배",
+          description: "농민이 국가로부터 토지를 무상으로 받는 것이 아니라, 평년 수확량의 30%를 5년간 상환하는 조건으로 토지 소유권을 넘겨받은 방식입니다."
+        },
+        {
+          term: "발췌개헌",
+          description: "1952년 6.25 전쟁 중 부산 임시수도에서, 이승만 대통령이 재집권을 위해 야당 의원들을 구금한 상태에서 통과시킨 대통령 직선제 개헌입니다."
+        },
+        {
+          term: "초등 의무교육",
+          description: "1949년 교육법 제정을 통해 초등교육 6년을 전 국민 의무교육으로 규정하여, 국가 문맹률을 획기적으로 낮추는 계기가 되었습니다."
+        },
+        {
+          term: "자영농",
+          description: "자신의 소유 토지에서 직접 농사를 짓는 농민을 의미하며, 농지개혁을 통해 과거 소작농들이 대부분 자영농으로 전환되었습니다."
         }
       ],
-        lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
-        frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
+      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (박정희 정부 경제개발)" },
         mediaSnapshot: {
                     date: "1949.06.22",
                     conservative: { headline: "농지개혁안 통과, 지주층 막대한 타격 불가피", source: "동아일보" },
@@ -112,8 +131,25 @@ export const rhee: President = {
           { name: "미국 무상경제원조액 (1953-1960)", value: "약 17억 달러", source: "USAID", reportName: "US Overseas Loans and Grants" }
         ]
       },
-        lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
-        frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
+      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (박정희 정부 파병 및 한미동맹 강화)" },
+      glossary: [
+        {
+          term: "한미상호방위조약",
+          description: "1953년 10월 워싱턴에서 체결된 한미 간의 군사동맹 조약으로, 외부의 무력 공격에 대해 상호 원조하고 미군의 한국 주둔을 허용하는 안보의 핵심축입니다."
+        },
+        {
+          term: "반공포로 석방",
+          description: "1953년 6월, 이승만 대통령이 휴전 협정에 반대하며 미군 통제하에 있던 거제도 등지의 반공포로 약 2만 7천 명을 독단적으로 전격 석방한 사건입니다."
+        },
+        {
+          term: "냉전 체제",
+          description: "제2차 세계대전 이후 미국 중심의 자본주의 진영과 소련 중심의 공산주의 진영이 무력 충돌 없이 정치, 경제, 이념적으로 대립하던 세계 질서를 말합니다."
+        },
+        {
+          term: "작전통제권(전시)",
+          description: "전쟁 등 비상사태 발생 시 군대의 작전을 지휘하고 통제할 수 있는 권한으로, 6.25 전쟁 당시 이승만 대통령이 유엔군 사령관에게 이양한 이후 현재까지 한미연합사령관이 행사하고 있습니다."
+        }
+      ],
         mediaSnapshot: {
                     date: "1953.10.02",
                     conservative: { headline: "한미상호방위조약 조인, 북진통일 단념 아쉬워", source: "조선일보" },
@@ -175,9 +211,9 @@ export const rhee: President = {
     },
     {
       title: "의무교육 제도 확립",
-      description: "1949년 교육법 제정으로 마련된 초등 의무교육 체도는 현재 무상교육 12년 체계의 출발점이 됨.",
-      source: "교육부 교육법력 연혁"
+      description: "1949년 교육법 제정으로 마련된 초등 의무교육 제도는 현재 무상교육 12년 체계의 출발점이 됨.",
+      source: "교육부 교육법령 연혁"
     }
   ],
-    cabinetRisk: { avgTenureMonths: 15, initialDropoutRate: 20 }
+  cabinetRisk: { avgTenureMonths: 14, initialDropoutRate: 0 }
 };

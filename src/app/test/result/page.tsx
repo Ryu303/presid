@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { presidentsData } from "@/data/presidents";
-import { Share2, RefreshCw, CheckCircle2, ArrowRight } from "lucide-react";
+import { Share2, RefreshCw, CheckCircle2, ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { Suspense, useState, useEffect } from "react";
 import PersonaResultCard from "@/components/ui/PersonaResultCard";
@@ -14,7 +14,7 @@ function ResultContent() {
   const [url, setUrl] = useState("");
   const [myDna, setMyDna] = useState<string | null>(null);
   
-  const dna = searchParams.get("dna") || "MAWO";
+  const dna = (searchParams.get("dna") || "MAWO").toUpperCase().substring(0, 4);
 
   const getPseudoScores = (dnaStr: string) => {
     const isM = dnaStr[0] === 'M';
@@ -70,7 +70,7 @@ function ResultContent() {
       {/* 공유된 링크로 들어온 경우 (내 결과가 아니거나 아예 안 해본 경우) 안내 배너 */}
       {myDna !== dna && (
         <div className="bg-blue-500 text-white text-center p-3 md:p-4 mb-8 text-sm md:text-base font-bold animate-in slide-in-from-top-4 fade-in">
-          이것은 공유받은 성향 분석 결과입니다. 당신의 정치 DNA는 무엇인가요? 
+          이것은 공유받은 성향 분석 결과입니다. 당신의 PPTI는 무엇인가요? 
           <Link href="/test" className="ml-3 inline-block px-3 py-1 bg-white text-blue-600 rounded-sm hover:scale-105 transition-transform">
             나도 테스트하기
           </Link>
@@ -78,8 +78,8 @@ function ResultContent() {
       )}
 
       <div className="text-center mb-12">
-        <h1 className="text-3xl md:text-5xl font-serif font-black text-slate-900 dark:text-white mb-6 animate-in slide-in-from-bottom-4 fade-in duration-500">
-          분석 완료! 당신의 DNA는? 🎉
+        <h1 className="text-3xl md:text-5xl font-serif font-black text-slate-900 dark:text-white mb-6 animate-in slide-in-from-bottom-4 fade-in duration-500 flex items-center justify-center gap-3">
+          분석 완료! 당신의 PPTI는? <Sparkles className="w-8 h-8 md:w-10 md:h-10 text-amber-500" />
         </h1>
         <p className="text-slate-600 dark:text-slate-400 text-lg">
           일상의 소소한 선택들이 모여 만들어진 당신만의 핵심 가치관입니다.
@@ -115,19 +115,19 @@ function ResultContent() {
               href={`/presidents/${p.id}`}
               className="bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-slate-500 dark:hover:border-slate-400 rounded-sm p-6 flex flex-col transition-transform hover:-translate-y-1 shadow-sm"
             >
-              <div className="flex justify-between items-center mb-4">
-                <div className="flex items-center gap-3">
-                  <span className="text-xl font-bold text-slate-900 dark:text-white">{p.name} 정부</span>
-                  <span className="text-xs text-slate-500 bg-slate-100 dark:bg-slate-900 px-2 py-1 rounded-sm font-mono">{p.term}</span>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 mb-4">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-xl font-bold text-slate-900 dark:text-white break-keep">{p.name} 정부</span>
+                  <span className="text-xs text-slate-500 bg-slate-100 dark:bg-slate-900 px-2 py-1 rounded-sm font-mono whitespace-nowrap">{p.term}</span>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 shrink-0">
                   <div className="w-24 h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
                     <div 
                       className="h-full bg-slate-900 dark:bg-slate-300"
                       style={{ width: `${p.matchPercent}%` }}
                     />
                   </div>
-                  <span className="font-bold text-slate-900 dark:text-white text-sm">{p.matchPercent}%</span>
+                  <span className="font-bold text-slate-900 dark:text-white text-sm whitespace-nowrap">{p.matchPercent}%</span>
                 </div>
               </div>
               <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed border-t border-slate-100 dark:border-slate-700/50 pt-4 mt-2">
@@ -145,19 +145,19 @@ function ResultContent() {
             href={`/presidents/${bottomMatch.id}`}
             className="bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-600 rounded-sm p-6 flex flex-col transition-transform hover:-translate-y-1 shadow-sm opacity-80 hover:opacity-100"
           >
-            <div className="flex justify-between items-center mb-4">
-              <div className="flex items-center gap-3">
-                <span className="text-xl font-bold text-slate-900 dark:text-white">{bottomMatch.name} 정부</span>
-                <span className="text-xs text-slate-500 bg-slate-200 dark:bg-slate-800 px-2 py-1 rounded-sm font-mono">{bottomMatch.term}</span>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 mb-4">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-xl font-bold text-slate-900 dark:text-white break-keep">{bottomMatch.name} 정부</span>
+                <span className="text-xs text-slate-500 bg-slate-200 dark:bg-slate-800 px-2 py-1 rounded-sm font-mono whitespace-nowrap">{bottomMatch.term}</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 shrink-0">
                 <div className="w-24 h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
                   <div 
                     className="h-full bg-slate-400 dark:bg-slate-600"
                     style={{ width: `${bottomMatch.matchPercent}%` }}
                   />
                 </div>
-                <span className="font-bold text-slate-500 dark:text-slate-400 text-sm">{bottomMatch.matchPercent}%</span>
+                <span className="font-bold text-slate-500 dark:text-slate-400 text-sm whitespace-nowrap">{bottomMatch.matchPercent}%</span>
               </div>
             </div>
             <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed border-t border-slate-200 dark:border-slate-800/50 pt-4 mt-2">
@@ -166,24 +166,24 @@ function ResultContent() {
           </Link>
         </div>
       </div>
-      <div className="flex flex-col md:flex-row justify-center gap-4">
+      <div className="flex flex-col md:flex-row justify-center gap-3 md:gap-4 px-4 md:px-0">
         <button 
           onClick={handleShare}
-          className="flex items-center justify-center gap-2 px-8 py-4 rounded-sm bg-slate-900 dark:bg-slate-200 text-white dark:text-slate-900 font-bold hover:bg-slate-800 dark:hover:bg-white transition-colors shadow-none"
+          className="w-full md:w-auto flex items-center justify-center gap-2 px-6 md:px-8 py-3 md:py-4 rounded-sm bg-slate-900 dark:bg-slate-200 text-white dark:text-slate-900 font-bold hover:bg-slate-800 dark:hover:bg-white transition-colors shadow-none"
         >
           {copied ? <CheckCircle2 className="w-5 h-5 text-white dark:text-slate-900" /> : <Share2 className="w-5 h-5 text-slate-300 dark:text-slate-700" />}
           {copied ? "링크 복사 완료" : "결과 공유하기"}
         </button>
         <Link 
           href="/test"
-          className="flex items-center justify-center gap-2 px-8 py-4 rounded-sm bg-transparent border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-bold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shadow-none"
+          className="w-full md:w-auto flex items-center justify-center gap-2 px-6 md:px-8 py-3 md:py-4 rounded-sm bg-transparent border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-bold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shadow-none"
         >
           <RefreshCw className="w-5 h-5" />
           테스트 다시하기
         </Link>
         <Link 
           href="/timeline"
-          className="flex items-center justify-center gap-2 px-8 py-4 rounded-sm bg-blue-600 dark:bg-blue-500 text-white font-bold hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors shadow-none"
+          className="w-full md:w-auto flex items-center justify-center gap-2 px-6 md:px-8 py-3 md:py-4 rounded-sm bg-blue-600 dark:bg-blue-500 text-white font-bold hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors shadow-none"
         >
           각 대통령 정책 알아보기
           <ArrowRight className="w-5 h-5" />
@@ -196,12 +196,7 @@ function ResultContent() {
 export default function ResultPage() {
   return (
     <main className="flex flex-col min-h-screen bg-slate-50 dark:bg-slate-950 font-sans transition-colors duration-300 text-slate-900 dark:text-slate-100">
-      <header className="p-6 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center bg-white/80 dark:bg-[#121212]/80 backdrop-blur-md sticky top-0 z-50">
-        <Link href="/" className="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
-          <div className="w-8 h-8 bg-slate-900 dark:bg-white rounded-sm flex items-center justify-center text-white dark:text-slate-900 font-sans text-sm shadow-none transition-transform">PT</div>
-          PresiTrack
-        </Link>
-      </header>
+
       
       <section className="flex-1 p-6 md:p-12">
         <Suspense fallback={<div className="text-center text-slate-500 py-20 font-bold">나의 DNA 분석 중...</div>}>

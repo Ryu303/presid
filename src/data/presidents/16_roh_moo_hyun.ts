@@ -62,22 +62,29 @@ export const rohMooHyun: President = {
         {
           term: "종합부동산세",
           description: "부동산 투기 억제를 목적으로 일정 금액 이상의 부동산(주택 및 토지) 보유자에게 누진세율을 적용하여 부과하는 국세입니다."
+        },
+        {
+          term: "혁신도시",
+          description: "수도권 과밀화를 해소하고 국가균형발전을 도모하기 위해 수도권에 있는 공공기관들을 지방으로 이전하여 새롭게 조성한 도시입니다."
+        },
+        {
+          term: "관습헌법",
+          description: "성문화된 헌법전에는 명시되어 있지 않으나 오랜 기간 국민들 사이에서 헌법적 효력을 가진 것으로 인정되어 온 불문 헌법 규범을 말합니다. 헌법재판소는 이 논리로 신행정수도 특별법에 위헌 결정을 내렸습니다."
         }
       ],
       crossAnalysis: {
         linkedEvent: {
           date: "2000년대 중반",
-          name: "저금리 기조 및 전 세계적 유동성 팽창 (부동산 활황기)",
-          description: "닷컴버블 붕괴 이후 글로벌 저금리 기조가 이어지며 시중에 돈이 풀리고 자산 가격이 전 세계적으로 폭등하던 시기.",
+          name: "글로벌 유동성 증가 및 집값 상승기",
+          description: "닷컴버블 붕괴 이후 글로벌 저금리 기조가 이어지며 시중에 돈이 풀리고 자산 가격이 전 세계적으로 크게 상승하던 시기.",
           source: "한국은행"
         },
         interpretationGuide: {
-          viewpoint1: "부동산 폭등이라는 시대적 거품에 맞서 종합부동산세를 도입함으로써 조세 형평성을 맞추고 투기 억제를 시도한 용기 있는 정책이었다는 해석.",
-          viewpoint2: "자산 시장의 자연스러운 흐름을 무리한 징벌적 세금으로 억누르려다 조세 저항만 키우고 결과적으로 집값 안정에도 실패했다는 해석."
+          viewpoint1: "부동산 가격 급등이라는 시대적 거품에 맞서 종합부동산세를 도입함으로써 조세 형평성을 맞추고 투기 억제를 시도한 용기 있는 정책이었다는 해석.",
+          viewpoint2: "자산 시장의 자연스러운 흐름을 강도 높은 조세 정책으로 억누르려다 조세 저항만 키우고 결과적으로 집값 안정에도 실패했다는 해석."
         }
       },
-        lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
-        frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
+      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
         mediaSnapshot: {
                     date: "2004.10.22",
                     conservative: { headline: "헌재, 신행정수도 위헌 결정… 국가 백년대계 혼란 자초", source: "조선일보" },
@@ -121,8 +128,21 @@ export const rohMooHyun: President = {
           { name: "민주주의 지수 (2008)", value: "완전한 민주주의(Full Democracy) 분류", source: "The Economist Intelligence Unit", reportName: "Democracy Index" }
         ]
       },
-        lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
-        frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
+      glossary: [
+        {
+          term: "한미 FTA",
+          description: "한국과 미국 간의 상품 및 서비스 교역에서 관세 및 무역 장벽을 철폐하기 위해 맺은 자유무역협정입니다."
+        },
+        {
+          term: "전시작전통제권",
+          description: "전쟁이 발발했을 때 군대의 작전을 지휘하고 통제할 수 있는 권한으로, 한국전쟁 이후 한미연합사령관이 행사해왔으나 노무현 정부 시기 단독 행사를 위한 환수 추진이 본격화되었습니다."
+        },
+        {
+          term: "제왕적 대통령제",
+          description: "대통령 1인에게 권력이 과도하게 집중되어 헌법이 규정한 권한 이상으로 군림하는 한국의 대통령제 구조를 비판적으로 일컫는 용어입니다."
+        }
+      ],
+      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
         mediaSnapshot: {
                     date: "2007.04.03",
                     conservative: { headline: "한미 FTA 체결, 농업 희생양 삼은 굴욕적 졸속 협상", source: "경향신문" },
@@ -158,8 +178,8 @@ export const rohMooHyun: President = {
     },
     {
       promise: "부동산 투기 억제 및 집값 안정화",
-      target: "종합부동산세 등 강력한 정책 시행",
-      result: "종합부동산세 도입(2005년)에도 불구하고 임기 중 집값 연평균 10% 이상 폭등 지속",
+      target: "강력한 투기 억제 및 서민 주거 안정 달성",
+      result: "종합부동산세 도입(2005년)에도 불구하고 임기 중 집값 연평균 10% 이상 크게 상승 지속",
       status: "failed",
       source: "KB국민은행 주택가격동향"
     },
@@ -191,5 +211,5 @@ export const rohMooHyun: President = {
       source: "법무부"
     }
   ],
-    cabinetRisk: { avgTenureMonths: 15, initialDropoutRate: 20 }
+  cabinetRisk: { avgTenureMonths: 14, initialDropoutRate: 0 }
 };

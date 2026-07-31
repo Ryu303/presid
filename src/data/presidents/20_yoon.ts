@@ -10,7 +10,7 @@ export const yoon: President = {
     { country: "일본", leader: "기시다 후미오", term: "2021-2024" },
     { country: "북한", leader: "김정은", term: "2011-현재" }
   ],
-  cabinetRisk: { avgTenureMonths: 16.4, initialDropoutRate: 25 },
+  cabinetRisk: { avgTenureMonths: 16, initialDropoutRate: 0 },
   policies: [
     {
       id: "ysy-foreign-alliance",
@@ -19,7 +19,6 @@ export const yoon: President = {
       valueTag: "pro-market",
       
       lineage: { prev: "한반도 운전자론 (문재인 정부)" },
-      frictionIndex: { veto: 9, filibusterHours: 240, strikeDays: 60 },
       mediaSnapshot: {
         date: "2023.03.17",
         conservative: { headline: "한일관계 12년 만에 정상화... 한미일 안보 협력 완성", source: "조선일보" },
@@ -80,6 +79,14 @@ export const yoon: President = {
       },
       glossary: [
         {
+          term: "워싱턴 선언",
+          description: "2023년 한미정상회담에서 채택된 선언으로, 미국의 확장억제(핵우산)를 강화하기 위해 한미 핵협의그룹(NCG)을 신설하는 내용이 핵심입니다."
+        },
+        {
+          term: "제3자 변제안",
+          description: "일제 강제동원 피해자 배상 문제에 대해, 일본 전범 기업 대신 한국의 일제강제동원피해자지원재단이 배상금을 대신 지급하는 방식입니다."
+        },
+        {
           term: "건전재정",
           description: "국가 채무 비율을 안정적으로 관리하고 방만한 재정 지출을 억제하여 재정의 지속가능성을 확보하려는 기조입니다."
         }
@@ -118,8 +125,21 @@ export const yoon: President = {
           { name: "재생에너지 발전 비중", value: "OECD 국가 중 최하위 수준 머묾", source: "IEA", reportName: "World Energy Balances" }
         ]
       },
-        lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
-        frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
+      glossary: [
+        {
+          term: "RE100",
+          description: "기업이 사용하는 전력의 100%를 태양광, 풍력 등 재생에너지로 충당하겠다는 글로벌 캠페인으로, 원자력은 포함되지 않아 수출 기업들의 과제로 떠오르고 있습니다."
+        },
+        {
+          term: "고준위 방사성 폐기물",
+          description: "원자력 발전 후 남은 사용후핵연료 등 방사선 세기가 매우 강한 폐기물로, 영구 처분장 부지 선정이 한국 원전 정책의 최대 난제 중 하나입니다."
+        },
+        {
+          term: "체코 원전 수주",
+          description: "2024년 한국수력원자력 컨소시엄이 체코 신규 원전 건설 사업의 우선협상대상자로 선정되어 한국형 원전의 우수성을 입증한 사건입니다."
+        }
+      ],
+      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
         mediaSnapshot: {
                     date: "YYYY.MM.DD",
                     conservative: { headline: "관련 보도 데이터 수집 중...", source: "보수 매체" },

@@ -76,10 +76,17 @@ export const chun: President = {
         {
           term: "3저 호황",
           description: "1980년대 중반 글로벌 경제 환경에서 나타난 저금리, 저유가, 저달러 현상을 말합니다. 이 세 가지 유리한 조건 덕분에 한국 경제는 유례없는 고도 성장과 경상수지 흑자를 기록할 수 있었습니다."
+        },
+        {
+          term: "오일쇼크",
+          description: "1970년대 두 차례에 걸쳐 중동 산유국들이 석유 가격을 급인상하면서 발생한 전 세계적인 경제 충격으로, 한국도 극심한 물가 상승과 마이너스 성장을 겪었습니다."
+        },
+        {
+          term: "야간통행금지 해제",
+          description: "광복 직후인 1945년부터 치안 유지를 이유로 실시되던 야간 통행 금지를 1982년에 전면 해제한 조치로, 심야 경제 활동과 소비 활성화에 기여했습니다."
         }
       ],
-        lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
-        frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
+      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
         mediaSnapshot: {
                     date: "1981.01.05",
                     conservative: { headline: "강력한 물가 억제책, 서민 경제 압박과 기업 위축 우려", source: "동아일보" },
@@ -119,8 +126,17 @@ export const chun: President = {
           { name: "88 올림픽 참가국", value: "159개국 (동서 냉전 후 최다)", source: "IOC", reportName: "Olympic Games Report" }
         ]
       },
-        lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
-        frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
+      glossary: [
+        {
+          term: "3S 정책",
+          description: "신군부 정권이 국민의 정치적 비판 의식을 무마하고 관심을 돌리기 위해 추진한 Screen(영화), Sports(스포츠), Sex(성 개방) 장려 정책을 비판적으로 이르는 말입니다."
+        },
+        {
+          term: "프로스포츠 창설",
+          description: "1982년 프로야구, 1983년 프로축구 등 대기업을 연고지로 한 프로 구단을 창설하여 국민들에게 새로운 오락거리를 제공한 정책입니다."
+        }
+      ],
+      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
         mediaSnapshot: {
                     date: "1981.10.01",
                     conservative: { headline: "88 올림픽 유치 성공, 막대한 재정 부담 어찌할 텐가", source: "동아일보" },
@@ -159,8 +175,17 @@ export const chun: President = {
           { name: "아시아 최저임금 도입 속도", value: "일본, 대만 등에 이어 비교적 늦은 도입", source: "ILO", reportName: "Minimum Wage Systems" }
         ]
       },
-        lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
-        frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
+      glossary: [
+        {
+          term: "최저임금제",
+          description: "국가가 노사 간의 임금 결정 과정에 개입하여 임금의 최저 수준을 정하고, 사용자에게 이 수준 이상의 임금을 지급하도록 법으로 강제하는 제도입니다."
+        },
+        {
+          term: "국민복지연금법",
+          description: "1973년 제정되었으나 오일쇼크로 시행이 유보되었던 법으로, 전두환 정부에서 국민연금법으로 개정되어 1988년부터 10인 이상 사업장을 대상으로 본격 시행되었습니다."
+        }
+      ],
+      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
         mediaSnapshot: {
                     date: "1986.12.31",
                     conservative: { headline: "최저임금법 제정, 중소기업 도산 사태 촉발 우려", source: "한국경제" },
@@ -183,7 +208,7 @@ export const chun: President = {
     {
       promise: "물가 안정 및 경제 안정성 확보",
       target: "단임년도 소비자물가 하락률 한자리대",
-      result: "1983년 3.4%, 1984년 2.3%로 안정. 단 1980년 28.7% 폭등으로 시작하여 정상화 실현",
+      result: "1983년 3.4%, 1984년 2.3%로 안정. 단 1980년 28.7% 급등으로 시작하여 정상화 실현",
       status: "partial",
       source: "통계청 소비자물가지수"
     },
@@ -227,5 +252,5 @@ export const chun: President = {
       source: "노동부 / 최저임금위원회"
     }
   ],
-    cabinetRisk: { avgTenureMonths: 15, initialDropoutRate: 20 }
+  cabinetRisk: { avgTenureMonths: 12, initialDropoutRate: 0 }
 };

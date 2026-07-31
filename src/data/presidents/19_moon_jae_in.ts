@@ -10,7 +10,7 @@ export const moonJaeIn: President = {
     { country: "일본", leader: "아베 신조 / 스가 요시히데", term: "2012-2021" },
     { country: "북한", leader: "김정은", term: "2011-현재" }
   ],
-  cabinetRisk: { avgTenureMonths: 19.8, initialDropoutRate: 15 },
+  cabinetRisk: { avgTenureMonths: 20, initialDropoutRate: 0 },
   policies: [
     {
       id: "mji-income-led",
@@ -24,7 +24,6 @@ export const moonJaeIn: President = {
       ],
       
       lineage: { prev: "창조경제 (박근혜 정부)", next: "신성장 4.0 (윤석열 정부)" },
-      frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 28 },
       mediaSnapshot: {
                   date: "2017.07.16",
                   conservative: { headline: "최저임금 16.4% 파격 인상, 영세 자영업자 벼랑 끝으로", source: "한국경제" },
@@ -45,7 +44,7 @@ export const moonJaeIn: President = {
         { content: "아동수당 도입, 기초연금 인상 등 포용적 복지 확대를 통해 사회 안전망을 크게 강화함", source: "보건사회연구원" }
       ],
       cons: [
-        { content: "최저임금의 급격한 인상으로 영세 자영업자와 소상공인의 인건비 부담이 폭증하여 한계 상황에 내몰림", source: "중소기업중앙회" },
+        { content: "최저임금의 급격한 인상으로 영세 자영업자와 소상공인의 인건비 부담이 크게 증가함", source: "중소기업중앙회" },
         { content: "인건비 부담을 느낀 기업들이 고용을 축소하거나 무인화 기기(키오스크)로 대체하여 저숙련 일자리가 오히려 감소함", source: "KDI 경제동향보고서" },
         { content: "주 52시간제가 획일적으로 적용되어 탄력근로제가 필요한 R&D 및 뿌리산업 현장의 유연성을 저해함", source: "한국경제연구원" }
       ],
@@ -87,6 +86,14 @@ export const moonJaeIn: President = {
         {
           term: "소득주도성장",
           description: "가계의 임금과 소득을 인상하여 소비를 촉진하고, 이를 통해 내수 활성화와 경제 성장을 달성하겠다는 거시경제 정책입니다."
+        },
+        {
+          term: "주 52시간 근무제",
+          description: "일주일 최대 근로 시간을 법정 근로 40시간과 연장 근로 12시간을 합쳐 52시간으로 제한하여 장시간 노동 관행을 없애려는 제도입니다."
+        },
+        {
+          term: "탄력근로제",
+          description: "특정 주나 특정 일의 근무 시간을 늘리는 대신 다른 날의 근무 시간을 줄여 일정 기간 평균 근로 시간을 주 52시간 내로 맞추는 유연 근무 제도입니다."
         }
       ]
     },
@@ -96,7 +103,7 @@ export const moonJaeIn: President = {
       category: "부동산/주거",
       valueTag: "pro-welfare",
       context: {
-        content: "저금리 기조와 풍부한 유동성 장세 속에서 폭등하는 수도권 집값 안정화 및 무주택 서민 주거권 보호 필요",
+        content: "저금리 기조와 풍부한 유동성 장세 속에서 크게 상승하는 수도권 집값 안정화 및 무주택 서민 주거권 보호 필요",
         source: "국토교통부 주거종합계획"
       },
       legislationFacts: [
@@ -107,12 +114,12 @@ export const moonJaeIn: President = {
       ],
       pros: [
         { content: "임대차 3법 도입으로 세입자가 2+2년의 거주 기간을 보장받게 되어 단기적인 주거 안정성이 획기적으로 높아짐", source: "국토연구원" },
-        { content: "다주택자에 대한 징벌적 과세와 갭투자 방지책을 통해 부동산 투기 수요를 억제하려는 강력한 정책 의지를 보임", source: "한국주택학회" },
+        { content: "다주택자에 대한 중과세와 갭투자 방지책을 통해 부동산 투기 수요를 억제하려는 강력한 정책 의지를 보임", source: "한국주택학회" },
         { content: "공공임대주택 100만 호 공급 목표를 조기 달성하여 무주택 서민과 청년층을 위한 주거 안전망을 확충함", source: "LH 토지주택연구원" }
       ],
       cons: [
-        { content: "20번이 넘는 규제 대책에도 불구하고 징벌적 세금 정책이 매물 잠김을 유발하여 서울 집값이 폭등하는 역효과 초래", source: "부동산114 통계" },
-        { content: "임대차 3법 시행 직후 전세 매물이 급감하며 전셋값이 폭등하는 전세 매물 급감 및 가격 상승으로 임대차 시장의 불안정성 확대", source: "한국은행 경제전망보고서" },
+        { content: "다수의 규제 대책과 조세 강화 정책이 매물 감소를 유발하여 결과적으로 서울 집값이 크게 상승하는 역효과 초래", source: "부동산114 통계" },
+        { content: "임대차 3법 시행 직후 전세 매물이 급감하고 전셋값이 크게 상승하여 임대차 시장의 불안정성 확대", source: "한국은행 경제전망보고서" },
         { content: "임기 초반 공급 부족을 부인하고 수요 억제에만 집중하다가 뒤늦게 공급 대책(2.4 대책)으로 선회하여 실기했다는 비판", source: "KDI 정책평가" }
       ],
       indicators: {
@@ -124,8 +131,21 @@ export const moonJaeIn: President = {
           { name: "PIR(가구소득 대비 주택가격 비율, 서울)", value: "급격한 상승세 지속", source: "Numbeo / KB", reportName: "Property Prices Index" }
         ]
       },
-        lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
-        frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
+      glossary: [
+        {
+          term: "임대차 3법",
+          description: "세입자 보호를 위해 도입된 전월세신고제, 전월세상한제(인상률 5% 제한), 계약갱신청구권제(2+2년 거주 보장)를 묶어 부르는 말입니다."
+        },
+        {
+          term: "갭투자",
+          description: "전세가와 매매가의 차이(Gap)가 적은 주택을 전세를 끼고 매입하여 시세 차익을 노리는 부동산 투자 방식입니다."
+        },
+        {
+          term: "양도세 중과",
+          description: "부동산을 팔아 얻은 양도 차익에 대해 세금을 부과할 때, 다주택자에게는 기본 세율보다 훨씬 높은 누진 세율을 적용하여 매매 차익을 회수하려는 징벌적 세금 정책입니다."
+        }
+      ],
+      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
         mediaSnapshot: {
                     date: "2020.07.31",
                     conservative: { headline: "임대차 3법 강행 처리, 전세 씨 마르고 시장 대혼란 초래", source: "조선일보" },

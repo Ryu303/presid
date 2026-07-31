@@ -78,10 +78,17 @@ export const rohTaeWoo: President = {
         {
           term: "북방외교",
           description: "냉전 체제 붕괴 시기에 공산권 및 사회주의 국가들과 국교를 수립하여 외교적 고립을 탈피하고 경제 협력을 확대한 정책입니다."
+        },
+        {
+          term: "3당 합당",
+          description: "1990년 노태우의 민주정의당, 김영삼의 통일민주당, 김종필의 신민주공화당이 합당하여 거대 여당인 민주자유당을 창당한 사건으로, 한국 정치의 보수화와 지역주의를 심화시켰다는 평가를 받습니다."
+        },
+        {
+          term: "6.29 선언",
+          description: "1987년 6월 민주항쟁의 결과로, 당시 노태우 민주정의당 대선 후보가 대통령 직선제 개헌 요구를 수용하겠다고 발표한 특별 선언입니다."
         }
       ],
-        lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
-        frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
+      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
         mediaSnapshot: {
                     date: "1990.09.30",
                     conservative: { headline: "한소 수교 전격 타결, 너무 막대한 경제 협력 차관 부담", source: "조선일보" },
@@ -94,7 +101,7 @@ export const rohTaeWoo: President = {
       category: "부동산/주거",
       valueTag: "pro-market",
       context: {
-        content: "3저 호황 이후 시중 유동성 급증과 도시 집중화로 인한 주택 보급률 부족 및 극심한 전월세난, 집값 폭등",
+        content: "3저 호황 이후 시중 유동성 급증과 도시 집중화로 인한 주택 보급률 부족 및 극심한 전월세난, 집값 급등",
         source: "국토연구원 주택정책사"
       },
       legislationFacts: [
@@ -104,12 +111,12 @@ export const rohTaeWoo: President = {
         { date: "1992-12", description: "주택 214만 호 건설 초과 달성", source: "건설부 백서" }
       ],
       pros: [
-        { content: "단기간에 엄청난 물량을 공급하여 폭등하던 집값을 확실하게 안정시키고 전월세난을 해결함", source: "주택산업연구원" },
+        { content: "단기간에 엄청난 물량을 공급하여 급등하던 집값을 확실하게 안정시키고 전월세난을 해결함", source: "주택산업연구원" },
         { content: "1기 신도시 건설로 중산층의 자가 소유 비율을 크게 높이고 현대적인 주거 환경(아파트 문화)을 정착시킴", source: "한국주거학회" },
         { content: "토지공개념을 최초로 법제화하여 부동산 투기 억제를 위한 강력한 제도적 장치를 마련함", source: "KDI 경제정보센터" }
       ],
       cons: [
-        { content: "동시다발적인 대규모 건설로 인해 시멘트, 철근 등 건설 자재 파동과 인건비 폭등을 유발함", source: "대한건설협회 통계" },
+        { content: "동시다발적인 대규모 건설로 인해 시멘트, 철근 등 건설 자재 파동과 인건비 급등을 유발함", source: "대한건설협회 통계" },
         { content: "바닷모래를 사용한 불량 아파트 논란과 날림 공사 등 부실 시공 문제가 사회적으로 크게 대두됨", source: "언론 보도 아카이브" },
         { content: "강력한 토지공개념 법안들이 훗날 대부분 위헌 또는 헌법불합치 판결을 받으며 사유재산권 침해 논란을 빚음", source: "헌법재판소 판례집" }
       ],
@@ -122,8 +129,17 @@ export const rohTaeWoo: President = {
           { name: "OECD 평균 주택공급 속도", value: "단기간 세계 최고 수준", source: "OECD", reportName: "Housing Market Trends" }
         ]
       },
-        lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
-        frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
+      glossary: [
+        {
+          term: "토지공개념 3법",
+          description: "토지의 공공성을 강조하여 개인의 소유와 처분 권한을 일부 제한하는 법안으로, 택지소유상한법, 개발이익환수법, 토지초과이득세법을 묶어 부르는 말입니다."
+        },
+        {
+          term: "1기 신도시",
+          description: "폭등하는 집값을 잡기 위해 1989년 발표된 수도권 5개 대규모 신시가지(분당, 일산, 평촌, 산본, 중동) 건설 계획입니다."
+        }
+      ],
+      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
         mediaSnapshot: {
                     date: "1989.04.28",
                     conservative: { headline: "분당·일산 신도시 건설, 강남 집값 잡기엔 역부족", source: "조선일보" },
@@ -185,5 +201,5 @@ export const rohTaeWoo: President = {
       source: "외교부"
     }
   ],
-    cabinetRisk: { avgTenureMonths: 15, initialDropoutRate: 20 }
+  cabinetRisk: { avgTenureMonths: 12, initialDropoutRate: 0 }
 };

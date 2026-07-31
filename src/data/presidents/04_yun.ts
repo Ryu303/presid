@@ -67,12 +67,19 @@ export const yun: President = {
       },
       glossary: [
         {
-          term: "의원내각제",
-          description: "국회의 다수당이 내각을 구성하고, 내각이 국회에 대하여 연대 책임을 지는 정부 형태입니다."
+          term: "내각책임제",
+          description: "국회의 다수당이 내각(정부)을 구성하고, 내각이 국회에 대하여 연대 책임을 지는 정부 형태입니다. 제2공화국 당시 헌법 개정을 통해 도입되었습니다."
+        },
+        {
+          term: "4.19 혁명",
+          description: "1960년 4월 19일, 이승만 정권의 3.15 부정선거에 항의하여 학생과 시민들이 중심이 되어 일으킨 반독재 민주주의 시민 혁명입니다."
+        },
+        {
+          term: "양원제",
+          description: "의회를 두 개의 합의체(참의원과 민의원)로 나누어 구성하는 제도로, 제2공화국 헌법에 따라 대한민국 역사상 유일하게 양원제 국회가 운영되었습니다."
         }
       ],
-        lineage: { prev: "이전 정책 (데이터 준비 중)", next: "다음 정책 (데이터 준비 중)" },
-        frictionIndex: { veto: 0, filibusterHours: 0, strikeDays: 0 },
+      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (박정희 정부 경제개발)" },
         mediaSnapshot: {
                     date: "1960.10.15",
                     conservative: { headline: "야심찬 경제계획, 재원 마련 대책은 모호", source: "조선일보" },
@@ -111,5 +118,5 @@ export const yun: President = {
       source: "헌법재판소 헌법연혁"
     }
   ],
-    cabinetRisk: { avgTenureMonths: 15, initialDropoutRate: 20 }
+  cabinetRisk: { avgTenureMonths: 9, initialDropoutRate: 0 }
 };
