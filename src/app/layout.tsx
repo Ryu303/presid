@@ -34,7 +34,14 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          {children}
+          <main className="min-h-[calc(100vh-80px)]">
+            {children}
+          </main>
+          <footer className="w-full py-8 mt-auto text-center border-t border-slate-200 dark:border-slate-800 bg-[#FDFCF8] dark:bg-slate-950">
+            <p className="text-[10px] md:text-xs font-medium text-slate-400 dark:text-slate-500 tracking-[0.2em] uppercase">
+              Designed & Engineered by <span className="text-slate-700 dark:text-slate-300 font-bold">Ryu</span>
+            </p>
+          </footer>
         </ThemeProvider>
       </body>
     </html>
