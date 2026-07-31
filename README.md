@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PresiTrack 🏛️
 
-## Getting Started
+**감정이 아닌 데이터와 역사적 팩트로 역대 정책을 직접 판단하세요.**
 
-First, run the development server:
+PresiTrack은 특정 진영의 프레임에서 벗어나, 입법 팩트와 국제기구의 교차 검증을 통해 역대 대한민국 정부의 핵심 정책을 기록하는 **가장 객관적인 정책 아카이브**입니다.
+
+## 🌟 주요 기능 (Features)
+
+- **역대 대통령 정책 아카이브**: 감정적인 평가를 배제하고 데이터와 팩트 기반으로 역대 정부의 핵심 정책을 한눈에 살펴볼 수 있습니다.
+- **정책 분야별 타임라인**: 복잡한 정책의 역사를 분야별로 이해하기 쉽게 정리하여 제공합니다.
+- **정책 DNA 성향 테스트 (MBTI 스타일)**: 정당이나 인물에 대한 선입견 없이, 12개의 객관적인 진술문을 통해 나의 라이프스타일과 가치관에 맞는 정책 성향(Policy DNA)을 찾아줍니다.
+- **객관적이고 세련된 에디토리얼 디자인**: 보수/진보를 가르는 자극적인 원색(빨강, 파랑 등)을 배제하고 모노톤과 뉴트럴 컬러를 사용하여 신뢰감 있는 사용자 경험을 제공합니다.
+
+## 🛠️ 기술 스택 (Tech Stack)
+
+- **Framework**: [Next.js](https://nextjs.org/) (App Router)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Language**: TypeScript
+
+## 🚀 시작하기 (Getting Started)
+
+프로젝트를 로컬 환경에서 실행하려면 아래 명령어를 사용하세요.
 
 ```bash
+# 의존성 설치
+npm install
+
+# 개발 서버 실행
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+브라우저에서 [http://localhost:3000](http://localhost:3000)을 열어 결과를 확인하실 수 있습니다.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 💡 개발 철학
+이 프로젝트의 데이터베이스(대통령 맵핑 및 4축 알고리즘)는 철저한 팩트 체크와 국제기구 데이터 교차 검증을 거쳐 작성되었으며, 어떠한 정치적 편향도 배제하는 것을 최우선 원칙으로 합니다.
