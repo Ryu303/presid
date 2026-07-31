@@ -81,7 +81,7 @@ export const kimDaeJung: President = {
           description: "근로자 파견 업체가 고용한 근로자를 다른 기업에 파견하여 일하게 하는 제도로, 기업의 인건비 부담을 줄였으나 비정규직 양산의 원인이 되었습니다."
         }
       ],
-      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
+      lineage: { prev: "김영삼 정부 외환위기 발발", next: "다음 정책 (노무현 정부 경제 성장)" },
         mediaSnapshot: {
                     date: "1998.02.15",
                     conservative: { headline: "살인적 고금리와 대량 해고, 뼈를 깎는 IMF 구조조정", source: "조선일보" },
@@ -151,7 +151,7 @@ export const kimDaeJung: President = {
           description: "남북정상회담 성사와 경협 사업권을 얻기 위해 현대그룹이 국가정보원을 통해 북한에 4억 5천만 달러를 불법 송금한 사건입니다."
         }
       ],
-      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
+      lineage: { prev: "과거 대결 중심 대북 정책", next: "다음 정책 (노무현 정부 평화번영정책)" },
         mediaSnapshot: {
                     date: "2000.06.15",
                     conservative: { headline: "남북정상회담 개최, 대북 퍼주기 식 햇볕정책 논란", source: "조선일보" },
@@ -224,5 +224,5 @@ export const kimDaeJung: President = {
       source: "통일부 / 개성공단지원재단"
     }
   ],
-  cabinetRisk: { avgTenureMonths: 11, initialDropoutRate: 0 }
+  cabinetRisk: { avgTenureMonths: 11, initialDropoutRate: 10 }
 };

@@ -93,7 +93,7 @@ export const rhee: President = {
           description: "자신의 소유 토지에서 직접 농사를 짓는 농민을 의미하며, 농지개혁을 통해 과거 소작농들이 대부분 자영농으로 전환되었습니다."
         }
       ],
-      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (박정희 정부 경제개발)" },
+      lineage: { prev: "대한민국 임시정부 및 미군정 정책", next: "다음 정책 (박정희 정부 경제개발)" },
         mediaSnapshot: {
                     date: "1949.06.22",
                     conservative: { headline: "농지개혁안 통과, 지주층 막대한 타격 불가피", source: "동아일보" },
@@ -131,7 +131,7 @@ export const rhee: President = {
           { name: "미국 무상경제원조액 (1953-1960)", value: "약 17억 달러", source: "USAID", reportName: "US Overseas Loans and Grants" }
         ]
       },
-      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (박정희 정부 파병 및 한미동맹 강화)" },
+      lineage: { prev: "한미군사고문단(KMAG) 및 상호방위 원조", next: "다음 정책 (박정희 정부 파병 및 한미동맹 강화)" },
       glossary: [
         {
           term: "한미상호방위조약",
@@ -190,7 +190,7 @@ export const rhee: President = {
     },
     {
       promise: "자유시장 민주주의 실현",
-      result: "발췌개헌, 사사오입 개헌 등 장기집권 시도. 1960년 4·19 혁명으로 하야. 1960년 4·19 혁명으로 하야",
+      result: "발췌개헌, 사사오입 개헌 등 장기집권 시도. 1960년 4·19 혁명으로 하야",
       status: "failed",
       source: "민주화운동기념사업회"
     }
@@ -215,5 +215,5 @@ export const rhee: President = {
       source: "교육부 교육법령 연혁"
     }
   ],
-  cabinetRisk: { avgTenureMonths: 14, initialDropoutRate: 0 }
+  cabinetRisk: { avgTenureMonths: 14, initialDropoutRate: 20 }
 };

@@ -86,7 +86,7 @@ export const chun: President = {
           description: "광복 직후인 1945년부터 치안 유지를 이유로 실시되던 야간 통행 금지를 1982년에 전면 해제한 조치로, 심야 경제 활동과 소비 활성화에 기여했습니다."
         }
       ],
-      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
+      lineage: { prev: "제4공화국 중화학공업 위주 정책", next: "다음 정책 (노태우 정부 주택 200만호 건설)" },
         mediaSnapshot: {
                     date: "1981.01.05",
                     conservative: { headline: "강력한 물가 억제책, 서민 경제 압박과 기업 위축 우려", source: "동아일보" },
@@ -136,7 +136,7 @@ export const chun: President = {
           description: "1982년 프로야구, 1983년 프로축구 등 대기업을 연고지로 한 프로 구단을 창설하여 국민들에게 새로운 오락거리를 제공한 정책입니다."
         }
       ],
-      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
+      lineage: { prev: "유신 시대 통제 문화", next: "다음 정책 (민주화 이후 대중문화 전면 개방)" },
         mediaSnapshot: {
                     date: "1981.10.01",
                     conservative: { headline: "88 올림픽 유치 성공, 막대한 재정 부담 어찌할 텐가", source: "동아일보" },
@@ -185,7 +185,7 @@ export const chun: President = {
           description: "1973년 제정되었으나 오일쇼크로 시행이 유보되었던 법으로, 전두환 정부에서 국민연금법으로 개정되어 1988년부터 10인 이상 사업장을 대상으로 본격 시행되었습니다."
         }
       ],
-      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
+      lineage: { prev: "경제개발 5개년 계획 노동 통제", next: "다음 정책 (노태우 정부 국민연금 전 국민 확대)" },
         mediaSnapshot: {
                     date: "1986.12.31",
                     conservative: { headline: "최저임금법 제정, 중소기업 도산 사태 촉발 우려", source: "한국경제" },
@@ -207,21 +207,21 @@ export const chun: President = {
   promises: [
     {
       promise: "물가 안정 및 경제 안정성 확보",
-      target: "단임년도 소비자물가 하락률 한자리대",
-      result: "1983년 3.4%, 1984년 2.3%로 안정. 단 1980년 28.7% 급등으로 시작하여 정상화 실현",
+      target: "소비자물가 상승률 한자리 수로 억제",
+      result: "1983년 3.4%, 1984년 2.3%로 안정. 1980년 28.7% 급등 이후 강력한 긴축으로 물가 정상화 실현",
       status: "partial",
       source: "통계청 소비자물가지수"
     },
     {
       promise: "정의사회 구현 / 복지 확충",
-      target: "프로스포츠 코리아 출범",
-      result: "1983년 국민연금제도 도입, 최저임금법 제정(1986년). 단 노동운동 탄압은 미해결",
+      target: "프로스포츠 창설 및 대중문화 확대",
+      result: "1982년 프로야구 창설 등 3S 정책 실시. 국민연금법 및 최저임금법 제정. 단, 노동운동 탄압 등 민주주의는 역행",
       status: "partial",
       source: "노동부"
     },
     {
       promise: "1988년 서울 올림픽 유치",
-      result: "1981년 서울 올림픽 유치 확정. 1988년 성공적 개최 (7.7선언 직후 열림)",
+      result: "1981년 서울 올림픽 유치 확정. 1988년 성공적 개최",
       status: "achieved",
       source: "대한체육회"
     },
@@ -252,5 +252,5 @@ export const chun: President = {
       source: "노동부 / 최저임금위원회"
     }
   ],
-  cabinetRisk: { avgTenureMonths: 12, initialDropoutRate: 0 }
+  cabinetRisk: { avgTenureMonths: 15, initialDropoutRate: 15 }
 };

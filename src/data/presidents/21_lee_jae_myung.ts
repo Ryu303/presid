@@ -53,7 +53,7 @@ export const leeJaeMyung: President = {
         { term: "조기 대선", description: "헌법재판소의 탄핵 인용 결정(2025년 4월)으로 인해 정해진 임기 만료 전 실시된 제21대 대통령 선거." },
         { term: "기본소득", description: "재산, 노동의 유무와 상관없이 모든 국민에게 조건 없이 정기적으로 일정한 금액을 현금으로 지급하는 정책입니다." }
       ],
-      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
+      lineage: { prev: "문재인 정부 소득주도성장", next: "다음 정책 (현재 진행 중)" },
         mediaSnapshot: {
                     date: "2022.03.05",
                     conservative: { headline: "기본소득 등 천문학적 포퓰리즘, 국가 재정 파탄 불 보듯", source: "조선일보" },
@@ -106,7 +106,7 @@ export const leeJaeMyung: President = {
           description: "미국이 중국과의 경제적 상호 의존 관계를 끊고 첨단 기술 및 공급망에서 중국을 배제하려는 탈동조화 전략을 뜻합니다."
         }
       ],
-      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
+      lineage: { prev: "윤석열 정부 가치 편중 외교", next: "다음 정책 (현재 진행 중)" },
         mediaSnapshot: {
                     date: "2022.02.25",
                     conservative: { headline: "국익보다 안보 우선, 한미 동맹 흔드는 줄타기 외교 우려", source: "동아일보" },

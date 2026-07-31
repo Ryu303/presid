@@ -10,7 +10,7 @@ export const yoon: President = {
     { country: "일본", leader: "기시다 후미오", term: "2021-2024" },
     { country: "북한", leader: "김정은", term: "2011-현재" }
   ],
-  cabinetRisk: { avgTenureMonths: 16, initialDropoutRate: 0 },
+  cabinetRisk: { avgTenureMonths: 16, initialDropoutRate: 25 },
   policies: [
     {
       id: "ysy-foreign-alliance",
@@ -139,12 +139,12 @@ export const yoon: President = {
           description: "2024년 한국수력원자력 컨소시엄이 체코 신규 원전 건설 사업의 우선협상대상자로 선정되어 한국형 원전의 우수성을 입증한 사건입니다."
         }
       ],
-      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
-        mediaSnapshot: {
-                    date: "YYYY.MM.DD",
-                    conservative: { headline: "관련 보도 데이터 수집 중...", source: "보수 매체" },
-                    progressive: { headline: "관련 보도 데이터 수집 중...", source: "진보 매체" }
-                  }
+      lineage: { prev: "문재인 정부 탈원전 정책", next: "다음 정책 (이재명 정부 에너지 정책)" },
+      mediaSnapshot: {
+        date: "2022.07.05",
+        conservative: { headline: "탈원전 폐기 공식화, 원전 생태계 복원 속도 낸다", source: "조선일보" },
+        progressive: { headline: "안전 역행하는 원전 확대, RE100 시대에 세계적 흐름 역행", source: "한겨레" }
+      }
     }
   ],
   additionalFacts: [

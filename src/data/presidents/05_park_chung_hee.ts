@@ -231,18 +231,18 @@ export const parkChungHee: President = {
       source: "민주화운동기념사업회"
     }
   ],
-  keywords: ["경제는염통나", "조국근대화", "수출주도", "산업화", "서울올림픽", "새마을운동"],
+  keywords: ["조국근대화", "수출주도", "산업화", "새마을운동", "경부고속도로", "유신체제"],
   approvalRatings: [
-    { date: "1963-12", rating: 47, event: "5·16 쿠데타 이후 대통령 찬청 제5공화국 안정적 취임", isHighlight: true },
+    { date: "1963-12", rating: 47, event: "5·16 군사정변 이후 제3공화국 출범 및 안정적 취임", isHighlight: true },
     { date: "1965-06", rating: 35, event: "한일협정 반대 데모 확산" },
     { date: "1968-01", rating: 58, event: "1·21사태 등 안보위기 대응 속 지지안정" },
-    { date: "1972-10", rating: 45, event: "유신체제 선포 — 지지대 축소" },
-    { date: "1979-10", rating: 40, event: "10·26 피습으로 사망. 타살당시 지지율은 통치 피로감 속에서도 40대유지", isHighlight: false }
+    { date: "1972-10", rating: 45, event: "유신체제 선포 — 민주주의 후퇴 논란" },
+    { date: "1979-10", rating: 40, event: "10·26 사태 발발", isHighlight: false }
   ],
   legacies: [
     {
-      title: "경부고속도로 / 국토개발 충독식 인프라",
-      description: "1970년 개통한 경부고속도로는 현재한국 고속도로 네트워크의 출발점. 이 시기 조성된 포항제철소, 국주공장, 국서 1호선 등 중화학 공업단지는 현재도 대한민국 산업의 튼한 기반.",
+      title: "경부고속도로 및 중화학 공업 단지 인프라",
+      description: "1970년 개통한 경부고속도로는 현재 한국 고속도로 네트워크의 출발점. 이 시기 조성된 포항제철소, 창원 국가산업단지 등 중화학 공업단지는 현재도 대한민국 산업의 튼튼한 기반이 됨.",
       source: "국토교통부 / 한국도로공사"
     },
     {
@@ -251,5 +251,5 @@ export const parkChungHee: President = {
       source: "건강보험공단"
     }
   ],
-  cabinetRisk: { avgTenureMonths: 36, initialDropoutRate: 0 }
+  cabinetRisk: { avgTenureMonths: 36, initialDropoutRate: 15 }
 };

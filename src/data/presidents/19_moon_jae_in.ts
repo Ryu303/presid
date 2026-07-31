@@ -10,7 +10,7 @@ export const moonJaeIn: President = {
     { country: "일본", leader: "아베 신조 / 스가 요시히데", term: "2012-2021" },
     { country: "북한", leader: "김정은", term: "2011-현재" }
   ],
-  cabinetRisk: { avgTenureMonths: 20, initialDropoutRate: 0 },
+  cabinetRisk: { avgTenureMonths: 20, initialDropoutRate: 15 },
   policies: [
     {
       id: "mji-income-led",
@@ -145,7 +145,7 @@ export const moonJaeIn: President = {
           description: "부동산을 팔아 얻은 양도 차익에 대해 세금을 부과할 때, 다주택자에게는 기본 세율보다 훨씬 높은 누진 세율을 적용하여 매매 차익을 회수하려는 징벌적 세금 정책입니다."
         }
       ],
-      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
+      lineage: { prev: "박근혜 정부 부동산 규제 완화 (초이노믹스)", next: "다음 정책 (윤석열 정부 부동산 규제 완화)" },
         mediaSnapshot: {
                     date: "2020.07.31",
                     conservative: { headline: "임대차 3법 강행 처리, 전세 씨 마르고 시장 대혼란 초래", source: "조선일보" },

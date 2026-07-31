@@ -75,7 +75,7 @@ export const kimYoungSam: President = {
           description: "국가적 위기 상황이나 중대한 재정·경제상의 위기를 극복하기 위해 대통령이 국회의 집회를 기다릴 여유가 없을 때 발동하는 법률적 효력을 가진 명령입니다."
         }
       ],
-      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
+      lineage: { prev: "과거 가명/차명 거래 허용 체제", next: "다음 정책 (부동산실명제 정착)" },
         mediaSnapshot: {
                     date: "1993.08.13",
                     conservative: { headline: "금융실명제 전격 실시, 중소기업 자금줄 막혀 줄도산 우려", source: "한국경제" },
@@ -142,7 +142,7 @@ export const kimYoungSam: President = {
           description: "1997년 외환보유고가 바닥나 국가 부도 위기에 처하자, 국제통화기금(IMF)에 긴급 구제금융을 요청하고 가혹한 경제 구조조정을 겪은 사건입니다."
         }
       ],
-      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (김대중 정부 금모으기 운동)" },
+      lineage: { prev: "제6공화국 북방외교", next: "다음 정책 (김대중 정부 시장 개방 및 IMF 극복)" },
         mediaSnapshot: {
                     date: "1994.11.18",
                     conservative: { headline: "구호만 요란한 '세계화', 국내 산업 보호 대책은 전무", source: "동아일보" },
@@ -172,7 +172,7 @@ export const kimYoungSam: President = {
     {
       promise: "세계화 및 OECD 가입",
       target: "경제 개방을 통한 선진국 도약",
-      result: "1996년 OECD 가입. 단 경제개방 가속화로 인한 외환위기 취약성 노출, 1997년 IMF 구제금융 신청",
+      result: "1996년 OECD 가입. 그러나 무리한 경제개방 가속화로 외환위기 취약성 노출, 1997년 IMF 구제금융 신청",
       status: "partial",
       source: "OECD / IMF"
     },
@@ -209,5 +209,5 @@ export const kimYoungSam: President = {
       source: "과거사진상규명위원회 / 한국현대사연구원"
     }
   ],
-  cabinetRisk: { avgTenureMonths: 10, initialDropoutRate: 0 }
+  cabinetRisk: { avgTenureMonths: 10, initialDropoutRate: 20 }
 };

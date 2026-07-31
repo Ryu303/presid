@@ -88,7 +88,7 @@ export const rohTaeWoo: President = {
           description: "1987년 6월 민주항쟁의 결과로, 당시 노태우 민주정의당 대선 후보가 대통령 직선제 개헌 요구를 수용하겠다고 발표한 특별 선언입니다."
         }
       ],
-      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
+      lineage: { prev: "제5공화국 서방 중심 외교", next: "다음 정책 (문민정부 세계화 외교)" },
         mediaSnapshot: {
                     date: "1990.09.30",
                     conservative: { headline: "한소 수교 전격 타결, 너무 막대한 경제 협력 차관 부담", source: "조선일보" },
@@ -139,7 +139,7 @@ export const rohTaeWoo: President = {
           description: "폭등하는 집값을 잡기 위해 1989년 발표된 수도권 5개 대규모 신시가지(분당, 일산, 평촌, 산본, 중동) 건설 계획입니다."
         }
       ],
-      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
+      lineage: { prev: "제5공화국 주택 정책", next: "다음 정책 (문민정부 주택 정책)" },
         mediaSnapshot: {
                     date: "1989.04.28",
                     conservative: { headline: "분당·일산 신도시 건설, 강남 집값 잡기엔 역부족", source: "조선일보" },
@@ -162,7 +162,7 @@ export const rohTaeWoo: President = {
     {
       promise: "민주화 완성 및 직선제 통한 권력 위임",
       target: "6·29 선언 이행 (대통령 직선제 개헌 수락)",
-      result: "1987년 10월 헌법개정으로 직선제 확립. 6학년 만에 진정한 민주주의 체제로 이행",
+      result: "1987년 10월 헌법개정으로 직선제 확립. 수십 년 만에 진정한 민주주의 체제로 이행",
       status: "achieved",
       source: "헌법재판소"
     },
@@ -176,15 +176,15 @@ export const rohTaeWoo: President = {
     {
       promise: "200만 호 주택 공급 계획",
       target: "임기내 200만 호 주택 공급",
-      result: "수도권 신도시(1기, 2기 신도시) 개발로 일정 수준 달성. 단 가격은 오히려 급등",
+      result: "1기 신도시 개발 등으로 주택 200만 호 초과 달성 및 집값 안정화 기여",
       status: "partial",
       source: "국토교통부"
     }
   ],
-  keywords: ["민주화", "보통사람", "북방외교", "신도시", "보통사람", "올림픽성공"],
+  keywords: ["민주화", "보통사람", "북방외교", "신도시", "토지공개념", "올림픽성공"],
   approvalRatings: [
-    { date: "1988-02", rating: 56, event: "취임 시점 — 6·29 선언의 성과로 고막 출발", isHighlight: true },
-    { date: "1989-03", rating: 40, event: "수공업 파업 확산 및 경제 불안" },
+    { date: "1988-02", rating: 56, event: "취임 시점 — 6·29 선언의 성과로 순조로운 출발", isHighlight: true },
+    { date: "1989-03", rating: 40, event: "대규모 노사분규 확산 및 경제 불안" },
     { date: "1990-01", rating: 55, event: "3당합당 이후 거대여당 출범", isHighlight: false },
     { date: "1991-09", rating: 42, event: "남북 동시 유엔 가입 성공" },
     { date: "1992-12", rating: 30, event: "임기 말 비자금 로비 의혹 등 레임덕", isHighlight: true }
@@ -201,5 +201,5 @@ export const rohTaeWoo: President = {
       source: "외교부"
     }
   ],
-  cabinetRisk: { avgTenureMonths: 12, initialDropoutRate: 0 }
+  cabinetRisk: { avgTenureMonths: 12, initialDropoutRate: 10 }
 };

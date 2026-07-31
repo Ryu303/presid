@@ -79,7 +79,7 @@ export const yun: President = {
           description: "의회를 두 개의 합의체(참의원과 민의원)로 나누어 구성하는 제도로, 제2공화국 헌법에 따라 대한민국 역사상 유일하게 양원제 국회가 운영되었습니다."
         }
       ],
-      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (박정희 정부 경제개발)" },
+      lineage: { prev: "제1공화국 경제 체제", next: "다음 정책 (박정희 정부 경제개발)" },
         mediaSnapshot: {
                     date: "1960.10.15",
                     conservative: { headline: "야심찬 경제계획, 재원 마련 대책은 모호", source: "조선일보" },
@@ -118,5 +118,5 @@ export const yun: President = {
       source: "헌법재판소 헌법연혁"
     }
   ],
-  cabinetRisk: { avgTenureMonths: 9, initialDropoutRate: 0 }
+  cabinetRisk: { avgTenureMonths: 9, initialDropoutRate: 30 }
 };

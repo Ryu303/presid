@@ -10,7 +10,7 @@ export const parkGeunHye: President = {
     { country: "일본", leader: "아베 신조 (2차)", term: "2012-2020" },
     { country: "북한", leader: "김정은", term: "2011-현재" }
   ],
-  cabinetRisk: { avgTenureMonths: 14, initialDropoutRate: 0 },
+  cabinetRisk: { avgTenureMonths: 14, initialDropoutRate: 10 },
   policies: [
     {
       id: "pgh-creative-economy",
@@ -142,7 +142,7 @@ export const parkGeunHye: President = {
           description: "고고도 미사일 방어 체계로, 북한의 미사일 위협에 대응하기 위해 한국 배치가 결정되었으나 중국의 강력한 경제 보복(한한령)을 낳았습니다."
         }
       ],
-      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
+      lineage: { prev: "이명박 정부 비핵개방 3000", next: "다음 정책 (문재인 정부 한반도 평화 프로세스)" },
         mediaSnapshot: {
                     date: "2016.02.10",
                     conservative: { headline: "개성공단 전면 중단, 남북 관계 최후의 보루마저 붕괴", source: "경향신문" },
@@ -166,7 +166,7 @@ export const parkGeunHye: President = {
     {
       promise: "창조경제 (미래형 산업 육성)",
       target: "문화·콘텐츠 투자, 벤처 시장 육성",
-      result: "한류전담 TF, 문화체육관광부 신설 등 추진. 실질적 경제 효과는 논란. 안종범 게이트 등 국정농단 사태와의 연루 논란",
+      result: "미래창조과학부 신설, 창조경제혁신센터 등 추진. 그러나 실질적 경제 효과 논란 및 국정농단 사태 연루",
       status: "failed",
       source: "미래창조과학부 / 감사원"
     },

@@ -84,7 +84,7 @@ export const rohMooHyun: President = {
           viewpoint2: "자산 시장의 자연스러운 흐름을 강도 높은 조세 정책으로 억누르려다 조세 저항만 키우고 결과적으로 집값 안정에도 실패했다는 해석."
         }
       },
-      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
+      lineage: { prev: "과거 수도권 집중 개발 정책", next: "다음 정책 (이명박 정부 세종시 수정 논란 및 원안 추진)" },
         mediaSnapshot: {
                     date: "2004.10.22",
                     conservative: { headline: "헌재, 신행정수도 위헌 결정… 국가 백년대계 혼란 자초", source: "조선일보" },
@@ -142,7 +142,7 @@ export const rohMooHyun: President = {
           description: "대통령 1인에게 권력이 과도하게 집중되어 헌법이 규정한 권한 이상으로 군림하는 한국의 대통령제 구조를 비판적으로 일컫는 용어입니다."
         }
       ],
-      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
+      lineage: { prev: "김영삼 정부 세계화 및 시장 개방", next: "다음 정책 (이명박 정부 한미 FTA 비준 및 발효)" },
         mediaSnapshot: {
                     date: "2007.04.03",
                     conservative: { headline: "한미 FTA 체결, 농업 희생양 삼은 굴욕적 졸속 협상", source: "경향신문" },
@@ -184,7 +184,7 @@ export const rohMooHyun: President = {
       source: "KB국민은행 주택가격동향"
     },
     {
-      promise: "권위주의 철폐 및 연대하는 정치 청산",
+      promise: "권위주의 철폐 및 지역주의 정치 청산",
       result: "청와대 권위 제도 폐지, 국가정보원 개혁 등 노력. 단 실질적 철폐는 제한적",
       status: "partial",
       source: "민주화운동기념사업회"
@@ -211,5 +211,5 @@ export const rohMooHyun: President = {
       source: "법무부"
     }
   ],
-  cabinetRisk: { avgTenureMonths: 14, initialDropoutRate: 0 }
+  cabinetRisk: { avgTenureMonths: 14, initialDropoutRate: 10 }
 };

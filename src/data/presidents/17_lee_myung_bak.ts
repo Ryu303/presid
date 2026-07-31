@@ -10,7 +10,7 @@ export const leeMyungBak: President = {
     { country: "일본", leader: "아소 다로 / 하토야마 유키오 / 노다 요시히코", term: "2008-2012" },
     { country: "북한", leader: "김정일 / 김정은", term: "1994-2011 / 2011-현재" }
   ],
-  cabinetRisk: { avgTenureMonths: 15, initialDropoutRate: 0 },
+  cabinetRisk: { avgTenureMonths: 15, initialDropoutRate: 10 },
   policies: [
     {
       id: "lmb-global-crisis",
@@ -83,7 +83,7 @@ export const leeMyungBak: President = {
           description: "외환위기 등 비상시에 상대국 통화를 빌려 쓸 수 있도록 맺는 국가 간 계약으로, 외환 시장의 불안을 잠재우는 강력한 안전판 역할을 합니다."
         }
       ],
-      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
+      lineage: { prev: "김대중 정부 외환위기 극복", next: "다음 정책 (문재인 정부 코로나19 대응)" },
         mediaSnapshot: {
                     date: "2008.10.19",
                     conservative: { headline: "고환율 정책이 부메랑으로… 금융위기 선제 대응 실패", source: "한겨레" },
@@ -111,7 +111,7 @@ export const leeMyungBak: President = {
           description: "미국의 뉴딜 정책을 본따 대규모 인프라 투자(4대강 사업 등)를 통해 일자리를 창출하고 내수 경제를 진작하려던 정부의 부양책입니다."
         }
       ],
-      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
+      lineage: { prev: "과거 치수 사업 및 댐 건설", next: "다음 정책 (문재인 정부 4대강 보 개방)" },
       mediaSnapshot: {
                   date: "2009.06.08",
                   conservative: { headline: "대운하 꼼수 4대강 사업 강행, 심각한 환경 파괴 불 보듯", source: "경향신문" },
@@ -177,7 +177,7 @@ export const leeMyungBak: President = {
     {
       promise: "글로벌 금융위기 극복 및 V자 반등",
       target: "위기 조기 극복",
-      result: "2009년 성장률 0.8%로 OECD 최저 하락 후, 2010년 6.8% 반등 — OECD 국가 중 가장 빠른 회복",
+      result: "2009년 글로벌 금융위기 속에서도 0.8% 플러스 성장 방어, 2010년 6.8% 반등 — OECD 국가 중 가장 빠른 회복",
       status: "achieved",
       source: "한국은행 / OECD Economic Outlook"
     },

@@ -89,7 +89,7 @@ export const choi: President = {
           description: "1980년 5월 18일, 광주 시민들이 신군부의 쿠데타와 비상계엄 전국 확대에 맞서 민주주의를 요구하며 항거한 역사적 사건입니다."
         }
       ],
-      lineage: { prev: "이전 정책 (데이터 없음)", next: "다음 정책 (데이터 없음)" },
+      lineage: { prev: "제4공화국 체제", next: "다음 정책 (제5공화국 헌법 제정)" },
         mediaSnapshot: {
                     date: "1979.11.11",
                     conservative: { headline: "최규하 권한대행 체제, 과도정부 정국 수습 안간힘", source: "조선일보" },
@@ -110,7 +110,7 @@ export const choi: President = {
   promises: [
     {
       promise: "민주주의 회복 및 헌정 일정 제시",
-      result: "10·26 이후 개헌일정 등 제시하였으나, 12·12 쿠데타로 권한 심각한 저하. 8개월 재임 후 자진사퇴",
+      result: "10·26 이후 개헌일정 등 제시하였으나, 12·12 쿠데타로 실권 상실. 8개월 재임 후 자진사퇴",
       status: "failed",
       source: "역사학계 또는 한국정치사전"
     }
@@ -123,10 +123,10 @@ export const choi: President = {
   ],
   legacies: [
     {
-      title: "헌정역사적 반면교사로서의 위수 성과 확인",
-      description: "권위 집단 시기 왕권연승 시도를 적극적으로 막지 못한 위정 사례로 헌정사에 기록됨. 헌법 수호 의무의 한계와 취약성을 조명한 사례 연구.",
-      source: "한국현대사연구원"
+      title: "헌정 역사의 반면교사 사례",
+      description: "권력 공백기에 헌정 질서를 수호하지 못한 통치권자의 리더십 부재가 어떤 결과를 초래하는지 보여주는 역사적 반면교사로 헌정사에 기록됨.",
+      source: "한국현대사학회"
     }
   ],
-  cabinetRisk: { avgTenureMonths: 6, initialDropoutRate: 0 }
+  cabinetRisk: { avgTenureMonths: 6, initialDropoutRate: 10 }
 };
