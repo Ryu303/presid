@@ -52,30 +52,14 @@ export default function PolicyCard({ policy, presidentCoreDNA }: { policy: Polic
     }
     const noise = Math.abs(hash) % 15; // 0 ~ 14
 
+    // Calculate probability first
     let prob = 50;
-    let reason = "";
-    if (userTrait === presidentTrait) {
-      prob = 82 + noise; // 82% ~ 96%
-      if (axisIndex === 0) {
-        reason = userTrait === 'M' ? "시장 중심 경제를 중시하는 관점이 일치합니다." : "국가 주도의 개입을 중시하는 관점이 일치합니다.";
-      } else if (axisIndex === 1) {
-        reason = userTrait === 'A' ? "성장과 성과 보상을 우선하는 관점이 일치합니다." : "보편적 복지와 분배를 우선하는 관점이 일치합니다.";
-      } else if (axisIndex === 2) {
-        reason = userTrait === 'W' ? "자유롭고 개방적인 사회 문화를 지향하는 성향이 일치합니다." : "전통적 가치와 안정을 중시하는 성향이 일치합니다.";
-      } else if (axisIndex === 3) {
-        reason = userTrait === 'O' ? "실용주의 중심 외교를 중시하는 성향이 일치합니다." : "동맹 중심의 강력한 안보를 중시하는 성향이 일치합니다.";
-      }
+    const isMatch = userTrait === presidentTrait;
+    
+    if (isMatch) {
+      prob = 75 + noise; // 75 ~ 89
     } else {
-      prob = 12 + noise; // 12% ~ 26%
-      if (axisIndex === 0) {
-        reason = userTrait === 'M' ? "사용자는 시장 자율을, 정책은 국가 주도를 중시하여 관점 차이가 있습니다." : "사용자는 국가 주도를, 정책은 시장 자율을 중시하여 관점 차이가 있습니다.";
-      } else if (axisIndex === 1) {
-        reason = userTrait === 'A' ? "사용자는 성장을, 정책은 분배를 중시하여 관점 차이가 있습니다." : "사용자는 분배를, 정책은 성장을 중시하여 관점 차이가 있습니다.";
-      } else if (axisIndex === 2) {
-        reason = userTrait === 'W' ? "사용자는 개방성을, 정책은 안정을 중시하여 관점 차이가 있습니다." : "사용자는 안정을, 정책은 개방성을 중시하여 관점 차이가 있습니다.";
-      } else if (axisIndex === 3) {
-        reason = userTrait === 'O' ? "사용자는 실용 외교를, 정책은 동맹 강화를 중시하여 관점 차이가 있습니다." : "사용자는 동맹 강화를, 정책은 실용 외교를 중시하여 관점 차이가 있습니다.";
-      }
+      prob = 10 + noise; // 10 ~ 24
     }
     
     // Additional variance based on overall affinity
@@ -83,7 +67,38 @@ export default function PolicyCard({ policy, presidentCoreDNA }: { policy: Polic
     for (let i = 0; i < 4; i++) {
       if (userDNA[i] === presidentCoreDNA[i]) totalMatch++;
     }
-    prob += (totalMatch - 2) * 2; 
+    prob += (totalMatch - 2) * 5; 
+    prob = Math.min(Math.max(prob, 1), 99);
+
+    // Dynamic phrasing based on category, trait, and exact probability
+    let reason = "";
+    const cat = policy.category;
+
+    if (isMatch) {
+      let baseCore = "";
+      if (cat === "경제/산업") baseCore = userTrait === 'M' ? "기업 친화적이고 시장 자율을 중시하는 경제관" : "골목상권 보호와 국가 주도의 시장 개입을 지지하는 성향";
+      else if (cat === "부동산/주거") baseCore = userTrait === 'M' ? "자산권 존중과 부동산 규제 완화를 지향하는 관점" : "부동산 투기 억제와 강력한 공공 주거권 보장 정책을 지지하는 성향";
+      else if (cat === "복지/노동") baseCore = userTrait === 'A' ? "복지보다 파이 키우기를 우선하고 철저한 능력주의 보상을 중시하는 관점" : "무한 경쟁보다 촘촘한 사회 안전망과 노동권 보호를 우선하는 가치관";
+      else if (cat === "사회/문화") baseCore = userTrait === 'W' ? "낡은 관습을 타파하고 파격적인 사회 개혁을 지지하는 진보적 성향" : "급격한 변화보다 전통적 질서와 안정적인 사회 규범을 중시하는 성향";
+      else if (cat === "정치/행정") baseCore = userTrait === 'W' ? "기득권 타파와 현장 중심의 직접 민주주의를 지향하는 관점" : "체계적인 관료 시스템과 검증된 엘리트 전문가 중심의 행정을 신뢰하는 성향";
+      else if (cat === "외교/안보") baseCore = userTrait === 'O' ? "우방국과의 굳건한 가치 동맹과 확고한 대북 원칙을 중시하는 안보관" : "특정 진영에 얽매이지 않는 실리적 균형 외교와 민족적 자주성을 중시하는 성향";
+
+      if (prob >= 90) reason = baseCore + "이 완벽히 일치합니다 🎯";
+      else if (prob >= 75) reason = baseCore + "과 대체로 부합합니다 👍";
+      else reason = baseCore + "에 부분적으로 공감할 여지가 있습니다 🙂";
+    } else {
+      let baseDiff = "";
+      if (cat === "경제/산업") baseDiff = userTrait === 'M' ? "시장 자율을 중시하는 성향이나, 이 정책은 국가 개입 요소가 강해" : "골목상권과 시민을 중시하는 성향이나, 이 정책은 대기업·시장 중심적이라";
+      else if (cat === "부동산/주거") baseDiff = userTrait === 'M' ? "규제 완화(자산권)를 선호하는 성향이나, 이 정책은 강력한 투기 억제 성격을 띠어" : "주거권 보호(규제)를 선호하는 성향이나, 이 정책은 시장 논리와 규제 완화에 가까워";
+      else if (cat === "복지/노동") baseDiff = userTrait === 'A' ? "능력주의와 성장을 선호하는 성향이나, 이 정책은 보편적 복지와 분배에 초점을 두어" : "분배와 안전망을 선호하는 성향이나, 이 정책은 효율성과 성과주의에 초점을 두어";
+      else if (cat === "사회/문화") baseDiff = userTrait === 'W' ? "파격적 개혁을 선호하는 성향이나, 이 정책은 보수적 질서와 전통적 가치를 담고 있어" : "전통적 규범을 선호하는 성향이나, 이 정책은 급진적인 사회 개혁 요소를 담고 있어";
+      else if (cat === "정치/행정") baseDiff = userTrait === 'W' ? "기득권 타파를 선호하는 성향이나, 이 정책은 엘리트 관료주의 성격을 띠어" : "엘리트 시스템을 신뢰하는 성향이나, 이 정책은 포퓰리즘이나 반기득권 성격이 짙어";
+      else if (cat === "외교/안보") baseDiff = userTrait === 'O' ? "굳건한 한미 동맹을 중시하는 성향이나, 이 정책은 자주적 균형 노선에 가까워" : "실리적 균형 외교를 중시하는 성향이나, 이 정책은 맹목적 동맹 및 강경 노선에 가까워";
+
+      if (prob <= 15) reason = baseDiff + " 관점이 완전히 상극으로 부딪힙니다 ⚡";
+      else if (prob <= 30) reason = baseDiff + " 관점 차이가 꽤 큽니다 💦";
+      else reason = baseDiff + " 일부 이견이 존재할 수 있습니다 🤔";
+    } 
 
     return { prob: Math.min(Math.max(prob, 1), 99), reason };
   };
