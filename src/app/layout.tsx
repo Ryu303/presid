@@ -29,7 +29,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${notoSerif.variable} font-sans bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-200 antialiased`} style={{ background: 'var(--background)', color: 'var(--foreground)' }}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
