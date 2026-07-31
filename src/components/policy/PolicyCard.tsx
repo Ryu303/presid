@@ -26,6 +26,7 @@ export default function PolicyCard({ policy, presidentCoreDNA }: { policy: Polic
   useEffect(() => {
     const saved = localStorage.getItem("presitrack_dna");
     if (saved) setUserDNA(saved);
+    else setUserDNA("MAWO"); // Fallback for users who haven't taken the test
   }, []);
 
   const getAcceptanceProb = () => {
