@@ -53,10 +53,29 @@ export default function PolicyCard({ policy, presidentCoreDNA }: { policy: Polic
     const noise = Math.abs(hash) % 15; // 0 ~ 14
 
     let prob = 50;
+    let reason = "";
     if (userTrait === presidentTrait) {
       prob = 82 + noise; // 82% ~ 96%
+      if (axisIndex === 0) {
+        reason = userTrait === 'M' ? "시장 중심 경제를 중시하는 관점이 일치합니다." : "국가 주도의 개입을 중시하는 관점이 일치합니다.";
+      } else if (axisIndex === 1) {
+        reason = userTrait === 'A' ? "성장과 성과 보상을 우선하는 관점이 일치합니다." : "보편적 복지와 분배를 우선하는 관점이 일치합니다.";
+      } else if (axisIndex === 2) {
+        reason = userTrait === 'W' ? "자유롭고 개방적인 사회 문화를 지향하는 성향이 일치합니다." : "전통적 가치와 안정을 중시하는 성향이 일치합니다.";
+      } else if (axisIndex === 3) {
+        reason = userTrait === 'O' ? "실용주의 중심 외교를 중시하는 성향이 일치합니다." : "동맹 중심의 강력한 안보를 중시하는 성향이 일치합니다.";
+      }
     } else {
       prob = 12 + noise; // 12% ~ 26%
+      if (axisIndex === 0) {
+        reason = userTrait === 'M' ? "사용자는 시장 자율을, 정책은 국가 주도를 중시하여 관점 차이가 있습니다." : "사용자는 국가 주도를, 정책은 시장 자율을 중시하여 관점 차이가 있습니다.";
+      } else if (axisIndex === 1) {
+        reason = userTrait === 'A' ? "사용자는 성장을, 정책은 분배를 중시하여 관점 차이가 있습니다." : "사용자는 분배를, 정책은 성장을 중시하여 관점 차이가 있습니다.";
+      } else if (axisIndex === 2) {
+        reason = userTrait === 'W' ? "사용자는 개방성을, 정책은 안정을 중시하여 관점 차이가 있습니다." : "사용자는 안정을, 정책은 개방성을 중시하여 관점 차이가 있습니다.";
+      } else if (axisIndex === 3) {
+        reason = userTrait === 'O' ? "사용자는 실용 외교를, 정책은 동맹 강화를 중시하여 관점 차이가 있습니다." : "사용자는 동맹 강화를, 정책은 실용 외교를 중시하여 관점 차이가 있습니다.";
+      }
     }
     
     // Additional variance based on overall affinity
@@ -66,28 +85,33 @@ export default function PolicyCard({ policy, presidentCoreDNA }: { policy: Polic
     }
     prob += (totalMatch - 2) * 2; 
 
-    return Math.min(Math.max(prob, 1), 99);
+    return { prob: Math.min(Math.max(prob, 1), 99), reason };
   };
 
-  const acceptanceProb = getAcceptanceProb();
+  const acceptanceData = getAcceptanceProb();
 
   return (
     <article className="bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-sm overflow-hidden flex flex-col transition-colors duration-300">
       {/* Header */}
       <div className="p-6 md:p-8 border-b border-slate-300 dark:border-slate-700 bg-[#FDFCF8] dark:bg-slate-900">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-3">
             <span className="w-fit px-3 py-1 text-xs font-bold tracking-widest uppercase rounded-none border border-slate-300 dark:border-slate-600 text-slate-800 dark:text-slate-300 bg-transparent">
               {policy.category}
             </span>
-            {acceptanceProb !== null && (
-              <span className={`w-fit px-3 py-1 text-xs font-bold rounded-sm border transition-colors ${
-                acceptanceProb > 70 ? 'bg-teal-50 border-teal-200 text-teal-800 dark:bg-teal-900/30 dark:border-teal-800 dark:text-teal-300' : 
-                acceptanceProb < 30 ? 'bg-rose-50 border-rose-200 text-rose-800 dark:bg-rose-900/30 dark:border-rose-800 dark:text-rose-300' : 
-                'bg-slate-100 border-slate-200 text-slate-700 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-300'
-              }`}>
-                내 수용 확률: {acceptanceProb}%
-              </span>
+            {acceptanceData !== null && (
+              <div className="flex items-center gap-2">
+                <span className={`w-fit px-3 py-1 text-xs font-bold rounded-sm border transition-colors ${
+                  acceptanceData.prob > 70 ? 'bg-teal-50 border-teal-200 text-teal-800 dark:bg-teal-900/30 dark:border-teal-800 dark:text-teal-300' : 
+                  acceptanceData.prob < 30 ? 'bg-rose-50 border-rose-200 text-rose-800 dark:bg-rose-900/30 dark:border-rose-800 dark:text-rose-300' : 
+                  'bg-slate-100 border-slate-200 text-slate-700 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-300'
+                }`}>
+                  내 수용 확률: {acceptanceData.prob}%
+                </span>
+                <span className="text-[13px] font-medium text-slate-500 dark:text-slate-400">
+                  {acceptanceData.reason}
+                </span>
+              </div>
             )}
           </div>
           

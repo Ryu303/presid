@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { presidentsData } from "@/data/presidents";
-import { Share2, RefreshCw, CheckCircle2 } from "lucide-react";
+import { Share2, RefreshCw, CheckCircle2, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Suspense, useState, useEffect } from "react";
 import PersonaResultCard from "@/components/ui/PersonaResultCard";
@@ -18,6 +18,7 @@ function ResultContent() {
     setUrl(window.location.href);
     if (dna) {
       localStorage.setItem("presitrack_dna", dna);
+      window.dispatchEvent(new Event("dna_updated"));
     }
   }, [dna]);
 
@@ -152,6 +153,13 @@ function ResultContent() {
         >
           <RefreshCw className="w-5 h-5" />
           테스트 다시하기
+        </Link>
+        <Link 
+          href="/timeline"
+          className="flex items-center justify-center gap-2 px-8 py-4 rounded-sm bg-blue-600 dark:bg-blue-500 text-white font-bold hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors shadow-none"
+        >
+          각 대통령 정책 알아보기
+          <ArrowRight className="w-5 h-5" />
         </Link>
       </div>
     </div>

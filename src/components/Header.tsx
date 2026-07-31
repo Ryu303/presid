@@ -10,9 +10,14 @@ export default function Header() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
+  const [userDNA, setUserDNA] = useState<string | null>(null);
 
   useEffect(() => {
     setMounted(true);
+    const updateDNA = () => setUserDNA(localStorage.getItem("presitrack_dna"));
+    updateDNA();
+    window.addEventListener("dna_updated", updateDNA);
+    return () => window.removeEventListener("dna_updated", updateDNA);
   }, []);
 
   return (
@@ -66,6 +71,12 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-4">
+          {mounted && userDNA && (
+            <Link href="/test/result" className="hidden md:flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 border border-indigo-300 dark:border-indigo-700 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-sm hover:bg-indigo-100 dark:hover:bg-indigo-800/50 transition-colors">
+              <Beaker className="w-3.5 h-3.5" />
+              내 DNA: {userDNA}
+            </Link>
+          )}
           <Link href="#" className="hidden md:flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 border border-slate-300 dark:border-slate-700 rounded-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
             <CheckCircle className="w-3.5 h-3.5" />
             데이터 기여
