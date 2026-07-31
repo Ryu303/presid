@@ -6,6 +6,7 @@ import { Share2, RefreshCw, CheckCircle2, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Suspense, useState, useEffect } from "react";
 import PersonaResultCard from "@/components/ui/PersonaResultCard";
+import DnaIndicator from "@/components/quiz/DnaIndicator";
 
 function ResultContent() {
   const searchParams = useSearchParams();
@@ -13,6 +14,20 @@ function ResultContent() {
   const [url, setUrl] = useState("");
   
   const dna = searchParams.get("dna") || "MAWO";
+
+  const getPseudoScores = (dnaStr: string) => {
+    const isM = dnaStr[0] === 'M';
+    const isA = dnaStr[1] === 'A';
+    const isW = dnaStr[2] === 'W';
+    const isO = dnaStr[3] === 'O';
+    
+    return [
+      { axisId: 'axis1', leftScore: isM ? 75 : 25, rightScore: isM ? 25 : 75 },
+      { axisId: 'axis2', leftScore: isA ? 60 : 40, rightScore: isA ? 40 : 60 },
+      { axisId: 'axis3', leftScore: isW ? 80 : 20, rightScore: isW ? 20 : 80 },
+      { axisId: 'axis4', leftScore: isO ? 55 : 45, rightScore: isO ? 45 : 55 },
+    ];
+  };
 
   useEffect(() => {
     setUrl(window.location.href);
@@ -67,7 +82,11 @@ function ResultContent() {
         <PersonaResultCard dna={dna} />
       </div>
 
-      <div className="max-w-2xl mx-auto mb-16 animate-in slide-in-from-bottom-6 fade-in duration-700 delay-300">
+      <div className="mb-20 animate-in slide-in-from-bottom-6 fade-in duration-700 delay-300">
+        <DnaIndicator scores={getPseudoScores(dna)} />
+      </div>
+
+      <div className="max-w-2xl mx-auto mb-16 animate-in slide-in-from-bottom-6 fade-in duration-700 delay-500">
         <div className="bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-sm p-6 text-center">
           <p className="text-slate-800 dark:text-slate-200 font-medium leading-relaxed">
             <span className="font-bold">안내 |</span> 어쩌면 당신이 평소에 지지하거나 비판하던 정치적 진영과, 
