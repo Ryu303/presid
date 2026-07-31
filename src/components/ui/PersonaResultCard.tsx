@@ -57,6 +57,32 @@ export default function PersonaResultCard({ dna, presidentName }: PersonaResultC
           </span>
         ))}
       </div>
+
+      {details.breakdown && (
+        <div className="px-6 py-5 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-700">
+          <h4 className="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest text-center border-b border-slate-200 dark:border-slate-800 pb-2">
+            세부 성향 분석 (Deep Analysis)
+          </h4>
+          <ul className="space-y-4 text-xs font-serif leading-relaxed text-slate-700 dark:text-slate-300">
+            <li className="flex gap-2">
+              <span className="font-bold text-slate-900 dark:text-white mt-0.5">[{details.dna[0]}]</span>
+              <span>{details.breakdown.axis1}</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="font-bold text-slate-900 dark:text-white mt-0.5">[{details.dna[1]}]</span>
+              <span>{details.breakdown.axis2}</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="font-bold text-slate-900 dark:text-white mt-0.5">[{details.dna[2]}]</span>
+              <span>{details.breakdown.axis3}</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="font-bold text-slate-900 dark:text-white mt-0.5">[{details.dna[3]}]</span>
+              <span>{details.breakdown.axis4}</span>
+            </li>
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

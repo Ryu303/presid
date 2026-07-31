@@ -144,7 +144,7 @@ export const moonJaeIn: President = {
     { date: "2020-04", description: "긴급재난지원금 전 국민 지급 결정", source: "기획재정부" },
     { date: "2021-01", description: "고위공직자범죄수사처(공수처) 출범", source: "법무부" }
   ],
-  coreDNA: "GBWO",
+  coreDNA: "GBWD",
   promises: [
     {
       promise: "소득주도성장 (최저임금 1만 원)",

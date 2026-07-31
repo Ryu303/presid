@@ -57,10 +57,27 @@ export const getPersonaDetails = (dna: PT_CORE_DNA) => {
   const persona = personas[dna.toUpperCase()];
   if (!persona) return undefined;
 
+  // 세부 성향 분석 (첨예화된 지표)
+  const breakdown = {
+    axis1: a1 === 'M' 
+      ? "시장 자율을 중시하며, 부동산 규제 완화와 대기업 중심의 경제 성장에 긍정적인 성향을 보입니다." 
+      : "국가 개입을 중시하며, 부동산 투기 억제(주거권 보장)와 골목상권 및 소시민 보호에 강력한 의지를 가집니다.",
+    axis2: a2 === 'A'
+      ? "복지보다는 경제 성장과 파이 키우기를 우선하며, 철저한 능력주의와 성과에 따른 확실한 보상을 지향합니다."
+      : "무한 경쟁보다는 사회적 불평등 해소와 소외계층을 위한 촘촘한 복지 안전망 구축을 중요시합니다.",
+    axis3: a3 === 'W'
+      ? "기존의 기득권과 낡은 관행을 타파하는 파격적인 개혁과, 현장 중심의 풀뿌리 민주주의에 깊이 공감합니다."
+      : "사회의 안정과 전통적 규범을 존중하며, 검증된 엘리트 전문가와 체계적인 관료 시스템을 신뢰합니다.",
+    axis4: a4 === 'O'
+      ? "우방국(한미일)과의 확실한 가치 동맹을 중시하며, 대북/대외 문제에서 확고한 원칙과 강경한 태도를 선호합니다."
+      : "특정 진영에 얽매이지 않는 실용적 균형 외교를 지향하며, 남북 공조 등 민족적 자주성과 유연함을 가집니다."
+  };
+
   return {
     dna: dna.toUpperCase(),
     letters: [m1, m2, m3, m4],
     title: persona.title,
-    subtitle: persona.subtitle
+    subtitle: persona.subtitle,
+    breakdown
   };
 };
