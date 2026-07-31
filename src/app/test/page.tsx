@@ -53,9 +53,11 @@ export default function TestPage() {
       const dna1 = newScores.M >= newScores.G ? "M" : "G";
       const dna2 = newScores.A >= newScores.B ? "A" : "B";
       const dna3 = newScores.W >= newScores.R ? "W" : "R";
-      const dna4 = newScores.O >= newScores.D ? "O" : "D";
-      
       const finalDNA = `${dna1}${dna2}${dna3}${dna4}`;
+      // 퀴즈를 직접 끝까지 푼 경우에만 기기에 저장
+      localStorage.setItem("presitrack_dna", finalDNA);
+      window.dispatchEvent(new Event("dna_updated"));
+      
       router.push(`/test/result?dna=${finalDNA}`);
     }
   };

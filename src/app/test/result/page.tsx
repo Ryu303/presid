@@ -12,6 +12,7 @@ function ResultContent() {
   const searchParams = useSearchParams();
   const [copied, setCopied] = useState(false);
   const [url, setUrl] = useState("");
+  const [myDna, setMyDna] = useState<string | null>(null);
   
   const dna = searchParams.get("dna") || "MAWO";
 
@@ -31,11 +32,8 @@ function ResultContent() {
 
   useEffect(() => {
     setUrl(window.location.href);
-    if (dna) {
-      localStorage.setItem("presitrack_dna", dna);
-      window.dispatchEvent(new Event("dna_updated"));
-    }
-  }, [dna]);
+    setMyDna(localStorage.getItem("presitrack_dna"));
+  }, []);
 
   const handleShare = async () => {
     try {
@@ -69,6 +67,16 @@ function ResultContent() {
   };
   return (
     <div className="w-full max-w-4xl mx-auto pb-20">
+      {/* 공유된 링크로 들어온 경우 (내 결과가 아니거나 아예 안 해본 경우) 안내 배너 */}
+      {myDna !== dna && (
+        <div className="bg-blue-500 text-white text-center p-3 md:p-4 mb-8 text-sm md:text-base font-bold animate-in slide-in-from-top-4 fade-in">
+          이것은 공유받은 성향 분석 결과입니다. 당신의 정치 DNA는 무엇인가요? 
+          <Link href="/test" className="ml-3 inline-block px-3 py-1 bg-white text-blue-600 rounded-sm hover:scale-105 transition-transform">
+            나도 테스트하기
+          </Link>
+        </div>
+      )}
+
       <div className="text-center mb-12">
         <h1 className="text-3xl md:text-5xl font-serif font-black text-slate-900 dark:text-white mb-6 animate-in slide-in-from-bottom-4 fade-in duration-500">
           분석 완료! 당신의 DNA는? 🎉

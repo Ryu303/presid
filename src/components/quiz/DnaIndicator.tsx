@@ -113,15 +113,13 @@ export default function DnaIndicator({ scores }: DnaIndicatorProps) {
                     <h3 className="text-xl font-bold text-foreground mb-2">
                       {leftTrait.title}
                     </h3>
-                    {isLeftWinner && (
-                      <motion.p
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        className="text-sm text-muted-foreground leading-relaxed pr-4"
-                      >
-                        {leftTrait.description}
-                      </motion.p>
-                    )}
+                    <motion.p
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      className="text-sm text-muted-foreground leading-relaxed pr-4"
+                    >
+                      {leftTrait.description}
+                    </motion.p>
                   </div>
 
                   {/* 오른쪽 특성 */}
@@ -142,15 +140,13 @@ export default function DnaIndicator({ scores }: DnaIndicatorProps) {
                     <h3 className="text-xl font-bold text-foreground mb-2">
                       {rightTrait.title}
                     </h3>
-                    {!isLeftWinner && (
-                      <motion.p
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        className="text-sm text-muted-foreground leading-relaxed pl-4"
-                      >
-                        {rightTrait.description}
-                      </motion.p>
-                    )}
+                    <motion.p
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      className="text-sm text-muted-foreground leading-relaxed pl-4"
+                    >
+                      {rightTrait.description}
+                    </motion.p>
                   </div>
                 </div>
 
