@@ -16,18 +16,79 @@ import PolicyLineage from './PolicyLineage';
 import LegislativeFriction from './LegislativeFriction';
 import MediaFrameSnapshot from './MediaFrameSnapshot';
 
-export default function PolicyCard({ policy }: { policy: Policy }) {
+import { useEffect } from 'react';
+
+export default function PolicyCard({ policy, presidentCoreDNA }: { policy: Policy, presidentCoreDNA?: string }) {
   const [isReportModalOpen, setIsReportModalOpen] = useState(false);
   const [isDataInfoModalOpen, setIsDataInfoModalOpen] = useState(false);
+  const [userDNA, setUserDNA] = useState<string | null>(null);
+
+  useEffect(() => {
+    const saved = localStorage.getItem("presitrack_dna");
+    if (saved) setUserDNA(saved);
+  }, []);
+
+  const getAcceptanceProb = () => {
+    if (!userDNA || !presidentCoreDNA) return null;
+    const categoryAxisMap: Record<string, number> = {
+      "경제/산업": 0,
+      "부동산/주거": 0,
+      "복지/노동": 1,
+      "사회/문화": 2,
+      "정치/행정": 2,
+      "외교/안보": 3
+    };
+    
+    const axisIndex = categoryAxisMap[policy.category] ?? 0;
+    const userTrait = userDNA[axisIndex];
+    const presidentTrait = presidentCoreDNA[axisIndex];
+    
+    // Hash function for pseudo-random deterministic number
+    let hash = 0;
+    for (let i = 0; i < policy.id.length; i++) {
+      hash = ((hash << 5) - hash) + policy.id.charCodeAt(i);
+      hash |= 0;
+    }
+    const noise = Math.abs(hash) % 15; // 0 ~ 14
+
+    let prob = 50;
+    if (userTrait === presidentTrait) {
+      prob = 82 + noise; // 82% ~ 96%
+    } else {
+      prob = 12 + noise; // 12% ~ 26%
+    }
+    
+    // Additional variance based on overall affinity
+    let totalMatch = 0;
+    for (let i = 0; i < 4; i++) {
+      if (userDNA[i] === presidentCoreDNA[i]) totalMatch++;
+    }
+    prob += (totalMatch - 2) * 2; 
+
+    return Math.min(Math.max(prob, 1), 99);
+  };
+
+  const acceptanceProb = getAcceptanceProb();
 
   return (
     <article className="bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-sm overflow-hidden flex flex-col transition-colors duration-300">
       {/* Header */}
       <div className="p-6 md:p-8 border-b border-slate-300 dark:border-slate-700 bg-[#FDFCF8] dark:bg-slate-900">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
-          <span className="w-fit px-3 py-1 text-xs font-bold tracking-widest uppercase rounded-none border border-slate-300 dark:border-slate-600 text-slate-800 dark:text-slate-300 bg-transparent">
-            {policy.category}
-          </span>
+          <div className="flex items-center gap-2">
+            <span className="w-fit px-3 py-1 text-xs font-bold tracking-widest uppercase rounded-none border border-slate-300 dark:border-slate-600 text-slate-800 dark:text-slate-300 bg-transparent">
+              {policy.category}
+            </span>
+            {acceptanceProb !== null && (
+              <span className={`w-fit px-3 py-1 text-xs font-bold rounded-sm border transition-colors ${
+                acceptanceProb > 70 ? 'bg-teal-50 border-teal-200 text-teal-800 dark:bg-teal-900/30 dark:border-teal-800 dark:text-teal-300' : 
+                acceptanceProb < 30 ? 'bg-rose-50 border-rose-200 text-rose-800 dark:bg-rose-900/30 dark:border-rose-800 dark:text-rose-300' : 
+                'bg-slate-100 border-slate-200 text-slate-700 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-300'
+              }`}>
+                내 수용 확률: {acceptanceProb}%
+              </span>
+            )}
+          </div>
           
           <button 
             onClick={() => setIsDataInfoModalOpen(true)}
