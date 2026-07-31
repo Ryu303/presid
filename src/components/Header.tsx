@@ -100,12 +100,19 @@ export default function Header() {
         <div className="w-[1px] h-5 bg-slate-300 dark:bg-slate-700 shrink-0" />
 
         <div className="flex items-center gap-4 shrink-0">
-          {mounted && userDNA && (
-            <Link href="/test/result" className="flex items-center gap-1 md:gap-1.5 text-[10px] md:text-xs font-bold px-2 py-1.5 md:px-3 md:py-1.5 border border-indigo-300 dark:border-indigo-700 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-sm hover:bg-indigo-100 dark:hover:bg-indigo-800/50 transition-colors shrink-0">
-              <Beaker className="w-3 h-3 md:w-3.5 md:h-3.5" />
-              <span className="hidden md:inline">내 DNA: </span>
-              <span>{userDNA}</span>
-            </Link>
+          {mounted && (
+            userDNA ? (
+              <Link href="/test/result" className="flex items-center gap-1 md:gap-1.5 text-[10px] md:text-xs font-bold px-2 py-1.5 md:px-3 md:py-1.5 border border-indigo-300 dark:border-indigo-700 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-sm hover:bg-indigo-100 dark:hover:bg-indigo-800/50 transition-colors shrink-0">
+                <Beaker className="w-3 h-3 md:w-3.5 md:h-3.5" />
+                <span className="hidden md:inline">내 DNA: </span>
+                <span>{userDNA}</span>
+              </Link>
+            ) : (
+              <Link href="/test" className="flex items-center gap-1 md:gap-1.5 text-[10px] md:text-xs font-bold px-2 py-1.5 md:px-3 md:py-1.5 border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/30 text-slate-600 dark:text-slate-400 rounded-sm hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors shrink-0">
+                <Beaker className="w-3 h-3 md:w-3.5 md:h-3.5" />
+                <span>검사하기</span>
+              </Link>
+            )
           )}
           <Link href="#" className="hidden md:flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 border border-slate-300 dark:border-slate-700 rounded-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
             <CheckCircle className="w-3.5 h-3.5" />
