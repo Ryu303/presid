@@ -67,6 +67,7 @@ function ResultContent() {
       setIsCapturing(true);
       try {
         // Webpack 번들링을 우회하고 브라우저 네이티브 ESM으로 직접 로드
+        // @ts-ignore: TS doesn't know about URL imports natively
         const htmlToImage = await import(/* webpackIgnore: true */ 'https://esm.sh/html-to-image');
         
         const dataUrl = await htmlToImage.toPng(captureRef.current, {

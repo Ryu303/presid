@@ -26,7 +26,7 @@ export default function Header() {
         {/* Top Row: Logo & Actions */}
         <div className="h-12 flex items-center justify-between gap-4">
           <Link href="/" className="flex items-center gap-2 shrink-0">
-            <img src="/ppti_logo_v2.png" alt="PPTI Logo" className="w-8 h-8 rounded-sm object-cover" />
+            <img src="/ppti_logo_v8.png" alt="PPTI Logo" className="w-8 h-8 object-contain mix-blend-multiply dark:invert dark:mix-blend-screen" />
             <span className="text-xl font-extrabold tracking-tight">PPTI</span>
           </Link>
 
