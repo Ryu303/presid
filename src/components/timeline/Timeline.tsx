@@ -16,7 +16,7 @@ export default function Timeline({ selectedId, onSelect }: { selectedId: string,
   ];
 
   return (
-    <div className="flex flex-col gap-2 p-4 h-full bg-transparent border-r border-slate-300 dark:border-slate-700">
+    <div className="flex flex-col h-full md:gap-2 md:p-4 bg-slate-50 dark:bg-slate-900/30 md:bg-transparent border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-800">
       <div className="hidden md:flex items-center gap-2 px-2 mt-4 mb-2">
         <h2 className="text-xl font-serif font-black text-slate-900 dark:text-slate-200">역대 정부 타임라인</h2>
       </div>
@@ -24,7 +24,7 @@ export default function Timeline({ selectedId, onSelect }: { selectedId: string,
       {/* Mobile view: Horizontal scroll without grouping */}
       <div 
         ref={scrollRef}
-        className="md:hidden flex overflow-x-auto gap-3 pb-3 snap-x"
+        className="md:hidden flex overflow-x-auto gap-3 py-3 px-4 snap-x"
       >
         {presidentsData.map((president) => (
           <button
@@ -35,13 +35,13 @@ export default function Timeline({ selectedId, onSelect }: { selectedId: string,
             }}
             id={`btn-${president.id}`}
             className={cn(
-              "snap-start shrink-0 text-left p-3 rounded-none transition-all border min-w-[140px]",
+              "snap-start shrink-0 text-left py-1.5 px-3 rounded-none transition-all border min-w-[130px]",
               selectedId === president.id
                 ? "bg-slate-900 dark:bg-slate-200 border-slate-900 dark:border-slate-200 text-white dark:text-slate-900 shadow-none"
                 : "bg-transparent border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-400"
             )}
           >
-            <div className="font-serif font-bold text-sm mb-1">{president.name} 정부</div>
+            <div className="font-serif font-bold text-sm mb-0.5">{president.name} 정부</div>
             <div className="text-[10px] font-mono opacity-80">{president.term}</div>
           </button>
         ))}

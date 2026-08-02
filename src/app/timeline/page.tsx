@@ -262,14 +262,6 @@ function TimelineContent() {
             </p>
           </div>
           
-          {mounted && (
-            <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="px-3 py-1 border border-slate-300 dark:border-slate-700 rounded-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-sm font-medium self-start xl:self-end"
-            >
-              {theme === "dark" ? "☀️ 라이트" : "🌙 다크"}
-            </button>
-          )}
         </header>
 
         {selectedPresident && (
@@ -280,10 +272,7 @@ function TimelineContent() {
                 {/* Category Filters using TabsList */}
                 <TabsList 
                   className="bg-transparent border-none rounded-none p-0 h-auto gap-6 justify-start overflow-x-auto flex flex-1 min-w-0 max-w-full flex-nowrap pb-2 pt-1"
-                  style={{ maskImage: 'linear-gradient(to right, transparent, black 16px, black calc(100% - 16px), transparent)', WebkitMaskImage: 'linear-gradient(to right, transparent, black 16px, black calc(100% - 16px), transparent)' }}
                 >
-                  <div className="w-4 shrink-0" /> {/* Spacer to absorb left mask fade */}
-                  
                   {CATEGORIES.map(cat => (
                     <TabsTrigger
                       key={cat}
@@ -293,8 +282,6 @@ function TimelineContent() {
                       {cat}
                     </TabsTrigger>
                   ))}
-                  
-                  <div className="w-4 shrink-0" /> {/* Spacer to absorb right mask fade */}
                 </TabsList>
                 
                 {/* Search Bar */}

@@ -47,9 +47,17 @@ export default function PersonaResultCard({ dna, presidentName, variant = "defau
           ))}
         </div>
 
-        <p className={`text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed ${isCompact ? 'px-2' : ''}`}>
-          {details.subtitle}
-        </p>
+        {!presidentName && (
+          <p className={`text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-semibold mb-4 ${isCompact ? 'px-2' : ''}`}>
+            {details.subtitle}
+          </p>
+        )}
+
+        {!isCompact && !presidentName && details.story && (
+          <p className="text-sm md:text-base text-slate-700 dark:text-slate-300 leading-relaxed text-left bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 rounded-sm w-full font-serif shadow-sm">
+            {details.story}
+          </p>
+        )}
       </div>
 
       <div className={`${isCompact ? 'px-3 py-3' : 'px-6 py-4'} bg-slate-50 dark:bg-slate-800 border-t border-slate-300 dark:border-slate-700 flex flex-wrap gap-1.5 md:gap-2 justify-center`}>
@@ -60,7 +68,7 @@ export default function PersonaResultCard({ dna, presidentName, variant = "defau
         ))}
       </div>
 
-      {!isCompact && details.breakdown && (
+      {!isCompact && !presidentName && details.breakdown && (
         <div className="px-6 py-5 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-700">
           <h4 className="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest text-center border-b border-slate-200 dark:border-slate-800 pb-2">
             세부 성향 분석 (Deep Analysis)

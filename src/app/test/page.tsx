@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { quizQuestions } from "@/data/quizQuestions";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 type Scores = {
@@ -23,6 +23,7 @@ export default function TestPage() {
   const [testMode, setTestMode] = useState<'simple' | 'full' | null>(null);
   const [currentStep, setCurrentStep] = useState(0);
   
+  
   const [scores, setScores] = useState<Scores>({
     M: 0, G: 0,
     A: 0, B: 0,
@@ -31,11 +32,7 @@ export default function TestPage() {
   });
 
   const [history, setHistory] = useState<HistoryEntry[]>([]);
-
-  // 간단 검사: 각 축별 첫 6문항 (id가 qX_1 ~ qX_6 인 것들만 필터링)
-  const activeQuestions = testMode === 'simple' 
-    ? quizQuestions.filter(q => parseInt(q.id.split('_')[1]) <= 6) 
-    : quizQuestions;
+  const [activeQuestions, setActiveQuestions] = useState<typeof quizQuestions>([]);
 
   const question = activeQuestions[currentStep];
 
@@ -44,6 +41,18 @@ export default function TestPage() {
     setCurrentStep(0);
     setScores({ M: 0, G: 0, A: 0, B: 0, W: 0, R: 0, O: 0, D: 0 });
     setHistory([]);
+
+    let questions = mode === 'simple'
+      ? quizQuestions.filter(q => parseInt(q.id.split('_')[1]) <= 6)
+      : [...quizQuestions];
+      
+    // Fisher-Yates shuffle
+    for (let i = questions.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [questions[i], questions[j]] = [questions[j], questions[i]];
+    }
+    
+    setActiveQuestions(questions);
   };
 
   const handleSelect = (scale: number) => {
@@ -136,11 +145,11 @@ export default function TestPage() {
   }
 
   const likertOptions = [
-    { value: 5, label: "매우 그렇다", colorClass: "hover:border-teal-500 hover:bg-teal-50 dark:hover:bg-teal-900/20 hover:text-teal-700 dark:hover:text-teal-400" },
-    { value: 4, label: "그렇다", colorClass: "hover:border-teal-400 hover:bg-teal-50/40 dark:hover:bg-teal-900/10 hover:text-teal-600 dark:hover:text-teal-300" },
-    { value: 3, label: "보통이다", colorClass: "hover:border-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-300" },
-    { value: 2, label: "아니다", colorClass: "hover:border-rose-400 hover:bg-rose-50/40 dark:hover:bg-rose-900/10 hover:text-rose-600 dark:hover:text-rose-300" },
-    { value: 1, label: "매우 아니다", colorClass: "hover:border-rose-500 hover:bg-rose-50 dark:hover:bg-rose-900/20 hover:text-rose-700 dark:hover:text-rose-400" }
+    { value: 5, label: "매우 그렇다", colorClass: "hover:border-zinc-900 hover:bg-zinc-100 dark:hover:border-white dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-white" },
+    { value: 4, label: "그렇다", colorClass: "hover:border-zinc-700 hover:bg-zinc-50 dark:hover:border-zinc-300 dark:hover:bg-zinc-900 hover:text-zinc-800 dark:hover:text-zinc-200" },
+    { value: 3, label: "보통이다", colorClass: "hover:border-zinc-500 hover:bg-zinc-50 dark:hover:border-zinc-500 dark:hover:bg-zinc-900 hover:text-zinc-700 dark:hover:text-zinc-300" },
+    { value: 2, label: "아니다", colorClass: "hover:border-zinc-700 hover:bg-zinc-50 dark:hover:border-zinc-300 dark:hover:bg-zinc-900 hover:text-zinc-800 dark:hover:text-zinc-200" },
+    { value: 1, label: "매우 아니다", colorClass: "hover:border-zinc-900 hover:bg-zinc-100 dark:hover:border-white dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-white" }
   ];
 
   return (
@@ -163,14 +172,14 @@ export default function TestPage() {
             </button>
           )}
           
-          <div className="w-full bg-slate-200/50 dark:bg-slate-800/50 h-1.5 rounded-full mb-8 md:mb-10 overflow-hidden shadow-inner">
+          <div className="w-full bg-slate-200/50 dark:bg-slate-800/50 h-1 mb-8 md:mb-10 overflow-hidden shadow-inner rounded-sm">
             <div 
-              className="bg-slate-900 dark:bg-slate-300 h-full rounded-full transition-all duration-500 ease-out"
+              className="bg-slate-900 dark:bg-slate-300 h-full rounded-sm transition-all duration-500 ease-out"
               style={{ width: `${((currentStep) / activeQuestions.length) * 100}%` }}
             ></div>
           </div>
 
-          <div className="bg-white/90 dark:bg-[#1C1C1C]/90 backdrop-blur-md rounded-2xl p-8 md:p-12 border border-slate-200/80 dark:border-slate-700/80 shadow-xl relative animate-in slide-in-from-bottom-4 fade-in duration-500" key={currentStep}>
+          <div className="bg-white/90 dark:bg-[#1C1C1C]/90 backdrop-blur-md rounded-sm p-8 md:p-12 border border-slate-200/80 dark:border-slate-700/80 shadow-xl relative animate-in slide-in-from-bottom-4 fade-in duration-500" key={currentStep}>
             
             {/* Watermark Quote Icon */}
             <div className="absolute top-8 left-8 text-8xl text-slate-100 dark:text-slate-800/50 font-serif leading-none select-none pointer-events-none -z-10">
@@ -192,12 +201,20 @@ export default function TestPage() {
                 <button
                   key={opt.value}
                   onClick={() => handleSelect(opt.value)}
-                  className={`w-full text-center px-6 py-4 bg-white dark:bg-[#222] border-2 border-slate-100 dark:border-slate-800 text-slate-600 dark:text-slate-300 font-bold rounded-xl transition-all duration-200 shadow-sm hover:shadow-md active:scale-[0.98] ${opt.colorClass}`}
+                  className={`w-full text-center px-6 py-4 bg-white dark:bg-[#222] border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 font-bold rounded-sm transition-all duration-200 shadow-sm hover:shadow-md active:scale-[0.98] ${opt.colorClass}`}
                 >
                   {opt.label}
                 </button>
               ))}
             </div>
+
+            {question.source && (
+              <div className="mt-8 text-center animate-in fade-in">
+                <p className="text-xs text-slate-400 dark:text-slate-500 font-mono tracking-wide">
+                  출처: {question.source}
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </section>

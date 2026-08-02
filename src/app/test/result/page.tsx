@@ -2,17 +2,22 @@
 
 import { useSearchParams } from "next/navigation";
 import { presidentsData } from "@/data/presidents";
-import { Share2, RefreshCw, CheckCircle2, ArrowRight, Sparkles } from "lucide-react";
+import { Share2, RefreshCw, CheckCircle2, ArrowRight, Sparkles, Users, Activity, Download, Home } from "lucide-react";
 import Link from "next/link";
-import { Suspense, useState, useEffect } from "react";
+import Script from "next/script";
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from "recharts";
+import { Suspense, useState, useEffect, useRef } from "react";
 import PersonaResultCard from "@/components/ui/PersonaResultCard";
 import DnaIndicator from "@/components/quiz/DnaIndicator";
+import ValueSpectrumMap from "@/components/ui/ValueSpectrumMap";
 
 function ResultContent() {
   const searchParams = useSearchParams();
   const [copied, setCopied] = useState(false);
   const [url, setUrl] = useState("");
   const [myDna, setMyDna] = useState<string | null>(null);
+  const [isCapturing, setIsCapturing] = useState(false);
+  const captureRef = useRef<HTMLDivElement>(null);
   
   const dna = (searchParams.get("dna") || "MAWO").toUpperCase().substring(0, 4);
 
@@ -30,6 +35,17 @@ function ResultContent() {
     ];
   };
 
+  const chartData = [
+    { subject: '시장(Market)', value: dna[0] === 'M' ? 85 : 15 },
+    { subject: '국가(Guardian)', value: dna[0] === 'G' ? 85 : 15 },
+    { subject: '성장(Accelerator)', value: dna[1] === 'A' ? 85 : 15 },
+    { subject: '분배(Balancer)', value: dna[1] === 'B' ? 85 : 15 },
+    { subject: '혁신(Wave)', value: dna[2] === 'W' ? 85 : 15 },
+    { subject: '규범(Root)', value: dna[2] === 'R' ? 85 : 15 },
+    { subject: '동맹(Outward)', value: dna[3] === 'O' ? 85 : 15 },
+    { subject: '자주(Defender)', value: dna[3] === 'D' ? 85 : 15 },
+  ];
+
   useEffect(() => {
     setUrl(window.location.href);
     setMyDna(localStorage.getItem("presitrack_dna"));
@@ -42,6 +58,35 @@ function ResultContent() {
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       console.error("Failed to copy", err);
+    }
+  };
+
+  const handleCapture = async () => {
+    if (!captureRef.current) return;
+    try {
+      setIsCapturing(true);
+      try {
+        // Webpack 번들링을 우회하고 브라우저 네이티브 ESM으로 직접 로드
+        const htmlToImage = await import(/* webpackIgnore: true */ 'https://esm.sh/html-to-image');
+        
+        const dataUrl = await htmlToImage.toPng(captureRef.current, {
+          pixelRatio: 2,
+          backgroundColor: document.documentElement.classList.contains('dark') ? '#020617' : '#F8FAFC',
+        });
+        
+        const link = document.createElement("a");
+        link.href = dataUrl;
+        link.download = `PPTI_Result_${dna}.png`;
+        link.click();
+      } catch (importError) {
+        console.error("Failed to load html-to-image module:", importError);
+        alert("이미지 캡처 라이브러리를 불러오는데 실패했습니다.");
+      }
+    } catch (error) {
+      console.error("Capture failed:", error);
+      alert("이미지 저장에 실패했습니다.");
+    } finally {
+      setIsCapturing(false);
     }
   };
 
@@ -87,10 +132,24 @@ function ResultContent() {
       </div>
 
       <div className="flex justify-center mb-16 animate-in zoom-in-95 fade-in duration-700 delay-150">
-        <PersonaResultCard dna={dna} />
+        <div ref={captureRef} className="w-full flex justify-center pb-2 pt-2 pr-2 pl-2">
+          <PersonaResultCard dna={dna} />
+        </div>
       </div>
 
       <div className="mb-20 animate-in slide-in-from-bottom-6 fade-in duration-700 delay-300">
+        <h3 className="text-xl font-bold text-center mb-8 flex justify-center items-center gap-2">
+          <Activity className="w-5 h-5 text-zinc-500" /> 나의 성향 밸런스 데이터
+        </h3>
+        <div className="w-full h-[300px] max-w-lg mx-auto mb-10">
+          <ResponsiveContainer width="100%" height="100%">
+            <RadarChart cx="50%" cy="50%" outerRadius="70%" data={chartData}>
+              <PolarGrid stroke="#E4E4E7" />
+              <PolarAngleAxis dataKey="subject" tick={{ fill: '#71717A', fontSize: 12, fontWeight: 'bold' }} />
+              <Radar name="My DNA" dataKey="value" stroke="#18181B" fill="#18181B" fillOpacity={0.15} />
+            </RadarChart>
+          </ResponsiveContainer>
+        </div>
         <DnaIndicator scores={getPseudoScores(dna)} />
       </div>
 
@@ -166,28 +225,57 @@ function ResultContent() {
           </Link>
         </div>
       </div>
-      <div className="flex flex-col md:flex-row justify-center gap-3 md:gap-4 px-4 md:px-0">
-        <button 
-          onClick={handleShare}
-          className="w-full md:w-auto flex items-center justify-center gap-2 px-6 md:px-8 py-3 md:py-4 rounded-sm bg-slate-900 dark:bg-slate-200 text-white dark:text-slate-900 font-bold hover:bg-slate-800 dark:hover:bg-white transition-colors shadow-none"
-        >
-          {copied ? <CheckCircle2 className="w-5 h-5 text-white dark:text-slate-900" /> : <Share2 className="w-5 h-5 text-slate-300 dark:text-slate-700" />}
-          {copied ? "링크 복사 완료" : "결과 공유하기"}
-        </button>
-        <Link 
-          href="/test"
-          className="w-full md:w-auto flex items-center justify-center gap-2 px-6 md:px-8 py-3 md:py-4 rounded-sm bg-transparent border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-bold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shadow-none"
-        >
-          <RefreshCw className="w-5 h-5" />
-          테스트 다시하기
-        </Link>
+
+      <div className="animate-in slide-in-from-bottom-6 fade-in duration-700 delay-1000">
+        <ValueSpectrumMap userDna={dna} />
+      </div>
+
+      <div className="flex flex-col gap-3 px-4 md:px-0 max-w-2xl mx-auto">
         <Link 
           href="/timeline"
-          className="w-full md:w-auto flex items-center justify-center gap-2 px-6 md:px-8 py-3 md:py-4 rounded-sm bg-blue-600 dark:bg-blue-500 text-white font-bold hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors shadow-none"
+          className="w-full flex items-center justify-center gap-2 px-8 py-5 rounded-sm bg-[#111111] dark:bg-[#FAFAFA] text-white dark:text-[#111111] font-bold hover:bg-black dark:hover:bg-white transition-colors shadow-xl"
         >
-          각 대통령 정책 알아보기
+          역대 대통령 정책 매칭 자세히 보기
           <ArrowRight className="w-5 h-5" />
         </Link>
+        <div className="flex flex-col sm:flex-row gap-3 mt-2">
+          <button 
+            onClick={() => alert("현재 통계 데이터를 수집 중입니다. (출시 예정)")}
+            className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-sm bg-white dark:bg-[#1C1C1C] border border-[#E4E4E7] dark:border-[#27272A] text-[#18181B] dark:text-[#F4F4F5] font-bold hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors"
+          >
+            <Users className="w-5 h-5 text-zinc-500" />
+            나와 비슷한 성향 유저 분포 보기
+          </button>
+          <button 
+            onClick={handleCapture}
+            disabled={isCapturing}
+            className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-sm bg-indigo-600 dark:bg-indigo-500 border border-indigo-700 dark:border-indigo-400 text-white font-bold hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-colors"
+          >
+            <Download className="w-5 h-5" />
+            {isCapturing ? "저장 중..." : "결과 이미지로 저장"}
+          </button>
+          <button 
+            onClick={handleShare}
+            className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-sm bg-white dark:bg-[#1C1C1C] border border-[#E4E4E7] dark:border-[#27272A] text-[#18181B] dark:text-[#F4F4F5] font-bold hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors"
+          >
+            {copied ? <CheckCircle2 className="w-5 h-5 text-[#18181B] dark:text-white" /> : <Share2 className="w-5 h-5 text-zinc-500" />}
+            {copied ? "복사 완료" : "링크 공유하기"}
+          </button>
+          <Link 
+            href="/"
+            className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-sm bg-white dark:bg-[#1C1C1C] border border-[#E4E4E7] dark:border-[#27272A] text-[#18181B] dark:text-[#F4F4F5] font-bold hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors"
+          >
+            <Home className="w-5 h-5 text-zinc-500" />
+            메인 화면
+          </Link>
+          <Link 
+            href="/test"
+            className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-sm bg-white dark:bg-[#1C1C1C] border border-[#E4E4E7] dark:border-[#27272A] text-[#18181B] dark:text-[#F4F4F5] font-bold hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors"
+          >
+            <RefreshCw className="w-5 h-5 text-zinc-500" />
+            다시하기
+          </Link>
+        </div>
       </div>
     </div>
   );
